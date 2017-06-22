@@ -1,0 +1,44 @@
+﻿HOW TO EXECUTE SINGLE TESTCASE IN A ROBOT FILE:
+
+
+Our robot script is executed in the shell script file “test.sh” in the ‘run’ folder.
+The command to run test.sh file is
+
+
+<change directory to run folder>/$sh test.sh /absolute/path/to/testbed/file/testbed_Docker.json /path/to/testCases/usecase/TestSuite.robot
+
+
+
+
+Open the ‘test.sh’ file and we see the robot command as shown below.
+
+
+robot --timestampoutputs --log miscLog.html --report miscReport.html --loglevel DEBUG --output miscOutput.xml --outputdir ../results $2
+
+
+
+
+Here $2 is the the second command line argument sent while execute ‘test.sh’ file (i.e., the absolute path to the Robot test suite file). 
+In order to run a single testcase, we have to add the testcase name with ‘-t’ option in the robot command as show below.
+
+
+robot --timestampoutputs --log miscLog.html --report miscReport.html --loglevel DEBUG --output miscOutput.xml --outputdir ../results -t testcaseName $2
+
+
+
+
+For example, from the TEST_SUITE.ROBOT file, if we want to execute the BGP testcase alone, see the command below
+
+
+robot --timestampoutputs --log miscLog.html --report miscReport.html --loglevel DEBUG --output miscOutput.xml --outputdir ../results -t BGP $2
+
+
+We can even replace “BGP” with $3 and specify this as third argument while executing ‘test.sh’ file.
+
+
+Edit the commad in ‘test.sh’ file to:-
+robot --timestampoutputs --log miscLog.html --report miscReport.html --loglevel DEBUG --output miscOutput.xml --outputdir ../results -t $3 $2
+
+
+Now execute the ‘test.sh’ command as shown below:
+<change directory to run folder>/$sh test.sh /absolute/path/to/testbed/file/testbed_Docker.json /path/to/testCases/usecase/TestSuite.robot   BGP

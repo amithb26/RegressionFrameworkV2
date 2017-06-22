@@ -1,0 +1,22 @@
+Steps to setup the framework and execute the robot testcase.
+
+
+STEP 1> In order to run the testcases some pre requisite services should be installed on the host machine.
+This is performed by the 'install.sh' file under the folder run/
+Command:
+<change directory to run>/$sh install.sh
+
+
+STEP 2> If the testbed is a Docker setup, you need to execute 'dockertool.py' file. This python program takes
+one argument i.e., the absolute path to the testbed file (testbed_docker.json). It will spawn the dockers
+and establish connection between them according to the details in the testbed file. This file is under 
+run/dockeretup folder.
+Command:
+<change directory to dockersetup>/$ python dockertool.py /absolute/path/to/testbed/file/testbed_Docker.json
+
+
+STEP 3> Now that the pre requisites are done, in order to execute robot testcase file, we need to run the 'test.sh'
+file. This file is in run folder. This file takes two arguments, one is the absolute path to the testbed file and 
+absolute path to the robot testcase file.
+Command:
+<change directory to run>/$sh test.sh /absolute/path/to/testbed/file/testbed_Docker.json /path/to/testCases/usecase/TestSuite.robot
