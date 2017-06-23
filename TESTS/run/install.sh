@@ -117,6 +117,9 @@ do_install() {
     echo -e "\n\n***** INSTALLING REQUEST MODULE *****\n\n"
     pip install requests
     
+    # install ipaddress module of python
+    echo -e "\n\n***** INSTALLING IP_ADDRESS MODULE *****\n\n"
+    pip install ipaddress
 
 }
 
