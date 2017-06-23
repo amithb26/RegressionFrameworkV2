@@ -557,3 +557,8 @@ CP7_reqMethod = "PATCH"
 CP7_objURL = """/public/v1/config/LLDPIntf"""
 CP7_payload = """{"IntfRef": "DUT1_P1", "Enable": true, "TxRxMode": "TxRx"}"""
 CP7_ExpectedResponse = "Success"
+
+CP8_reqMethod = "PATCH"
+CP8_objURL = """/public/v1/config/ArpGlobal"""
+CP8_payload = """{"Vrf" : "default","Timeout" : 600}"""
+CP8_ExpectedResponse = "Success"
