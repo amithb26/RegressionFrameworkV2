@@ -368,35 +368,38 @@ BGPv4Neighbor_NeighborAddress_TC52
 
 Clean UP 
  
-   CLEAN_TC1
-   CLEAN_TC2
-   CLEAN_TC3
-   CLEAN_TC4
-   CLEAN_TC5
-   CLEAN_TC6
-   CLEAN_TC7
-   
+   IPv4Intf_CLEAN_TC1
+   IPv4Intf_CLEAN_TC2
+   BGPGlobal_CLEAN_TC3
+   BGPGlobal_CLEAN_TC4
+   BGPv4Neighbor_CLEAN_TC5
+   LLDPGlobal_CLEAN_TC6
+   LLDPIntf_CLEAN_TC7
+   ArpGlobal_CLEAN_TC8
 
-CLEAN_TC1
+IPv4Intf_CLEAN_TC1
     ${result}=    Run Keyword and continue on Failure    execCurlCmd    ${DUT1}    ${CP1_objURL}    ${CP1_reqMethod}    ${CP1_payload}    ${CP1_ExpectedResponse}
     Run Keyword and continue on Failure    Negative Test check     ${result}    ${CP1_objURL}    ${CP1_reqMethod}
     
-CLEAN_TC2
+IPv4Intf_CLEAN_TC2
     ${result}=    Run Keyword and continue on Failure    execCurlCmd    ${DUT1}    ${CP2_objURL}    ${CP2_reqMethod}    ${CP2_payload}    ${CP2_ExpectedResponse}
     Run Keyword and continue on Failure    Negative Test check     ${result}    ${CP2_objURL}    ${CP2_reqMethod} 
     
-CLEAN_TC3
+BGPGlobal_CLEAN_TC3
     Run Keyword and continue on Failure    Execute Curl Command     ${DUT1}        ${CP3_objURL}    ${CP3_reqMethod}    ${CP3_payload}    ${CP3_ExpectedResponse}    
     
-CLEAN_TC4
+BGPGlobal_CLEAN_TC4
     Run Keyword and continue on Failure    Execute Curl Command     ${DUT1}        ${CP4_objURL}    ${CP4_reqMethod}    ${CP4_payload}    ${CP4_ExpectedResponse}   
 
-CLEAN_TC5
+BGPv4Neighbor_CLEAN_TC5
     ${result}=    Run Keyword and continue on Failure    execCurlCmd    ${DUT1}    ${CP5_objURL}    ${CP5_reqMethod}    ${CP5_payload}    ${CP5_ExpectedResponse}
     Run Keyword and continue on Failure    Negative Test check     ${result}    ${CP5_objURL}    ${CP5_reqMethod}
  
-CLEAN_TC6
+LLDPGlobal_CLEAN_TC6
     Run Keyword and continue on Failure    Execute Curl Command     ${DUT1}        ${CP6_objURL}    ${CP6_reqMethod}    ${CP6_payload}    ${CP6_ExpectedResponse}  
 
-CLEAN_TC7
+LLDPIntf_CLEAN_TC7
     Run Keyword and continue on Failure    Execute Curl Command     ${DUT1}        ${CP7_objURL}    ${CP7_reqMethod}    ${CP7_payload}    ${CP7_ExpectedResponse}  
+
+ArpGlobal_CLEAN_TC8
+    Run Keyword and continue on Failure    Execute Curl Command     ${DUT1}        ${CP78_objURL}    ${CP8_reqMethod}    ${CP8_payload}    ${CP8_ExpectedResponse}  
