@@ -12,6 +12,7 @@ Resource          	Resource.robot
 Suite Teardown     Clean up
 
 *** Test Cases ***
+
 Interface Configuration Tests
   
     IPv4Intf_IpAddr_TC1
@@ -37,18 +38,27 @@ ARP Configuration Tests
     ArpGlobal_Timeout_TC2
 
 LLDP Configuration Tests
-    LLDPIntf_TxRxMode_TC1
-    LLDPIntf_TxRxMode_TC1
-    LLDPIntf_TxRxMode_TC1
-    LLDPIntf_Enable_TC4
-    LLDPIntf_Enable_TC5
-    LLDPGlobal_TranmitInterval_TC6
-    LLDPGlobal_TranmitInterval_TC7
-    LLDPGlobal_TxRxMode_TC8
-    LLDPGlobal_TxRxMode_TC9
-    LLDPGlobal_TxRxMode_TC10
-    LLDPGlobal_SnoopAndDrop_TC11
-    LLDPGlobal_SnoopAndDrop_TC12
+   
+    LLDPGlobal_Vrf_TC1
+    LLDPGlobal_Vrf_TC2
+    LLDPGlobal_TranmitInterval_TC3
+    LLDPGlobal_TranmitInterval_TC4
+    LLDPGlobal_TxRxMode_TC5
+    LLDPGlobal_TxRxMode_TC6
+    LLDPGlobal_TxRxMode_TC7
+    LLDPGlobal_SnoopAndDrop_TC8
+    LLDPGlobal_SnoopAndDrop_TC9
+    LLDPGlobal_Enable_TC10
+    LLDPGlobal_Enable_TC11
+    LLDPGlobal_Enable_TC12
+    LLDPIntf_IntfRef_TC13
+    LLDPIntf_IntfRef_TC14
+    LLDPIntf_TxRxMode_TC15
+    LLDPIntf_TxRxMode_TC16
+    LLDPIntf_TxRxMode_TC17
+    LLDPIntf_Enable_TC18
+    LLDPIntf_Enable_TC19
+    
 
 Loopback Configuration Tests
     LogicalIntf_Name_TC1
@@ -68,59 +78,55 @@ VLAN Configuration Tests
 
 BGP Configuration Tests
      
-    BGP_TC1
-    BGP_TC2
-    BGP_TC3
-    BGP_TC4
-    BGP_TC5
-    BGP_TC6
-    BGP_TC7
-    BGP_TC8
-    BGP_TC9
-    BGP_TC10
-    BGP_TC11
-    BGP_TC12
-    BGP_TC13
-    BGP_TC14
-    BGP_TC15
-    BGP_TC16
-    BGP_TC17
-    BGP_TC18
-    BGP_TC19
-    BGP_TC20
-    BGP_TC21
-    BGP_TC22
-    BGP_TC23
-    BGP_TC24
-    BGP_TC25
-    BGP_TC26
-    BGP_TC27
-    BGP_TC28
-    BGP_TC29
-    BGP_TC30
-    BGP_TC31
-    BGP_TC32
-    BGP_TC33
-    BGP_TC34
-    BGP_TC35
-    BGP_TC36
-    BGP_TC37
-    BGP_TC38
-    BGP_TC39
-    BGP_TC40
-    BGP_TC41
-    BGP_TC42
-    BGP_TC43
-    BGP_TC44
-    BGP_TC45
-    BGP_TC46
-    BGP_TC47
-    BGP_TC48
-    BGP_TC49
-    BGP_TC50
-    BGP_TC51
-    BGP_TC52
-
-
-
-   
+    BGPGlobal_Vrf_TC1
+    BGPGlobal_Vrf_TC2
+    BGPGlobal_ASNum_TC3
+    BGPGlobal_RouterId_TC4
+    BGPGlobal_RouterId_TC5
+    BGPGlobal_EBGPAllowMultipleAS_TC6
+    BGPGlobal_EBGPAllowMultipleAS_TC7
+    BGPGlobal_EBGPAllowMultipleAS_TC8
+    BGPGlobal_UseMultiplePaths_TC9
+    BGPGlobal_UseMultiplePaths_TC10
+    BGPGlobal_UseMultiplePaths_TC11
+    BGPGlobal_IBGPMaxPaths_TC12
+    BGPGlobal_IBGPMaxPaths_TC13
+    BGPGlobal_IBGPMaxPaths_TC14
+    BGPGlobal_EBGPMaxPaths_TC15
+    BGPGlobal_EBGPMaxPaths_TC16
+    BGPGlobal_EBGPMaxPaths_TC17
+    BGPGlobal_Disabled_TC18
+    BGPGlobal_Disabled_TC19
+    BGPGlobal_Disabled_TC20
+    BGPv4Neighbor_NeighborAddress_TC21
+    BGPv4Neighbor_NeighborAddress_TC22
+    BGPv4Neighbor_NeighborAddress_TC23
+    BGPv4Neighbor_NeighborAddress_TC24
+    BGPv4Neighbor_NeighborAddress_TC25
+    BGPv4Neighbor_NeighborAddress_TC26
+    BGPv4Neighbor_IntfRef_TC27
+    BGPv4Neighbor_PeerAS_TC28
+    BGPv4Neighbor_AuthPassword _TC29
+    BGPv4Neighbor_MaxPrefixesDisconnect _TC30
+    BGPv4Neighbor_MaxPrefixesDisconnect _TC31
+    BGPv4Neighbor_MaxPrefixesDisconnect _TC32
+    BGPv4Neighbor_LocalAS _TC33
+    BGPv4Neighbor_MaxPrefixesThresholdPct _TC34
+    BGPv4Neighbor_MaxPrefixesThresholdPct _TC35
+    BGPv4Neighbor_MaxPrefixesThresholdPct _TC36
+    BGPv4Neighbor_PeerGroup_TC37
+    BGPv4Neighbor_Description_TC38
+    BGPv4Neighbor_MultiHopEnable_TC39
+    BGPv4Neighbor_MultiHopEnable_TC40
+    BGPv4Neighbor_MultiHopEnable_TC41
+    BGPv4Neighbor_RouteReflectorClient_TC42
+    BGPv4Neighbor_RouteReflectorClient_TC43
+    BGPv4Neighbor_RouteReflectorClient_TC44
+    BGPv4Neighbor_NextHopSelf_TC45
+    BGPv4Neighbor_NextHopSelf_TC46
+    BGPv4Neighbor_NextHopSelf_TC47
+    BGPv4Neighbor_Disabled_TC48
+    BGPv4Neighbor_Disabled_TC49
+    BGPv4Neighbor_Disabled_TC50
+    BGPv4Neighbor_NeighborAddress_TC51
+    BGPv4Neighbor_NeighborAddress_TC52
