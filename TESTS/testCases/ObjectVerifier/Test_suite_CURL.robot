@@ -1,6 +1,6 @@
 *** Settings ***
 
-Documentation	        A test suite with tests to perform BGP functional tests on DUT
+Documentation	        A test suite with tests to verify object model implementation on Flexswitch
 Metadata 		Version          	 1.0
 ...	         	More Info         	 For more information about Robot Framework see http://robotframework.org
 ...               	Author            	
