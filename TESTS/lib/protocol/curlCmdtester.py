@@ -24,21 +24,39 @@ def execCURLCmd(device,URL,requestMethod,payload,ExpectedResponse):
     try:
 	payload_data = eval(payload)
 	port = payload_data["IntfRef"]
-	portName = getPortName(device,port)
+        portDevice = re.match('(\w+)\_',port)
+        portList = getPortNames(portDevice.group(1))
+        if port not in portList:
+            logger.info("The port %s does not exist for device %s"%(port,portDevice.group(1)))
+            return False
+	portName = getPortName(portDevice.group(1),port)
 	payload = payload.replace(port,portName,1)
+    except KeyError:
+	pass
+    try:
+	payload_data = eval(payload)
+	intfList = payload_data["IntfList"]
+        for intf in intfList:
+            portName = getPortName(device,intf)
+            payload = payload.replace(intf,portName,1)
     except KeyError:
 	pass
 		    
     objURL = "%s://%s:%s%s"%(Protocol,HOST,Port,URL)
-    cmd = "curl -H "+ Headers + " -X " +requestMethod+  " -d " + "\'" + payload +"\'" +" "+ objURL
+    if Username == None and Password == None:
+        cmd = "curl -H "+ Headers + " -X " +requestMethod+  " -d " + "\'" + payload +"\'" +" "+ objURL
+    else:
+        cmd = "curl -H "+ Headers + " --user " + Username +" : " +Password+ " -X " +requestMethod+  " -d " + "\'" + payload +"\'" +" "+ objURL
     logger.info("GENERATING %s REQUEST..."%requestMethod)
     response = exec_cmd(cmd,payload)
     logger.info("OBJECT DETAILS AFTER %s REQUEST:"%requestMethod)
     logger.info("%s"%response)
     logger.info("RESULT : %s"%response["Result"])
     logger.info("EXPECTED RESPONSE : %s"%ExpectedResponse)
-    res = re.search(ExpectedResponse, response["Result"], re.M|re.I|re.X)
+    cleanString = re.sub('\W+',' ', response["Result"])
+    res = re.search(ExpectedResponse, cleanString, re.M|re.I|re.X)
     if res:
+        logger.info("RECEIVED RESPONSE IS SAME AS EXPECTED RESPONSE")
         logger.info("VALIDATING THE RESPONSE OF %s REQUEST BY ACCESSING GET OBJECT"%requestMethod)
         result = validate(cmd,payload)
         if result:
@@ -46,7 +64,7 @@ def execCURLCmd(device,URL,requestMethod,payload,ExpectedResponse):
         else:
             return False
     else:
-        logger.info("RECEIVED RESPONSE IS NOT EQUAL TO EXPECTED RESPONSE")
+        logger.info("RECEIVED RESPONSE IS NOT SAME AS EXPECTED RESPONSE")
         return False
             
 
@@ -88,12 +106,11 @@ def validate(cmd,payload):
     logger.info("EXPECTED RESPONSE : UPDATION OF FOLLOWING KEY_VALUE PAIRS IN GET OBJECT")
     payload = eval(payload)
     logger.info(payload)
-
     try:
         for param in payload.keys():
             getObjValue = response["Object"][param]
             payloadValue = payload[param]
-            logger.info("COMPARING VALUE OF PARAMETER %s IN GET OBJECT:%s AND PAYLOAD: %s"%(param,getObjValue,payloadValue))
+            logger.info("COMPARING VALUE OF PARAMETER \"%s\" IN GET OBJECT:\"%s\" AND IN PAYLOAD: \"%s\""%(param,getObjValue,payloadValue))
             if str(payload[param]) == str(getObjValue):
                 logger.info("Comparison Passed")
                 result = True
