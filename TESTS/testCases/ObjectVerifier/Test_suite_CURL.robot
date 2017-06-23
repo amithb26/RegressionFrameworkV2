@@ -130,3 +130,5 @@ BGP Configuration Tests
     BGPv4Neighbor_Disabled_TC50
     BGPv4Neighbor_NeighborAddress_TC51
     BGPv4Neighbor_NeighborAddress_TC52
+    BGPv4Neighbor_NeighborAddress_TC53
+    BGPv4Neighbor_NeighborAddress_TC54
