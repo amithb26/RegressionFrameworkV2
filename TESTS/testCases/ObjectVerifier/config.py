@@ -148,12 +148,12 @@ LLDP2_ExpectedResponse = """Error"""
 
 LLDP3_reqMethod = "PATCH"
 LLDP3_objURL = """/public/v1/config/LLDPGlobal"""
-LLDP3_payload = """{"Vrf":"default", "TranmitInterval":70}"""
+LLDP3_payload = """{"Vrf":"default", "TransmitInterval":70}"""
 LLDP3_ExpectedResponse = "Success"
 
 LLDP4_reqMethod = "PATCH"
 LLDP4_objURL = """/public/v1/config/LLDPGlobal"""
-LLDP4_payload = """{"Vrf":"default", "TranmitInterval":30}"""
+LLDP4_payload = """{"Vrf":"default", "TransmitInterval":30}"""
 LLDP4_ExpectedResponse = "Success"
 
 LLDP5_reqMethod = "PATCH"
@@ -550,7 +550,7 @@ CP5_ExpectedResponse = "Success"
 
 CP6_reqMethod = "PATCH"
 CP6_objURL = """/public/v1/config/LLDPGlobal"""
-CP6_payload = """{"TxRxMode": "TxRx", "SnoopAndDrop": false, "Enable": false, "Vrf": "default", "TranmitInterval": 30}"""
+CP6_payload = """{"TxRxMode": "TxRx", "SnoopAndDrop": false, "Enable": false, "Vrf": "default", "TransmitInterval": 30}"""
 CP6_ExpectedResponse = "Success"
 
 CP7_reqMethod = "PATCH"
