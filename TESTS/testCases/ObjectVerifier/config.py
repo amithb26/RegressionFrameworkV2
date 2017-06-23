@@ -1,5 +1,6 @@
 #Global Parameter
 DUT1 = "DUT1"
+
 #TestCase Specific Parameters
 
 #Interface Configuration
@@ -50,12 +51,12 @@ INTF9_ExpectedResponse = """Error"""
 
 INTF10_reqMethod = "POST"
 INTF10_objURL = """/public/v1/config/IPv4Intf"""
-INTF10_payload = """{"IntfRef":"DUT1_P2","AdminState":"UP","IpAddr":"10.0.0.2/24"}"""         #Invalid Intfref while creating
+INTF10_payload = """{"IntfRef":"DUT2_P2","AdminState":"UP","IpAddr":"10.0.0.2/24"}"""         #Invalid Intfref while creating
 INTF10_ExpectedResponse = "Error"
 
 INTF11_reqMethod = "PATCH"
 INTF11_objURL = """/public/v1/config/IPv4Intf"""
-INTF11_payload = """{"IntfRef":"DUT1_P2","AdminState":"UP","IpAddr":"10.0.0.2/24"}"""         #Invalid Intfref while updating 
+INTF11_payload = """{"IntfRef":"DUT2_P2","AdminState":"UP","IpAddr":"10.0.0.2/24"}"""         #Invalid Intfref while updating 
 INTF11_ExpectedResponse = "Error"
 
 INTF12_reqMethod = "POST"
@@ -135,66 +136,102 @@ ARP2_ExpectedResponse = "Success"
 
 
 #LLDP Configurtion parameters
-
 LLDP1_reqMethod = "PATCH"
-LLDP1_objURL = """/public/v1/config/LLDPIntf"""
-LLDP1_payload = """{"IntfRef":"DUT1_P1", "TxRxMode":"RxOnly" }"""
-LLDP1_ExpectedResponse = "Success"
+LLDP1_objURL = """/public/v1/config/LLDPGlobal"""                           #vrf
+LLDP1_payload = """{"Vrf" : "default"}"""       
+LLDP1_ExpectedResponse = """Error"""
 
 LLDP2_reqMethod = "PATCH"
-LLDP2_objURL = """/public/v1/config/LLDPIntf"""
-LLDP2_payload = """{"IntfRef":"DUT1_P1", "TxRxMode":"TxOnly"}"""
-LLDP2_ExpectedResponse = "Success"
+LLDP2_objURL = """/public/v1/config/LLDPGlobal"""                            #vrf
+LLDP2_payload = """{"Vrf" : "vrf1"}"""       
+LLDP2_ExpectedResponse = """Error"""
 
 LLDP3_reqMethod = "PATCH"
-LLDP3_objURL = """/public/v1/config/LLDPIntf"""
-LLDP3_payload = """{"IntfRef":"DUT1_P1", "TxRxMode":"TxRx" }"""
+LLDP3_objURL = """/public/v1/config/LLDPGlobal"""
+LLDP3_payload = """{"Vrf":"default", "TranmitInterval":70}"""
 LLDP3_ExpectedResponse = "Success"
 
 LLDP4_reqMethod = "PATCH"
 LLDP4_objURL = """/public/v1/config/LLDPGlobal"""
-LLDP4_payload = """{"Vrf":"default", "Enable":true}"""
+LLDP4_payload = """{"Vrf":"default", "TranmitInterval":30}"""
 LLDP4_ExpectedResponse = "Success"
 
 LLDP5_reqMethod = "PATCH"
 LLDP5_objURL = """/public/v1/config/LLDPGlobal"""
-LLDP5_payload = """{"Vrf":"default", "Enable":false}"""
+LLDP5_payload = """{"Vrf":"default", "TxRxMode":"TxOnly"}"""
 LLDP5_ExpectedResponse = "Success"
 
 LLDP6_reqMethod = "PATCH"
 LLDP6_objURL = """/public/v1/config/LLDPGlobal"""
-LLDP6_payload = """{"Vrf":"default", "TranmitInterval":70}"""
+LLDP6_payload = """{"Vrf":"default", "TxRxMode":"RxOnly"}"""
 LLDP6_ExpectedResponse = "Success"
 
 LLDP7_reqMethod = "PATCH"
 LLDP7_objURL = """/public/v1/config/LLDPGlobal"""
-LLDP7_payload = """{"Vrf":"default", "TranmitInterval":30}"""
+LLDP7_payload = """{"Vrf":"default", "TxRxMode":"TxRx"}"""
 LLDP7_ExpectedResponse = "Success"
 
 LLDP8_reqMethod = "PATCH"
 LLDP8_objURL = """/public/v1/config/LLDPGlobal"""
-LLDP8_payload = """{"Vrf":"default", "TxRxMode":"TxOnly"}"""
-LLDP8_ExpectedResponse = "Success"
+LLDP8_payload = """{"Vrf":"default", "SnoopAndDrop":false}"""
+LLDP8_ExpectedResponse = "err or"
 
 LLDP9_reqMethod = "PATCH"
 LLDP9_objURL = """/public/v1/config/LLDPGlobal"""
-LLDP9_payload = """{"Vrf":"default", "TxRxMode":"RxOnly"}"""
+LLDP9_payload = """{"Vrf":"default", "SnoopAndDrop":true}"""
 LLDP9_ExpectedResponse = "Success"
 
 LLDP10_reqMethod = "PATCH"
 LLDP10_objURL = """/public/v1/config/LLDPGlobal"""
-LLDP10_payload = """{"Vrf":"default", "TxRxMode":"TxRx"}"""
-LLDP10_ExpectedResponse = "Success"
+LLDP10_payload = """{"Vrf":"default", "Enable":false}"""
+LLDP10_ExpectedResponse = "Error"
 
 LLDP11_reqMethod = "PATCH"
 LLDP11_objURL = """/public/v1/config/LLDPGlobal"""
-LLDP11_payload = """{"Vrf":"default", "SnoopAndDrop":true}"""
+LLDP11_payload = """{"Vrf":"default", "Enable":true}"""
 LLDP11_ExpectedResponse = "Success"
 
 LLDP12_reqMethod = "PATCH"
 LLDP12_objURL = """/public/v1/config/LLDPGlobal"""
-LLDP12_payload = """{"Vrf":"default", "SnoopAndDrop":false}"""
+LLDP12_payload = """{"Vrf":"default", "Enable":false}"""
 LLDP12_ExpectedResponse = "Success"
+
+LLDP13_reqMethod = "PATCH"
+LLDP13_objURL = """/public/v1/config/LLDPIntf"""
+LLDP13_payload = """{"IntfRef":"DUT1_P1"}"""
+LLDP13_ExpectedResponse = "Error"
+
+LLDP14_reqMethod = "PATCH"
+LLDP14_objURL = """/public/v1/config/LLDPIntf"""
+LLDP14_payload = """{"IntfRef":"DUT2_P1"}"""
+LLDP14_ExpectedResponse = "Error"
+
+LLDP15_reqMethod = "PATCH"
+LLDP15_objURL = """/public/v1/config/LLDPIntf"""
+LLDP15_payload = """{"IntfRef":"DUT1_P1", "TxRxMode":"RxOnly" }"""
+LLDP15_ExpectedResponse = "Success"
+
+LLDP16_reqMethod = "PATCH"
+LLDP16_objURL = """/public/v1/config/LLDPIntf"""
+LLDP16_payload = """{"IntfRef":"DUT1_P1", "TxRxMode":"TxOnly"}"""
+LLDP16_ExpectedResponse = "Success"
+
+LLDP17_reqMethod = "PATCH"
+LLDP17_objURL = """/public/v1/config/LLDPIntf"""
+LLDP17_payload = """{"IntfRef":"DUT1_P1", "TxRxMode":"TxRx" }"""
+LLDP17_ExpectedResponse = "Success"
+
+LLDP18_reqMethod = "PATCH"
+LLDP18_objURL = """/public/v1/config/LLDPIntf"""
+LLDP18_payload = """{"IntfRef":"DUT1_P1", "Enable": true}"""
+LLDP18_ExpectedResponse = "Error"
+
+LLDP19_reqMethod = "PATCH"
+LLDP19_objURL = """/public/v1/config/LLDPIntf"""
+LLDP19_payload = """{"IntfRef":"DUT1_P1", "Enable":false}"""
+LLDP19_ExpectedResponse = "Success"
+
+
 
 #Create Loopback
 LO1_reqMethod = "POST"
@@ -233,7 +270,7 @@ BGP2_ExpectedResponse = """Error"""
 
 BGP3_reqMethod = "PATCH"
 BGP3_objURL = """/public/v1/config/BGPGlobal"""                            #ASNum
-BGP3_payload = """{"Vrf" : "default","ASNum" : "200"}"""       
+BGP3_payload = """{"Vrf" : "default","ASNum" : "200","Disabled":false}"""       
 BGP3_ExpectedResponse = """Success"""
 
 BGP4_reqMethod = "PATCH"
@@ -263,17 +300,17 @@ BGP8_ExpectedResponse = """Success"""
 
 BGP9_reqMethod = "PATCH"
 BGP9_objURL = """/public/v1/config/BGPGlobal"""                            #UseMultiplePaths
-BGP9_payload = """{"Vrf" : "default","ASNum" : "200","RouterId":"1.1.1.1","UseMultiplePaths":false}"""       
+BGP9_payload = """{"Vrf" : "default","UseMultiplePaths":false}"""       
 BGP9_ExpectedResponse = """Error"""
 	
 BGP10_reqMethod = "PATCH"
 BGP10_objURL = """/public/v1/config/BGPGlobal"""                            #UseMultiplePaths
-BGP10_payload = """{"Vrf" : "default","ASNum" : "200","RouterId":"1.1.1.1","UseMultiplePaths":false}"""       
+BGP10_payload = """{"Vrf" : "default","UseMultiplePaths":false}"""       
 BGP10_ExpectedResponse = """Error"""
 	
 BGP11_reqMethod = "PATCH"
 BGP11_objURL = """/public/v1/config/BGPGlobal"""                            #UseMultiplePaths
-BGP11_payload = """{"Vrf" : "default","ASNum" : "200","RouterId":"1.1.1.1","UseMultiplePaths":true}"""       
+BGP11_payload = """{"Vrf" : "default","UseMultiplePaths":true}"""       
 BGP11_ExpectedResponse = """Success"""
 	
 BGP12_reqMethod = "PATCH"
@@ -289,22 +326,22 @@ BGP13_ExpectedResponse = """Success"""
 BGP14_reqMethod = "PATCH"
 BGP14_objURL = """/public/v1/config/BGPGlobal"""                            #IBGPMaxPaths
 BGP14_payload = """{"Vrf" : "default","IBGPMaxPaths" : 4294967298}"""       
-BGP14_ExpectedResponse = """cannot unmarshal"""
+BGP14_ExpectedResponse = """unmarshal"""
 	
 BGP15_reqMethod = "PATCH"
 BGP15_objURL = """/public/v1/config/BGPGlobal"""                            #EBGPMaxPaths
-BGP15_payload = """{"Vrf" : "default","IBGPMaxPaths" : 0}"""       
+BGP15_payload = """{"Vrf" : "default","EBGPMaxPaths" : 0}"""       
 BGP15_ExpectedResponse = """Error"""
 	
 BGP16_reqMethod = "PATCH"
 BGP16_objURL = """/public/v1/config/BGPGlobal"""                            #EBGPMaxPaths
-BGP16_payload = """{"Vrf" : "default","IBGPMaxPaths" : 0}"""       
+BGP16_payload = """{"Vrf" : "default","EBGPMaxPaths" : 4294967294}"""       
 BGP16_ExpectedResponse = """Success"""
 
 BGP17_reqMethod = "PATCH"
 BGP17_objURL = """/public/v1/config/BGPGlobal"""                            #EBGPMaxPaths
-BGP17_payload = """{"Vrf" : "default","IBGPMaxPaths" : 4294967298}"""       
-BGP17_ExpectedResponse = """cannot unmarshal"""
+BGP17_payload = """{"Vrf" : "default","EBGPMaxPaths" : 4294967298}"""       
+BGP17_ExpectedResponse = """unmarshal"""
 
 BGP18_reqMethod = "PATCH"
 BGP18_objURL = """/public/v1/config/BGPGlobal"""                            #Disabled
@@ -335,7 +372,7 @@ BGP22_ExpectedResponse = """Error"""
 
 BGP23_reqMethod = "PATCH"
 BGP23_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP23_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1"}"""    
+BGP23_payload = """{"NeighborAddress" : "192.168.0.2/24", "IntfRef" : "DUT1_P1"}"""   #NeighborAddress 
 BGP23_ExpectedResponse = """Error"""
 
 BGP24_reqMethod = "PATCH"
@@ -360,126 +397,126 @@ BGP27_ExpectedResponse = """Error"""
 
 BGP28_reqMethod = "PATCH"
 BGP28_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP28_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","PeerAS" : "200"}"""    
+BGP28_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","PeerAS" : "200"}"""    #PeerAS
 BGP28_ExpectedResponse = """Success"""
 
 BGP29_reqMethod = "PATCH"
 BGP29_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP29_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","PeerAS" : "200"}"""    
+BGP29_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","AuthPassword" : "snaproute"}"""  #AuthPassword     
 BGP29_ExpectedResponse = """Success"""
 
 BGP30_reqMethod = "PATCH"
 BGP30_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP30_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","PeerAS" : "200","MaxPrefixesDisconnect":false}"""    
+BGP30_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MaxPrefixesDisconnect":false}"""    #MaxPrefixesDisconnect
 BGP30_ExpectedResponse = """Error"""
 
 BGP31_reqMethod = "PATCH"
 BGP31_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP31_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MaxPrefixesDisconnect":true}"""    
+BGP31_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MaxPrefixesDisconnect":true}"""    #MaxPrefixesDisconnect
 BGP31_ExpectedResponse = """Success"""
 
 BGP32_reqMethod = "PATCH"
 BGP32_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP32_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MaxPrefixesDisconnect":false}"""    
+BGP32_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MaxPrefixesDisconnect":false}"""   #MaxPrefixesDisconnect 
 BGP32_ExpectedResponse = """Success"""
 
 BGP33_reqMethod = "PATCH"
 BGP33_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP33_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","LocalAS" : "201"}"""    
+BGP33_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","LocalAS" : "201"}"""   # LocalAS
 BGP33_ExpectedResponse = """Success"""
 
 BGP34_reqMethod = "PATCH"
 BGP34_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP34_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MaxPrefixesThresholdPct" : 0}"""    
+BGP34_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MaxPrefixesThresholdPct" : 80}"""    #MaxPrefixesThresholdPct
 BGP34_ExpectedResponse = """Error"""
 
 BGP35_reqMethod = "PATCH"
 BGP35_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP35_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MaxPrefixesThresholdPct" : 254}"""    
+BGP35_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MaxPrefixesThresholdPct" : 255}"""   #MaxPrefixesThresholdPct 
 BGP35_ExpectedResponse = """Success"""
 
 BGP36_reqMethod = "PATCH"
 BGP36_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP36_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MaxPrefixesThresholdPct" : 258}"""    
-BGP36_ExpectedResponse = """cannot unmarshal"""
+BGP36_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MaxPrefixesThresholdPct" : 256}"""   #MaxPrefixesThresholdPct
+BGP36_ExpectedResponse = """unmarshal"""
 
 BGP37_reqMethod = "PATCH"
 BGP37_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP37_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MaxPrefixesThresholdPct" : 258}"""    
-BGP37_ExpectedResponse = """cannot unmarshal"""
+BGP37_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","PeerGroup" : "grp1"}"""    #PeerGroup
+BGP37_ExpectedResponse = """Success"""
 
 BGP38_reqMethod = "PATCH"
 BGP38_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP38_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","Description" : "This is for testing"}"""    
+BGP38_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","Description" : "This is for testing"}"""    #Description
 BGP38_ExpectedResponse = """Success"""
 
 BGP39_reqMethod = "PATCH"
 BGP39_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP39_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MultiHopEnable" : false}"""    
+BGP39_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MultiHopEnable" : false}"""    #MultiHopEnable
 BGP39_ExpectedResponse = """Error"""
 
 BGP40_reqMethod = "PATCH"
 BGP40_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP40_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MultiHopEnable" : true}"""    
+BGP40_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MultiHopEnable" : true}"""    #MultiHopEnable
 BGP40_ExpectedResponse = """Success"""
 
 BGP41_reqMethod = "PATCH"
 BGP41_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP41_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MultiHopEnable" : false}"""    
+BGP41_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","MultiHopEnable" : false}"""    #MultiHopEnable
 BGP41_ExpectedResponse = """Success"""
 
 BGP42_reqMethod = "PATCH"
 BGP42_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP42_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","RouteReflectorClient" : false}"""    
+BGP42_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","RouteReflectorClient" : false}"""    #RouteReflectorClient
 BGP42_ExpectedResponse = """Error"""
 
 BGP43_reqMethod = "PATCH"
 BGP43_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP43_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","RouteReflectorClient" : true}"""    
+BGP43_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","RouteReflectorClient" : true}"""    #RouteReflectorClient
 BGP43_ExpectedResponse = """Success"""
 
 BGP44_reqMethod = "PATCH"
 BGP44_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP44_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","RouteReflectorClient" : false}"""    
+BGP44_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","RouteReflectorClient" : false}"""    #RouteReflectorClient
 BGP44_ExpectedResponse = """Success"""
 
 BGP45_reqMethod = "PATCH"
 BGP45_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP45_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","NextHopSelf" : false}"""    
+BGP45_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","NextHopSelf" : false}"""    #NextHopSelf
 BGP45_ExpectedResponse = """Error"""
 
 BGP46_reqMethod = "PATCH"
 BGP46_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP46_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","NextHopSelf" : true}"""    
+BGP46_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","NextHopSelf" : true}"""     #NextHopSelf
 BGP46_ExpectedResponse = """Success"""
 
 BGP47_reqMethod = "PATCH"
 BGP47_objURL = """/public/v1/config/BGPv4Neighbor"""                            
-BGP47_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","NextHopSelf" : false}"""    
+BGP47_payload = """{"NeighborAddress" : "192.168.0.2", "IntfRef" : "DUT1_P1","NextHopSelf" : false}"""    #NextHopSelf
 BGP47_ExpectedResponse = """Success"""
 
 BGP48_reqMethod = "PATCH"
 BGP48_objURL = "/public/v1/config/BGPv4Neighbor"
-BGP48_payload = """{"PeerAS":"201","NeighborAddress":"192.168.0.2","IntfRef":"DUT1_P1","Disabled":false}"""   #updating using same default values
+BGP48_payload = """{"NeighborAddress":"192.168.0.2","IntfRef":"DUT1_P1","Disabled":false}"""         #Disabled #updating using same default values
 BGP48_ExpectedResponse = "Error"
 
 BGP49_reqMethod = "PATCH"
 BGP49_objURL = "/public/v1/config/BGPv4Neighbor"
-BGP49_payload = """{"PeerAS":"201","NeighborAddress":"192.168.0.2","IntfRef":"DUT1_P1","Disabled":true}"""    #updating
+BGP49_payload = """{"NeighborAddress":"192.168.0.2","IntfRef":"DUT1_P1","Disabled":true}"""   #Disabled #updating
 BGP49_ExpectedResponse = "Success"
 
 BGP50_reqMethod = "PATCH"
 BGP50_objURL = "/public/v1/config/BGPv4Neighbor"
-BGP50_payload = """{"PeerAS":"201","NeighborAddress":"192.168.0.2","IntfRef":"DUT1_P1","Disabled":false}"""    #Updating again to  default value
+BGP50_payload = """{"NeighborAddress":"192.168.0.2","IntfRef":"DUT1_P1","Disabled":false}"""   #Disabled #Updating again to  default value
 BGP50_ExpectedResponse = "Success"
 
 
-BGP51_reqMethod = "DELETE"
+BGP51_reqMethod = "DELETE"                                                                       #DELETE BY KEY
 BGP51_objURL = "/public/v1/config/BGPv4Neighbor"
 BGP51_payload = """{"NeighborAddress":"192.168.0.2","IntfRef":"DUT1_P1"}"""                          #Trying to delete an entry
 BGP51_ExpectedResponse = "Success"
 
-BGP52_reqMethod = "DELETE"
+BGP52_reqMethod = "DELETE"                                                                       #DELETE BY KEY
 BGP52_objURL = "/public/v1/config/BGPv4Neighbor"
 BGP52_payload = """{"NeighborAddress":"192.168.0.2","IntfRef":"DUT1_P1"}"""                          #Trying to Re-Delete an entry
 BGP52_ExpectedResponse = "Error"
@@ -498,51 +535,25 @@ CP2_ExpectedResponse = "Success"
 
 CP3_reqMethod = "PATCH"
 CP3_objURL = """/public/v1/config/BGPGlobal"""
-CP3_payload = """{"ASNum":"200","RouterId":"1.1.1.1","Disabled":true}"""
+CP3_payload = """{"Vrf" : "default","ASNum" : "200","Disabled":true}"""
 CP3_ExpectedResponse = "Success"
 
-CP4_reqMethod = "DELETE"
-CP4_objURL = """/public/v1/config/BGPv4Neighbor"""
-CP4_payload = """{"NeighborAddress":"192.168.0.2","IntfRef":"DUT1_P1"}"""
+CP4_reqMethod = "PATCH"
+CP4_objURL = """/public/v1/config/BGPGlobal"""
+CP4_payload = """{"ASNum": "", "EBGPMaxPaths": 0, "EBGPAllowMultipleAS": false, "RouterId": "0.0.0.0", "IBGPMaxPaths":0, "Redistribution": [], "Disabled": false, "Vrf": "default", "UseMultiplePaths": false}"""
 CP4_ExpectedResponse = "Success"
 
+CP5_reqMethod = "DELETE"
+CP5_objURL = """/public/v1/config/BGPv4Neighbor"""
+CP5_payload = """{"NeighborAddress":"192.168.0.2","IntfRef":"DUT1_P1"}"""
+CP5_ExpectedResponse = "Success"
 
+CP6_reqMethod = "PATCH"
+CP6_objURL = """/public/v1/config/LLDPGlobal"""
+CP6_payload = """{"TxRxMode": "TxRx", "SnoopAndDrop": false, "Enable": false, "Vrf": "default", "TranmitInterval": 30}"""
+CP6_ExpectedResponse = "Success"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+CP7_reqMethod = "PATCH"
+CP7_objURL = """/public/v1/config/LLDPIntf"""
+CP7_payload = """{"IntfRef": "DUT1_P1", "Enable": true, "TxRxMode": "TxRx"}"""
+CP7_ExpectedResponse = "Success"
