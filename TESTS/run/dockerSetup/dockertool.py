@@ -241,7 +241,7 @@ def check_docker_image():
     if out.strip() == "0":
         linfo = "Downloading docker image: %s. " % docker_image
         linfo+= "This may take a few minutes..."
-        logger.info(linfo)
+        logger.info(linfo,also_console = True)
         out = exec_cmd("docker pull %s" % docker_image)
     else:
         logger.debug("docker_image %s is present" % docker_image)
