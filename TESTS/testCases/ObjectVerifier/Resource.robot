@@ -402,4 +402,4 @@ LLDPIntf_CLEAN_TC7
     Run Keyword and continue on Failure    Execute Curl Command     ${DUT1}        ${CP7_objURL}    ${CP7_reqMethod}    ${CP7_payload}    ${CP7_ExpectedResponse}  
 
 ArpGlobal_CLEAN_TC8
-    Run Keyword and continue on Failure    Execute Curl Command     ${DUT1}        ${CP78_objURL}    ${CP8_reqMethod}    ${CP8_payload}    ${CP8_ExpectedResponse}  
+    Run Keyword and continue on Failure    Execute Curl Command     ${DUT1}        ${CP8_objURL}    ${CP8_reqMethod}    ${CP8_payload}    ${CP8_ExpectedResponse}  
