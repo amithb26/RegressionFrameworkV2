@@ -364,6 +364,12 @@ BGPv4Neighbor_NeighborAddress_TC52
     Run Keyword and continue on Failure    Negative Test check     ${result}        ${BGP52_objURL}    ${BGP52_reqMethod} 
 
 
+BGPv4Neighbor_NeighborAddress_TC53
+    Run Keyword and continue on Failure    Execute Curl Command    ${DUT1}        ${BGP53_objURL}    ${BGP53_reqMethod}    ${BGP53_payload}    ${BGP53_ExpectedResponse}  
+    
+BGPv4Neighbor_NeighborAddress_TC54
+    Run Keyword and continue on Failure    Execute Curl Command    ${DUT1}        ${BGP54_objURL}    ${BGP54_reqMethod}    ${BGP54_payload}    ${BGP54_ExpectedResponse}   
+
 #Clean UP ##################################################################
 
 Clean UP 
