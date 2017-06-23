@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation	        A test suite with tests to perform BGP functional tests on DUT
+Documentation	        A test suite with tests to perform L2/L3 protocol functional tests on DUT
 Metadata 		Version          	 1.0
 ...	         	More Info         	 For more information about Robot Framework see http://robotframework.org
 ...               	Author            	 
