@@ -43,10 +43,10 @@ def execCURLCmd(device,URL,requestMethod,payload,ExpectedResponse):
 	pass
 		    
     objURL = "%s://%s:%s%s"%(Protocol,HOST,Port,URL)
-    if Username == None and Password == None:
+    if Protocol == "http":
         cmd = "curl -H "+ Headers + " -X " +requestMethod+  " -d " + "\'" + payload +"\'" +" "+ objURL
     else:
-        cmd = "curl -H "+ Headers + " --user " + Username +" : " +Password+ " -X " +requestMethod+  " -d " + "\'" + payload +"\'" +" "+ objURL
+        cmd = "curl -k -u " + Username +":" +Password+ "-H "+ Headers + " -X " +requestMethod+  " -d " + "\'" + payload +"\'" +" "+ objURL
     logger.info("GENERATING %s REQUEST..."%requestMethod)
     response = exec_cmd(cmd,payload)
     logger.info("OBJECT DETAILS AFTER %s REQUEST:"%requestMethod)
