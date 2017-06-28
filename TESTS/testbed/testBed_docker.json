@@ -4,13 +4,12 @@
             "ASIC": "", 
             "console": "", 
             "hostname": "DUT1", 
-            "mgmtIP": "172.17.0.5", 
+            "mgmtIP": "172.17.0.3", 
             "password": "", 
             "platform": "", 
             "ports": {
                 "DUT1_P1": "fpPort1", 
-                "DUT1_P2": "fpPort2",
-                "DUT1_P3": "fpPort1000"
+                "DUT1_P2": "fpPort2"
             }, 
             "processor": "", 
             "username": ""
@@ -23,7 +22,8 @@
             "password": "", 
             "platform": "", 
             "ports": {
-                "DUT2_P1": "fpPort3"
+                "DUT2_P1": "fpPort3", 
+                "DUT2_P2": "fpPort7"
             }, 
             "processor": "", 
             "username": ""
@@ -32,11 +32,12 @@
             "ASIC": "", 
             "console": "", 
             "hostname": "DUT2", 
-            "mgmtIP": "172.17.0.3", 
+            "mgmtIP": "172.17.0.5", 
             "password": "", 
             "platform": "", 
             "ports": {
-                "DUT3_P1": "fpPort4"
+                "DUT3_P1": "fpPort4", 
+                "DUT3_P2": "fpPort8"
             }, 
             "processor": "", 
             "username": ""
@@ -74,6 +75,16 @@
             }, 
             "DUT4": {
                 "Intf": "DUT4_P2", 
+                "speed": "40G"
+            }
+        }, 
+        "DUT2_DUT3_1": {
+            "DUT2": {
+                "Intf": "DUT2_P2", 
+                "speed": "40G"
+            }, 
+            "DUT3": {
+                "Intf": "DUT3_P2", 
                 "speed": "40G"
             }
         }, 

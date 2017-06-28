@@ -744,3 +744,80 @@ def bgpRedistribution(args={}):
         logger.info("PLEASE PROVIDE DEVICE AND REQUIRED PARAMETERS TO ENABLE BGP REDISTRIBUTION")
         sys.exit(1)
 
+
+
+def getAllBGPv4RouteStates(args=[]):
+
+    logger.info("*** CHECKING BGP ROUTE TABLE ***")
+    StatusList = {}
+    if args:	
+        for device in args:
+            DeviceIP = getMgmtIP(device)
+            Username = getUsername(device)
+            if Username == "None" or Username == "":
+                Username = None
+            Password = getPassword(device)
+            if Password == "None" or  Password == "":
+                Password = None
+
+            swtch = FlexSwitch(DeviceIP,http_port,Username,Password)
+            logger.info("%s.getAllBGPv4RouteStates()"%device)
+            response = swtch.getAllBGPv4RouteStates()
+            logger.info("BGP ROUTE OBJECT DETAILS:%s"%(response))
+            if response:
+                StatusList.update({"%s"%(device) : "PASS"})
+            else:
+                StatusList.update({"%s"%(device) :"FAIL"})
+		
+        if "FAIL" in StatusList.values():
+            logger.info("%s"%StatusList)
+            return False
+        else:
+            return True
+
+    else:
+        logger.info("PLEASE PROVIDE DEVICE AND REQUIRED PARAMETERS TO VERIFY ROUTES IN BGPV4 TABLE ")
+        sys.exit(1)
+  
+            
+def getAllIPv4RouteStates(args=[]):
+
+    logger.info("*** CHECKING IP ROUTE TABLE ***")
+    StatusList = {}
+    if args:	
+        for device in args:
+            DeviceIP = getMgmtIP(device)
+            Username = getUsername(device)
+            if Username == "None" or Username == "":
+                Username = None
+            Password = getPassword(device)
+            if Password == "None" or  Password == "":
+                Password = None
+
+            swtch = FlexSwitch(DeviceIP,http_port,Username,Password)
+            logger.info("%s.getAllIPv4RouteStates()"%device)
+            response = swtch.getAllIPv4RouteStates()
+            logger.info("IPV4 ROUTE OBJECT DETAILS:%s"%(response))
+            if response:
+                StatusList.update({"%s"%(device) : "PASS"})
+            else:
+                StatusList.update({"%s"%(device) :"FAIL"})
+		
+	if "FAIL" in StatusList.values():
+            logger.info("%s"%StatusList)
+            return False
+        else:
+            return True
+
+    else:
+        logger.info("PLEASE PROVIDE DEVICE AND REQUIRED PARAMETERS TO VERIFY ROUTES IN IPV4 TABLE")
+        sys.exit(1)
+  
+            
+
+
+
+
+
+
+

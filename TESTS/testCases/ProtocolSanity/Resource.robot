@@ -105,12 +105,12 @@ Validate IP Address configuration
     ${result}=    Run Keyword    getIPv4IntfState   ${IntfIPState}
     Run Keyword If    ${result}==True    Log    All interfaces are UP
     ...    ELSE    Notify    ${result}   One/More Interface Down  
-
+    
 # ARP ########################################################################################
 
 Get ARP Entry Table
     [Documentation]    Displays all the connected devices learnt through ARP.
-         
+
     ${result}=    Run Keyword    getAllArpLinuxEntryStates   ${ArpLinuxEntryStates}
     Log    ${result}
 
@@ -118,20 +118,24 @@ Verify ARP Entry Status After Link Is DOWN
     [Documentation]    Sets a port DOWN and checks if the entry was removed from ARP table.
  
     Set Port State    ${ARPtestDevice}    ${ARPtestPort}    ${PortStateDown}
-    Check ARP Entry Is Removed    ${ARPtestDevice}    ${ARPtestPort}
+    Check ARP Entry Is Removed    ${ARPtestDevice}    ${ARPIPAddr}
     Set Port State    ${ARPtestDevice}    ${ARPtestPort}    ${PortStateUp}
-#    Check ARP Entry Is Populated    ${ARPtestDevice}    ${ARPtestPort} 
+#   Sleep   ${ARPSleep}
+#    ${result}=    Run Keyword    executeArpRefreshByIfName   ${ARPtestDevice}    ${ARPtestPort}
+#   Run Keyword If    ${result}==True    Log    ARP Table Refreshed
+# ...    ELSE    ERROR    ${result}   ARP Table was not Refreshed
+#    Check ARP Entry Is Populated    ${ARPtestDevice}    ${ARPIPAddr} 
 
 Check ARP Entry Is Removed
-    [Arguments]    ${ARPtestDevice}    ${ARPtestPort}
-    ${result}=    Run Keyword    getArpLinuxEntryState   ${ARPtestDevice}    ${ARPPeerPort}
+    [Arguments]    ${ARPtestDevice}    ${ARPIPAddr}
+    ${result}=    Run Keyword    getArpLinuxEntryState   ${ARPtestDevice}  ${ARPIPAddr}    
     Run Keyword If    ${result}==False    Log    ARP Entry Deleted
     ...    ELSE    ERROR    ${result}   ARP Entry was not deleted
  
 Check ARP Entry Is Populated
-    [Arguments]    ${ARPtestDevice}    ${ARPtestPort}
-    ${result}=    Run Keyword    getArpLinuxEntryState   ${ARPtestDevice}    ${ARPPeerPort}
-    Run Keyword If    ${result}==False    Log    ARP Entry Populated
+    [Arguments]    ${ARPtestDevice}    ${ARPIPAddr}
+    ${result}=    Run Keyword    getAllArpLinuxEntryStates   ${ArpLinuxEntryState1}   
+    Run Keyword If    ${result}==True    Log    ARP Entry Populated
     ...    ELSE    ERROR    ${result}   ARP Entry was not populated
 
 # LLDP ########################################################################################
@@ -173,16 +177,19 @@ Configure BGPv4 Neighbors
 Validate BGPv4 Neighbor configuration
     [Documentation]    Checks if all the neighbor state are in Expected state
        
-    ${result}=    Run Keyword     getBGPv4Neighbor    ${BGPv4Neighbor}  
+    ${result}=    Run Keyword     getBGPv4NeighborState    ${BGPv4NeighborState}  
     Run Keyword If    ${result}==True    Log    All BGP Neighbors are UP    
     ...    ELSE    Notify    ${result}    BGP Neighbors Not UP 
 
 Verify BGP Neighbor state after link flap
     [Documentation]    Checks if the neighbor state changes after link is set DOWN.
 
-    Set Port State    ${BGPtestDevice}    ${BGPtestPort}    ${PortStateDown}          
+    Set Port State    ${BGPtestDevice}    ${BGPtestPort}    ${PortStateDown}
+    Sleep   ${BGPConnectRetryTime}          
     Verify BGP Neighbor Session State    ${BGPv4TestDeviceNeighborState}
     Set Port State    ${BGPtestDevice}    ${BGPtestPort}    ${PortStateUp} 
+    Sleep   ${BGPConvergenceSleep}
+    Verify BGP Neighbor Session State    ${BGPv4TestDeviceNeighborState1}
 
 Verify BGP Neighbor Session State
     [Documentation]    Checks if the neighbor state is as expected.
@@ -192,7 +199,7 @@ Verify BGP Neighbor Session State
     Run Keyword If    ${result}==True    Log    BGP Neighbor in expected state     
     ...    ELSE    Notify    ${result}    BGP Neighbor not in expected state
    
-Redistribute connected interfaces and verify routes are present
+Redistribute connected interfaces
     [Documentation]    Creates policy statement and definition to apply redistribute
     ...                of connected routes.
 
@@ -220,6 +227,20 @@ Update the BGPGlobal Object to redistribute CONNECTED routes using the PolicyDef
     ${result}=    Run Keyword     bgpRedistribution    ${BGPRedistribution}  
     Run Keyword If    ${result}==True    Log    BGPGlobal Object updated to redistribute CONNECTED routes using the PolicyDefinition 
     ...    ELSE    ERROR    ${result}    BGPGlobal(Redistribution) Object Updation Error
+
+Verify routes in BGPv4 Route Table
+    [Documentation]    Verify the routes are present in BGP Route Table
+   
+    ${result}=    Run Keyword     getAllBGPv4RouteStates    ${BGPRoute}
+    Run Keyword If    ${result}==True    Log    Route to all desired destinations present
+    ...    ELSE    ERROR    ${result}    Route to some destination not present                       
+
+Verify routes in IPv4 Route Table
+    [Documentation]    Verify the routes are present in BGP Route Table
+    
+    ${result}=    Run Keyword     getAllIPv4RouteStates    ${BGP_IPV4Route}
+    Run Keyword If    ${result}==True    Log    Route to all desired destinations present
+    ...    ELSE    ERROR    ${result}    Route to some destination not present          
 
 CleanUp 
     Unconfigure BGP Neighbors

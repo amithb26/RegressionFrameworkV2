@@ -1,0 +1,1647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170628 10:58:14.953" generator="Robot 3.0.2 (Python 2.7.12+ on linux2)">
+<suite source="/home/payal/SnaproutePhase2/TESTS/testCases/ProtocolSanity/Test_Suite.robot" id="s1" name="Test Suite">
+<kw type="setup" name="Initial Setup" library="Resource">
+<doc>Initial setup where the testbed file scan is done to check for any errors and to check if the setup satisfies the minimum requirements for the Usecase.</doc>
+<kw name="TestBed Scan" library="Resource">
+<doc>Scans the testbed file for any syntax errors and also checks if the links and the ports description are defined correctly.</doc>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>testbedCheck1</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Testbed Check 1" library="testBedScan">
+<msg timestamp="20170628 10:58:15.839" level="INFO">Link DUT1_DUT4_1 is correctly defined.</msg>
+<msg timestamp="20170628 10:58:15.839" level="INFO">Link DUT3_DUT4_1 is correctly defined.</msg>
+<msg timestamp="20170628 10:58:15.839" level="INFO">Link DUT1_DUT2_1 is correctly defined.</msg>
+<msg timestamp="20170628 10:58:15.839" level="INFO">Link DUT2_DUT3_1 is correctly defined.</msg>
+<status status="PASS" endtime="20170628 10:58:15.839" starttime="20170628 10:58:15.838"></status>
+</kw>
+<msg timestamp="20170628 10:58:15.839" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 10:58:15.839" starttime="20170628 10:58:15.837"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Devices defined in links do not match with the devices specified.</arg>
+</arguments>
+<status status="PASS" endtime="20170628 10:58:15.840" starttime="20170628 10:58:15.840"></status>
+</kw>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>testbedCheck2</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Testbed Check 2" library="testBedScan">
+<msg timestamp="20170628 10:58:15.841" level="INFO">Interfaces [u'DUT1', u'DUT4'] defined for link DUT1_DUT4_1 is correct</msg>
+<msg timestamp="20170628 10:58:15.841" level="INFO">Interfaces [u'DUT3', u'DUT4'] defined for link DUT3_DUT4_1 is correct</msg>
+<msg timestamp="20170628 10:58:15.841" level="INFO">Interfaces [u'DUT1', u'DUT2'] defined for link DUT1_DUT2_1 is correct</msg>
+<msg timestamp="20170628 10:58:15.841" level="INFO">Interfaces [u'DUT3', u'DUT2'] defined for link DUT2_DUT3_1 is correct</msg>
+<status status="PASS" endtime="20170628 10:58:15.842" starttime="20170628 10:58:15.841"></status>
+</kw>
+<msg timestamp="20170628 10:58:15.842" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 10:58:15.842" starttime="20170628 10:58:15.840"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Interface description mentioned for a link is incorrect</arg>
+</arguments>
+<status status="PASS" endtime="20170628 10:58:15.842" starttime="20170628 10:58:15.842"></status>
+</kw>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>testbedCheck3</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Testbed Check 3" library="testBedScan">
+<msg timestamp="20170628 10:58:15.843" level="INFO">Valid Management IP Address On DUT1 :- 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:15.843" level="INFO">Valid Management IP Address On DUT2 :- 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:15.844" level="INFO">Valid Management IP Address On DUT3 :- 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:15.844" level="INFO">Valid Management IP Address On DUT4 :- 172.17.0.2</msg>
+<status status="PASS" endtime="20170628 10:58:15.844" starttime="20170628 10:58:15.843"></status>
+</kw>
+<msg timestamp="20170628 10:58:15.844" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 10:58:15.844" starttime="20170628 10:58:15.843"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Management IP mentioned for the devices is invalid</arg>
+</arguments>
+<status status="PASS" endtime="20170628 10:58:15.845" starttime="20170628 10:58:15.844"></status>
+</kw>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>testbedCheck4</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Testbed Check 4" library="testBedScan">
+<msg timestamp="20170628 10:58:15.845" level="INFO">No duplicate port detected in the links for device DUT4 for the link DUT4_P2</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT3 for the link DUT3_P1</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT4 for the link DUT4_P1</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT1 for the link DUT1_P1</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT2 for the link DUT2_P1</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT3 for the link DUT3_P2</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT2 for the link DUT2_P2</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT3 for the link DUT3_P1</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT4 for the link DUT4_P1</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT1 for the link DUT1_P1</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT2 for the link DUT2_P1</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT3 for the link DUT3_P2</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT2 for the link DUT2_P2</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT4 for the link DUT4_P1</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT1 for the link DUT1_P1</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT2 for the link DUT2_P1</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT3 for the link DUT3_P2</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT2 for the link DUT2_P2</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT1 for the link DUT1_P1</msg>
+<msg timestamp="20170628 10:58:15.846" level="INFO">No duplicate port detected in the links for device DUT2 for the link DUT2_P1</msg>
+<msg timestamp="20170628 10:58:15.847" level="INFO">No duplicate port detected in the links for device DUT3 for the link DUT3_P2</msg>
+<msg timestamp="20170628 10:58:15.847" level="INFO">No duplicate port detected in the links for device DUT2 for the link DUT2_P2</msg>
+<msg timestamp="20170628 10:58:15.847" level="INFO">No duplicate port detected in the links for device DUT2 for the link DUT2_P1</msg>
+<msg timestamp="20170628 10:58:15.847" level="INFO">No duplicate port detected in the links for device DUT3 for the link DUT3_P2</msg>
+<msg timestamp="20170628 10:58:15.847" level="INFO">No duplicate port detected in the links for device DUT2 for the link DUT2_P2</msg>
+<msg timestamp="20170628 10:58:15.847" level="INFO">No duplicate port detected in the links for device DUT3 for the link DUT3_P2</msg>
+<msg timestamp="20170628 10:58:15.847" level="INFO">No duplicate port detected in the links for device DUT2 for the link DUT2_P2</msg>
+<msg timestamp="20170628 10:58:15.847" level="INFO">No duplicate port detected in the links for device DUT2 for the link DUT2_P2</msg>
+<status status="PASS" endtime="20170628 10:58:15.847" starttime="20170628 10:58:15.845"></status>
+</kw>
+<msg timestamp="20170628 10:58:15.848" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 10:58:15.848" starttime="20170628 10:58:15.845"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Duplicate ports are mentioned for same interface in two links</arg>
+</arguments>
+<status status="PASS" endtime="20170628 10:58:15.848" starttime="20170628 10:58:15.848"></status>
+</kw>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>testbedCheck5</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Testbed Check 5" library="testBedScan">
+<msg timestamp="20170628 10:58:15.849" level="INFO">No duplicate for port fpPort1 found on device DUT1.</msg>
+<msg timestamp="20170628 10:58:15.849" level="INFO">No duplicate for port fpPort2 found on device DUT1.</msg>
+<msg timestamp="20170628 10:58:15.850" level="INFO">No duplicate for port fpPort8 found on device DUT3.</msg>
+<msg timestamp="20170628 10:58:15.850" level="INFO">No duplicate for port fpPort4 found on device DUT3.</msg>
+<msg timestamp="20170628 10:58:15.850" level="INFO">No duplicate for port fpPort3 found on device DUT2.</msg>
+<msg timestamp="20170628 10:58:15.850" level="INFO">No duplicate for port fpPort7 found on device DUT2.</msg>
+<msg timestamp="20170628 10:58:15.850" level="INFO">No duplicate for port fpPort6 found on device DUT4.</msg>
+<msg timestamp="20170628 10:58:15.850" level="INFO">No duplicate for port fpPort5 found on device DUT4.</msg>
+<status status="PASS" endtime="20170628 10:58:15.850" starttime="20170628 10:58:15.849"></status>
+</kw>
+<msg timestamp="20170628 10:58:15.850" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 10:58:15.851" starttime="20170628 10:58:15.848"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Duplicate ports are mentioned for interfaces of same device in ports list</arg>
+</arguments>
+<status status="PASS" endtime="20170628 10:58:15.852" starttime="20170628 10:58:15.851"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:15.852" starttime="20170628 10:58:15.837"></status>
+</kw>
+<kw name="GLOBAL_PRECHECK" library="Resource">
+<doc>Performs various checks to determine if the setup is as per the testbed file.</doc>
+<kw name="Check Device Status" library="Resource">
+<doc>Checks if the devices mentioned in the testbed files are reachable.</doc>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>deviceStatus</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Device Status" library="topoValidation">
+<msg timestamp="20170628 10:58:15.853" level="INFO">*** VALIDATING DEVICE STATUS ***</msg>
+<msg timestamp="20170628 10:58:15.853" level="INFO">Checking the status of DUT1</msg>
+<msg timestamp="20170628 10:58:15.853" level="INFO">DUT1.getAllSystemStatusStates()</msg>
+<msg timestamp="20170628 10:58:15.884" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:15.885" level="DEBUG">"GET /public/v1/state//SystemStatuss?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:15.887" level="DEBUG">"GET /public/v1/state/SystemStatuss?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 78</msg>
+<msg timestamp="20170628 10:58:15.888" level="INFO">DEVICE DUT1 --&gt; EXISTS</msg>
+<msg timestamp="20170628 10:58:15.888" level="INFO">Checking the status of DUT3</msg>
+<msg timestamp="20170628 10:58:15.888" level="INFO">DUT3.getAllSystemStatusStates()</msg>
+<msg timestamp="20170628 10:58:15.889" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:15.889" level="DEBUG">"GET /public/v1/state//SystemStatuss?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:15.890" level="DEBUG">"GET /public/v1/state/SystemStatuss?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 78</msg>
+<msg timestamp="20170628 10:58:15.891" level="INFO">DEVICE DUT3 --&gt; EXISTS</msg>
+<msg timestamp="20170628 10:58:15.891" level="INFO">Checking the status of DUT2</msg>
+<msg timestamp="20170628 10:58:15.891" level="INFO">DUT2.getAllSystemStatusStates()</msg>
+<msg timestamp="20170628 10:58:15.892" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:15.892" level="DEBUG">"GET /public/v1/state//SystemStatuss?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:15.893" level="DEBUG">"GET /public/v1/state/SystemStatuss?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 78</msg>
+<msg timestamp="20170628 10:58:15.894" level="INFO">DEVICE DUT2 --&gt; EXISTS</msg>
+<msg timestamp="20170628 10:58:15.894" level="INFO">Checking the status of DUT4</msg>
+<msg timestamp="20170628 10:58:15.894" level="INFO">DUT4.getAllSystemStatusStates()</msg>
+<msg timestamp="20170628 10:58:15.895" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:15.895" level="DEBUG">"GET /public/v1/state//SystemStatuss?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:15.897" level="DEBUG">"GET /public/v1/state/SystemStatuss?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 78</msg>
+<msg timestamp="20170628 10:58:15.897" level="INFO">DEVICE DUT4 --&gt; EXISTS</msg>
+<status status="PASS" endtime="20170628 10:58:15.897" starttime="20170628 10:58:15.853"></status>
+</kw>
+<msg timestamp="20170628 10:58:15.897" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 10:58:15.897" starttime="20170628 10:58:15.853"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==True</arg>
+<arg>Log</arg>
+<arg>All Devices are UP</arg>
+<arg>ELSE</arg>
+<arg>ERROR</arg>
+<arg>${result}</arg>
+<arg>Device does not exist</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>All Devices are UP</arg>
+</arguments>
+<msg timestamp="20170628 10:58:15.898" level="INFO">All Devices are UP</msg>
+<status status="PASS" endtime="20170628 10:58:15.898" starttime="20170628 10:58:15.898"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:15.898" starttime="20170628 10:58:15.898"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:15.898" starttime="20170628 10:58:15.852"></status>
+</kw>
+<kw name="Check Port Status" library="Resource">
+<doc>Checks if all the ports mentioned for devices exists in the devices</doc>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>portStatus</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Port Status" library="topoValidation">
+<msg timestamp="20170628 10:58:15.899" level="INFO">***VALIDATING PORT EXISTENCE***</msg>
+<msg timestamp="20170628 10:58:15.899" level="INFO">Checking fpPort1 port of DUT1</msg>
+<msg timestamp="20170628 10:58:15.899" level="INFO">getPort(fpPort1): DUT1</msg>
+<msg timestamp="20170628 10:58:15.900" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:15.901" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.901" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.901" level="INFO">PORT OBJECT DETAILS:{u'Object': {u'MacAddr': u'76:c5:85:bd:2e:ed', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort1', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 0, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'87990608-2719-4d44-6a75-5123013ec699'}</msg>
+<msg timestamp="20170628 10:58:15.902" level="INFO">PORT  fpPort1 of DUT1 --&gt; EXISTS</msg>
+<msg timestamp="20170628 10:58:15.902" level="INFO">Checking fpPort2 port of DUT1</msg>
+<msg timestamp="20170628 10:58:15.902" level="INFO">getPort(fpPort2): DUT1</msg>
+<msg timestamp="20170628 10:58:15.902" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:15.903" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.904" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.904" level="INFO">PORT OBJECT DETAILS:{u'Object': {u'MacAddr': u'b2:92:8f:66:78:fe', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort2', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 1, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'58006975-088d-4301-55e3-cf6233515182'}</msg>
+<msg timestamp="20170628 10:58:15.904" level="INFO">PORT  fpPort2 of DUT1 --&gt; EXISTS</msg>
+<msg timestamp="20170628 10:58:15.904" level="INFO">Checking fpPort8 port of DUT3</msg>
+<msg timestamp="20170628 10:58:15.904" level="INFO">getPort(fpPort8): DUT3</msg>
+<msg timestamp="20170628 10:58:15.905" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:15.905" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.906" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.906" level="INFO">PORT OBJECT DETAILS:{u'Object': {u'MacAddr': u'b2:bc:bc:13:42:c8', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort8', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 1, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'4482c937-7e5b-4802-4a16-6614d67ffb44'}</msg>
+<msg timestamp="20170628 10:58:15.906" level="INFO">PORT  fpPort8 of DUT3 --&gt; EXISTS</msg>
+<msg timestamp="20170628 10:58:15.906" level="INFO">Checking fpPort4 port of DUT3</msg>
+<msg timestamp="20170628 10:58:15.906" level="INFO">getPort(fpPort4): DUT3</msg>
+<msg timestamp="20170628 10:58:15.907" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:15.907" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.908" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.908" level="INFO">PORT OBJECT DETAILS:{u'Object': {u'MacAddr': u'9a:62:89:03:cb:e9', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort4', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 0, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'a0eea048-9e46-4328-7f06-e5c99366780b'}</msg>
+<msg timestamp="20170628 10:58:15.908" level="INFO">PORT  fpPort4 of DUT3 --&gt; EXISTS</msg>
+<msg timestamp="20170628 10:58:15.908" level="INFO">Checking fpPort3 port of DUT2</msg>
+<msg timestamp="20170628 10:58:15.908" level="INFO">getPort(fpPort3): DUT2</msg>
+<msg timestamp="20170628 10:58:15.909" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:15.910" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.910" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.910" level="INFO">PORT OBJECT DETAILS:{u'Object': {u'MacAddr': u'06:4f:58:1b:70:59', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort3', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 0, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'd17678c5-6300-416c-6f0f-e5e73e2bc2db'}</msg>
+<msg timestamp="20170628 10:58:15.910" level="INFO">PORT  fpPort3 of DUT2 --&gt; EXISTS</msg>
+<msg timestamp="20170628 10:58:15.910" level="INFO">Checking fpPort7 port of DUT2</msg>
+<msg timestamp="20170628 10:58:15.910" level="INFO">getPort(fpPort7): DUT2</msg>
+<msg timestamp="20170628 10:58:15.911" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:15.912" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.912" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.912" level="INFO">PORT OBJECT DETAILS:{u'Object': {u'MacAddr': u'4a:b0:09:3d:84:0a', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort7', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 1, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'2df4efc0-fa6a-46ea-6f43-cedc348f0762'}</msg>
+<msg timestamp="20170628 10:58:15.912" level="INFO">PORT  fpPort7 of DUT2 --&gt; EXISTS</msg>
+<msg timestamp="20170628 10:58:15.912" level="INFO">Checking fpPort6 port of DUT4</msg>
+<msg timestamp="20170628 10:58:15.912" level="INFO">getPort(fpPort6): DUT4</msg>
+<msg timestamp="20170628 10:58:15.913" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:15.914" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.914" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.914" level="INFO">PORT OBJECT DETAILS:{u'Object': {u'MacAddr': u'2a:32:93:3b:76:bf', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort6', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 0, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'791c5470-d242-4893-7afe-12ef8cf446c1'}</msg>
+<msg timestamp="20170628 10:58:15.914" level="INFO">PORT  fpPort6 of DUT4 --&gt; EXISTS</msg>
+<msg timestamp="20170628 10:58:15.914" level="INFO">Checking fpPort5 port of DUT4</msg>
+<msg timestamp="20170628 10:58:15.914" level="INFO">getPort(fpPort5): DUT4</msg>
+<msg timestamp="20170628 10:58:15.915" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:15.916" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.916" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.916" level="INFO">PORT OBJECT DETAILS:{u'Object': {u'MacAddr': u'0e:80:3a:e1:cf:22', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort5', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 1, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'e777444b-9aea-4973-55a5-10243b9700d0'}</msg>
+<msg timestamp="20170628 10:58:15.916" level="INFO">PORT  fpPort5 of DUT4 --&gt; EXISTS</msg>
+<status status="PASS" endtime="20170628 10:58:15.916" starttime="20170628 10:58:15.899"></status>
+</kw>
+<msg timestamp="20170628 10:58:15.916" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 10:58:15.917" starttime="20170628 10:58:15.899"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==True</arg>
+<arg>Log</arg>
+<arg>All ports are existing</arg>
+<arg>ELSE</arg>
+<arg>ERROR</arg>
+<arg>${result}</arg>
+<arg>Interface does not exist</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>All ports are existing</arg>
+</arguments>
+<msg timestamp="20170628 10:58:15.917" level="INFO">All ports are existing</msg>
+<status status="PASS" endtime="20170628 10:58:15.917" starttime="20170628 10:58:15.917"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:15.917" starttime="20170628 10:58:15.917"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:15.917" starttime="20170628 10:58:15.899"></status>
+</kw>
+<kw name="Check Admin State Of Interfaces" library="Resource">
+<doc>Checks if the adminstate of interfaces on both the ends of the link is UP and</doc>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>adminStatus</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Admin Status" library="topoValidation">
+<msg timestamp="20170628 10:58:15.918" level="INFO">***VALIDATING INTERFACE STATUS***</msg>
+<msg timestamp="20170628 10:58:15.918" level="INFO">Checking admin state of fpPort1 port of DUT1</msg>
+<msg timestamp="20170628 10:58:15.918" level="INFO">DUT1.getPort()</msg>
+<msg timestamp="20170628 10:58:15.919" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:15.920" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.920" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.920" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'76:c5:85:bd:2e:ed', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort1', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 0, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'87990608-2719-4d44-6a75-5123013ec699'}</msg>
+<msg timestamp="20170628 10:58:15.920" level="INFO">The AdminState on interface fpPort1 is UP</msg>
+<msg timestamp="20170628 10:58:15.920" level="INFO">Checking admin state of fpPort2 port of DUT1</msg>
+<msg timestamp="20170628 10:58:15.920" level="INFO">DUT1.getPort()</msg>
+<msg timestamp="20170628 10:58:15.921" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:15.921" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.922" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.922" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'b2:92:8f:66:78:fe', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort2', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 1, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'58006975-088d-4301-55e3-cf6233515182'}</msg>
+<msg timestamp="20170628 10:58:15.922" level="INFO">The AdminState on interface fpPort2 is UP</msg>
+<msg timestamp="20170628 10:58:15.922" level="INFO">Checking admin state of fpPort8 port of DUT3</msg>
+<msg timestamp="20170628 10:58:15.922" level="INFO">DUT3.getPort()</msg>
+<msg timestamp="20170628 10:58:15.923" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:15.923" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.924" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.924" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'b2:bc:bc:13:42:c8', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort8', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 1, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'4482c937-7e5b-4802-4a16-6614d67ffb44'}</msg>
+<msg timestamp="20170628 10:58:15.924" level="INFO">The AdminState on interface fpPort8 is UP</msg>
+<msg timestamp="20170628 10:58:15.924" level="INFO">Checking admin state of fpPort4 port of DUT3</msg>
+<msg timestamp="20170628 10:58:15.924" level="INFO">DUT3.getPort()</msg>
+<msg timestamp="20170628 10:58:15.925" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:15.925" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.926" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.926" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'9a:62:89:03:cb:e9', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort4', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 0, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'a0eea048-9e46-4328-7f06-e5c99366780b'}</msg>
+<msg timestamp="20170628 10:58:15.926" level="INFO">The AdminState on interface fpPort4 is UP</msg>
+<msg timestamp="20170628 10:58:15.926" level="INFO">Checking admin state of fpPort3 port of DUT2</msg>
+<msg timestamp="20170628 10:58:15.926" level="INFO">DUT2.getPort()</msg>
+<msg timestamp="20170628 10:58:15.926" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:15.927" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.928" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.928" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'06:4f:58:1b:70:59', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort3', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 0, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'd17678c5-6300-416c-6f0f-e5e73e2bc2db'}</msg>
+<msg timestamp="20170628 10:58:15.928" level="INFO">The AdminState on interface fpPort3 is UP</msg>
+<msg timestamp="20170628 10:58:15.928" level="INFO">Checking admin state of fpPort7 port of DUT2</msg>
+<msg timestamp="20170628 10:58:15.928" level="INFO">DUT2.getPort()</msg>
+<msg timestamp="20170628 10:58:15.928" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:15.929" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.929" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.930" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'4a:b0:09:3d:84:0a', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort7', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 1, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'2df4efc0-fa6a-46ea-6f43-cedc348f0762'}</msg>
+<msg timestamp="20170628 10:58:15.930" level="INFO">The AdminState on interface fpPort7 is UP</msg>
+<msg timestamp="20170628 10:58:15.930" level="INFO">Checking admin state of fpPort6 port of DUT4</msg>
+<msg timestamp="20170628 10:58:15.930" level="INFO">DUT4.getPort()</msg>
+<msg timestamp="20170628 10:58:15.930" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:15.931" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.932" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.932" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'2a:32:93:3b:76:bf', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort6', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 0, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'791c5470-d242-4893-7afe-12ef8cf446c1'}</msg>
+<msg timestamp="20170628 10:58:15.932" level="INFO">The AdminState on interface fpPort6 is UP</msg>
+<msg timestamp="20170628 10:58:15.932" level="INFO">Checking admin state of fpPort5 port of DUT4</msg>
+<msg timestamp="20170628 10:58:15.932" level="INFO">DUT4.getPort()</msg>
+<msg timestamp="20170628 10:58:15.933" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:15.933" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:15.934" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.934" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'0e:80:3a:e1:cf:22', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort5', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 1, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'e777444b-9aea-4973-55a5-10243b9700d0'}</msg>
+<msg timestamp="20170628 10:58:15.934" level="INFO">The AdminState on interface fpPort5 is UP</msg>
+<msg timestamp="20170628 10:58:15.934" level="INFO">{u'fpPort6': u'UP', u'fpPort7': u'UP', u'fpPort4': u'UP', u'fpPort5': u'UP', u'fpPort2': u'UP', u'fpPort3': u'UP', u'fpPort1': u'UP', u'fpPort8': u'UP'}</msg>
+<status status="PASS" endtime="20170628 10:58:15.934" starttime="20170628 10:58:15.918"></status>
+</kw>
+<msg timestamp="20170628 10:58:15.934" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 10:58:15.934" starttime="20170628 10:58:15.918"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==True</arg>
+<arg>Log</arg>
+<arg>All interfaces are Administratively UP</arg>
+<arg>ELSE</arg>
+<arg>ERROR</arg>
+<arg>${result}</arg>
+<arg>One/More Interface not UP</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>All interfaces are Administratively UP</arg>
+</arguments>
+<msg timestamp="20170628 10:58:15.935" level="INFO">All interfaces are Administratively UP</msg>
+<status status="PASS" endtime="20170628 10:58:15.935" starttime="20170628 10:58:15.935"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:15.935" starttime="20170628 10:58:15.934"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:15.935" starttime="20170628 10:58:15.918"></status>
+</kw>
+<kw name="Check Link Status" library="Resource">
+<doc>Checks if the Operational state of interfaces on both the ends of the link is UP</doc>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>linkStatus</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Link Status" library="topoValidation">
+<msg timestamp="20170628 10:58:15.936" level="INFO">***VALIDATING LINK STATUS***</msg>
+<msg timestamp="20170628 10:58:15.936" level="INFO">Checking operational state of fpPort2 port of DUT1</msg>
+<msg timestamp="20170628 10:58:15.936" level="INFO">DUT1.getPortState()</msg>
+<msg timestamp="20170628 10:58:15.937" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:15.941" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 982</msg>
+<msg timestamp="20170628 10:58:15.942" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.942" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 17, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort2', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 1147, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'Unconfigured', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort2', u'IfEtherJabber': 0, u'Pvid': 4095, u'IfOutOctets': 1013, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 14, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:02.74030395 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 1, u'NumDownEvents': 0}, u'ObjectId': u'58006975-088d-4301-55e3-cf6233515182'}</msg>
+<msg timestamp="20170628 10:58:15.942" level="INFO">OperState on fpPort2 is UP</msg>
+<msg timestamp="20170628 10:58:15.942" level="INFO">Checking operational state of fpPort6 port of DUT4</msg>
+<msg timestamp="20170628 10:58:15.942" level="INFO">DUT4.getPortState()</msg>
+<msg timestamp="20170628 10:58:15.944" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:15.946" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 983</msg>
+<msg timestamp="20170628 10:58:15.947" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.948" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 14, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort6', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 1013, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'Unconfigured', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort6', u'IfEtherJabber': 0, u'Pvid': 4095, u'IfOutOctets': 1147, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 17, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:03.458688959 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 0, u'NumDownEvents': 0}, u'ObjectId': u'791c5470-d242-4893-7afe-12ef8cf446c1'}</msg>
+<msg timestamp="20170628 10:58:15.948" level="INFO">OperState on fpPort6 is UP</msg>
+<msg timestamp="20170628 10:58:15.948" level="INFO">The operState of link DUT1_DUT4_1 is UP</msg>
+<msg timestamp="20170628 10:58:15.948" level="INFO">Checking operational state of fpPort4 port of DUT3</msg>
+<msg timestamp="20170628 10:58:15.948" level="INFO">DUT3.getPortState()</msg>
+<msg timestamp="20170628 10:58:15.949" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:15.950" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 983</msg>
+<msg timestamp="20170628 10:58:15.951" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.951" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 18, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort4', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 1174, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'Unconfigured', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort4', u'IfEtherJabber': 0, u'Pvid': 4095, u'IfOutOctets': 1208, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 18, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:02.560867924 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 0, u'NumDownEvents': 0}, u'ObjectId': u'a0eea048-9e46-4328-7f06-e5c99366780b'}</msg>
+<msg timestamp="20170628 10:58:15.951" level="INFO">OperState on fpPort4 is UP</msg>
+<msg timestamp="20170628 10:58:15.951" level="INFO">Checking operational state of fpPort5 port of DUT4</msg>
+<msg timestamp="20170628 10:58:15.951" level="INFO">DUT4.getPortState()</msg>
+<msg timestamp="20170628 10:58:15.952" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:15.953" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 983</msg>
+<msg timestamp="20170628 10:58:15.953" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.953" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 18, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort5', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 1208, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'Unconfigured', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort5', u'IfEtherJabber': 0, u'Pvid': 4095, u'IfOutOctets': 1174, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 18, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:03.458525748 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 1, u'NumDownEvents': 0}, u'ObjectId': u'e777444b-9aea-4973-55a5-10243b9700d0'}</msg>
+<msg timestamp="20170628 10:58:15.953" level="INFO">OperState on fpPort5 is UP</msg>
+<msg timestamp="20170628 10:58:15.954" level="INFO">The operState of link DUT3_DUT4_1 is UP</msg>
+<msg timestamp="20170628 10:58:15.954" level="INFO">Checking operational state of fpPort1 port of DUT1</msg>
+<msg timestamp="20170628 10:58:15.954" level="INFO">DUT1.getPortState()</msg>
+<msg timestamp="20170628 10:58:15.956" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:15.958" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 983</msg>
+<msg timestamp="20170628 10:58:15.958" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.958" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 17, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort1', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 1147, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'Unconfigured', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort1', u'IfEtherJabber': 0, u'Pvid': 4095, u'IfOutOctets': 1079, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 15, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:02.740477612 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 0, u'NumDownEvents': 0}, u'ObjectId': u'87990608-2719-4d44-6a75-5123013ec699'}</msg>
+<msg timestamp="20170628 10:58:15.958" level="INFO">OperState on fpPort1 is UP</msg>
+<msg timestamp="20170628 10:58:15.959" level="INFO">Checking operational state of fpPort3 port of DUT2</msg>
+<msg timestamp="20170628 10:58:15.959" level="INFO">DUT2.getPortState()</msg>
+<msg timestamp="20170628 10:58:15.960" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:15.963" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 982</msg>
+<msg timestamp="20170628 10:58:15.964" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.964" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 15, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort3', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 1079, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'Unconfigured', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort3', u'IfEtherJabber': 0, u'Pvid': 4095, u'IfOutOctets': 1147, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 17, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:02.71611708 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 0, u'NumDownEvents': 0}, u'ObjectId': u'd17678c5-6300-416c-6f0f-e5e73e2bc2db'}</msg>
+<msg timestamp="20170628 10:58:15.964" level="INFO">OperState on fpPort3 is UP</msg>
+<msg timestamp="20170628 10:58:15.964" level="INFO">The operState of link DUT1_DUT2_1 is UP</msg>
+<msg timestamp="20170628 10:58:15.964" level="INFO">Checking operational state of fpPort8 port of DUT3</msg>
+<msg timestamp="20170628 10:58:15.964" level="INFO">DUT3.getPortState()</msg>
+<msg timestamp="20170628 10:58:15.965" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:15.966" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 981</msg>
+<msg timestamp="20170628 10:58:15.966" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.967" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 10, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort8', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 678, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'Unconfigured', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort8', u'IfEtherJabber': 0, u'Pvid': 4095, u'IfOutOctets': 735, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 10, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:02.561273151 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 1, u'NumDownEvents': 0}, u'ObjectId': u'4482c937-7e5b-4802-4a16-6614d67ffb44'}</msg>
+<msg timestamp="20170628 10:58:15.967" level="INFO">OperState on fpPort8 is UP</msg>
+<msg timestamp="20170628 10:58:15.967" level="INFO">Checking operational state of fpPort7 port of DUT2</msg>
+<msg timestamp="20170628 10:58:15.967" level="INFO">DUT2.getPortState()</msg>
+<msg timestamp="20170628 10:58:15.967" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:15.968" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 981</msg>
+<msg timestamp="20170628 10:58:15.969" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:15.969" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 10, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort7', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 735, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'Unconfigured', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort7', u'IfEtherJabber': 0, u'Pvid': 4095, u'IfOutOctets': 678, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 10, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:02.716315825 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 1, u'NumDownEvents': 0}, u'ObjectId': u'2df4efc0-fa6a-46ea-6f43-cedc348f0762'}</msg>
+<msg timestamp="20170628 10:58:15.969" level="INFO">OperState on fpPort7 is UP</msg>
+<msg timestamp="20170628 10:58:15.969" level="INFO">The operState of link DUT2_DUT3_1 is UP</msg>
+<msg timestamp="20170628 10:58:15.969" level="INFO">The operState of all links are UP</msg>
+<status status="PASS" endtime="20170628 10:58:15.969" starttime="20170628 10:58:15.936"></status>
+</kw>
+<msg timestamp="20170628 10:58:15.969" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 10:58:15.969" starttime="20170628 10:58:15.936"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==True</arg>
+<arg>Log</arg>
+<arg>All Links are UP</arg>
+<arg>ELSE</arg>
+<arg>ERROR</arg>
+<arg>${result}</arg>
+<arg>One/More Link not UP</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>All Links are UP</arg>
+</arguments>
+<msg timestamp="20170628 10:58:15.970" level="INFO">All Links are UP</msg>
+<status status="PASS" endtime="20170628 10:58:15.970" starttime="20170628 10:58:15.970"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:15.970" starttime="20170628 10:58:15.969"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:15.970" starttime="20170628 10:58:15.936"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:15.970" starttime="20170628 10:58:15.852"></status>
+</kw>
+<kw name="GLOBAL_PRECONFIG" library="Resource">
+<doc>Performs initial configurations.</doc>
+<kw name="Configure IP address" library="Resource">
+<doc>Configures IP address on the interfaces.</doc>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>createIPv4Intf</arg>
+<arg>${IntfIP}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Create I Pv 4 Intf" library="IntfIPv4">
+<arguments>
+<arg>${IntfIP}</arg>
+</arguments>
+<msg timestamp="20170628 10:58:15.971" level="INFO">*** CONFIGURING IP ADDRESS ON INTERFACES OF DEVICES ***</msg>
+<msg timestamp="20170628 10:58:15.971" level="INFO">Configuring IP Address on fpPort2 interface of DUT1 with IP 192.168.1.1/24</msg>
+<msg timestamp="20170628 10:58:15.971" level="INFO">createIPv4Intf(fpPort2) : DUT1</msg>
+<msg timestamp="20170628 10:58:15.972" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:15.974" level="DEBUG">"POST /public/v1/config/IPv4Intf HTTP/1.1" 201 284</msg>
+<msg timestamp="20170628 10:58:15.975" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 10:58:15.975" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:15.976" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 200 126</msg>
+<msg timestamp="20170628 10:58:15.976" level="INFO">IP CONFIGURATION STATUS</msg>
+<msg timestamp="20170628 10:58:15.976" level="INFO">INTF OBJECT DETAILS:{u'Object': {u'IntfRef': u'fpPort2', u'AdminState': u'UP', u'IpAddr': u'192.168.1.1/24'}, u'ObjectId': u'fa524058-73ce-4488-5e7b-ad9a68a9147f'}</msg>
+<msg timestamp="20170628 10:58:15.976" level="INFO">IP address configured on fpPort2 interface of DUT1</msg>
+<msg timestamp="20170628 10:58:15.976" level="INFO">Configuring IP Address on fpPort1 interface of DUT1 with IP 192.168.0.1/24</msg>
+<msg timestamp="20170628 10:58:15.977" level="INFO">createIPv4Intf(fpPort1) : DUT1</msg>
+<msg timestamp="20170628 10:58:15.977" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:15.979" level="DEBUG">"POST /public/v1/config/IPv4Intf HTTP/1.1" 201 284</msg>
+<msg timestamp="20170628 10:58:15.980" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 10:58:15.980" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:15.981" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 200 126</msg>
+<msg timestamp="20170628 10:58:15.981" level="INFO">IP CONFIGURATION STATUS</msg>
+<msg timestamp="20170628 10:58:15.981" level="INFO">INTF OBJECT DETAILS:{u'Object': {u'IntfRef': u'fpPort1', u'AdminState': u'UP', u'IpAddr': u'192.168.0.1/24'}, u'ObjectId': u'69786630-1766-499f-5d90-e56001b1b2e8'}</msg>
+<msg timestamp="20170628 10:58:15.981" level="INFO">IP address configured on fpPort1 interface of DUT1</msg>
+<msg timestamp="20170628 10:58:15.982" level="INFO">Configuring IP Address on fpPort4 interface of DUT3 with IP 192.168.2.3/24</msg>
+<msg timestamp="20170628 10:58:15.982" level="INFO">createIPv4Intf(fpPort4) : DUT3</msg>
+<msg timestamp="20170628 10:58:15.982" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:15.985" level="DEBUG">"POST /public/v1/config/IPv4Intf HTTP/1.1" 201 284</msg>
+<msg timestamp="20170628 10:58:15.985" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 10:58:15.986" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:15.988" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 200 126</msg>
+<msg timestamp="20170628 10:58:15.989" level="INFO">IP CONFIGURATION STATUS</msg>
+<msg timestamp="20170628 10:58:15.990" level="INFO">INTF OBJECT DETAILS:{u'Object': {u'IntfRef': u'fpPort4', u'AdminState': u'UP', u'IpAddr': u'192.168.2.3/24'}, u'ObjectId': u'710a061e-570f-4137-7bc9-cdfbd4d962c3'}</msg>
+<msg timestamp="20170628 10:58:15.990" level="INFO">IP address configured on fpPort4 interface of DUT3</msg>
+<msg timestamp="20170628 10:58:15.990" level="INFO">Configuring IP Address on fpPort8 interface of DUT3 with IP 192.168.1.3/24</msg>
+<msg timestamp="20170628 10:58:15.990" level="INFO">createIPv4Intf(fpPort8) : DUT3</msg>
+<msg timestamp="20170628 10:58:15.991" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:15.993" level="DEBUG">"POST /public/v1/config/IPv4Intf HTTP/1.1" 201 284</msg>
+<msg timestamp="20170628 10:58:15.994" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 10:58:15.995" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:15.995" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 200 126</msg>
+<msg timestamp="20170628 10:58:15.996" level="INFO">IP CONFIGURATION STATUS</msg>
+<msg timestamp="20170628 10:58:15.996" level="INFO">INTF OBJECT DETAILS:{u'Object': {u'IntfRef': u'fpPort8', u'AdminState': u'UP', u'IpAddr': u'192.168.1.3/24'}, u'ObjectId': u'88e25da9-1589-49fd-635d-ea96451ec89d'}</msg>
+<msg timestamp="20170628 10:58:15.996" level="INFO">IP address configured on fpPort8 interface of DUT3</msg>
+<msg timestamp="20170628 10:58:15.996" level="INFO">Configuring IP Address on fpPort7 interface of DUT2 with IP 192.168.1.2/24</msg>
+<msg timestamp="20170628 10:58:15.996" level="INFO">createIPv4Intf(fpPort7) : DUT2</msg>
+<msg timestamp="20170628 10:58:15.996" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:15.999" level="DEBUG">"POST /public/v1/config/IPv4Intf HTTP/1.1" 201 284</msg>
+<msg timestamp="20170628 10:58:15.999" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 10:58:16.000" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:16.001" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 200 126</msg>
+<msg timestamp="20170628 10:58:16.001" level="INFO">IP CONFIGURATION STATUS</msg>
+<msg timestamp="20170628 10:58:16.001" level="INFO">INTF OBJECT DETAILS:{u'Object': {u'IntfRef': u'fpPort7', u'AdminState': u'UP', u'IpAddr': u'192.168.1.2/24'}, u'ObjectId': u'43fbc99b-d3c7-40ee-5e8d-a638df29d06f'}</msg>
+<msg timestamp="20170628 10:58:16.001" level="INFO">IP address configured on fpPort7 interface of DUT2</msg>
+<msg timestamp="20170628 10:58:16.001" level="INFO">Configuring IP Address on fpPort3 interface of DUT2 with IP 192.168.0.2/24</msg>
+<msg timestamp="20170628 10:58:16.001" level="INFO">createIPv4Intf(fpPort3) : DUT2</msg>
+<msg timestamp="20170628 10:58:16.002" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:16.004" level="DEBUG">"POST /public/v1/config/IPv4Intf HTTP/1.1" 201 284</msg>
+<msg timestamp="20170628 10:58:16.005" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 10:58:16.005" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:16.006" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 200 126</msg>
+<msg timestamp="20170628 10:58:16.007" level="INFO">IP CONFIGURATION STATUS</msg>
+<msg timestamp="20170628 10:58:16.007" level="INFO">INTF OBJECT DETAILS:{u'Object': {u'IntfRef': u'fpPort3', u'AdminState': u'UP', u'IpAddr': u'192.168.0.2/24'}, u'ObjectId': u'a2f4d745-cc93-402b-687e-bc56f6fb5d10'}</msg>
+<msg timestamp="20170628 10:58:16.007" level="INFO">IP address configured on fpPort3 interface of DUT2</msg>
+<msg timestamp="20170628 10:58:16.007" level="INFO">Configuring IP Address on fpPort6 interface of DUT4 with IP 192.168.1.4/24</msg>
+<msg timestamp="20170628 10:58:16.007" level="INFO">createIPv4Intf(fpPort6) : DUT4</msg>
+<msg timestamp="20170628 10:58:16.007" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.010" level="DEBUG">"POST /public/v1/config/IPv4Intf HTTP/1.1" 201 284</msg>
+<msg timestamp="20170628 10:58:16.010" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 10:58:16.011" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.012" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 200 126</msg>
+<msg timestamp="20170628 10:58:16.012" level="INFO">IP CONFIGURATION STATUS</msg>
+<msg timestamp="20170628 10:58:16.012" level="INFO">INTF OBJECT DETAILS:{u'Object': {u'IntfRef': u'fpPort6', u'AdminState': u'UP', u'IpAddr': u'192.168.1.4/24'}, u'ObjectId': u'5492cd3b-a394-473c-552b-c050e5551017'}</msg>
+<msg timestamp="20170628 10:58:16.012" level="INFO">IP address configured on fpPort6 interface of DUT4</msg>
+<msg timestamp="20170628 10:58:16.012" level="INFO">Configuring IP Address on fpPort5 interface of DUT4 with IP 192.168.2.4/24</msg>
+<msg timestamp="20170628 10:58:16.012" level="INFO">createIPv4Intf(fpPort5) : DUT4</msg>
+<msg timestamp="20170628 10:58:16.013" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.014" level="DEBUG">"POST /public/v1/config/IPv4Intf HTTP/1.1" 201 284</msg>
+<msg timestamp="20170628 10:58:16.015" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 10:58:16.016" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.017" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 200 126</msg>
+<msg timestamp="20170628 10:58:16.017" level="INFO">IP CONFIGURATION STATUS</msg>
+<msg timestamp="20170628 10:58:16.017" level="INFO">INTF OBJECT DETAILS:{u'Object': {u'IntfRef': u'fpPort5', u'AdminState': u'UP', u'IpAddr': u'192.168.2.4/24'}, u'ObjectId': u'723426a9-c2c3-4ec7-7003-639269f7720e'}</msg>
+<msg timestamp="20170628 10:58:16.017" level="INFO">IP address configured on fpPort5 interface of DUT4</msg>
+<msg timestamp="20170628 10:58:16.017" level="INFO">{'DUT3[fpPort8]': 'PASS', 'DUT2[fpPort3]': 'PASS', 'DUT4[fpPort6]': 'PASS', 'DUT1[fpPort1]': 'PASS', 'DUT2[fpPort7]': 'PASS', 'DUT1[fpPort2]': 'PASS', 'DUT4[fpPort5]': 'PASS', 'DUT3[fpPort4]': 'PASS'}</msg>
+<status status="PASS" endtime="20170628 10:58:16.017" starttime="20170628 10:58:15.971"></status>
+</kw>
+<msg timestamp="20170628 10:58:16.017" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 10:58:16.017" starttime="20170628 10:58:15.971"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==True</arg>
+<arg>Log</arg>
+<arg>IP address Configured on given Interfaces</arg>
+<arg>ELSE</arg>
+<arg>ERROR</arg>
+<arg>${result}</arg>
+<arg>IP Address Configuration Failed</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>IP address Configured on given Interfaces</arg>
+</arguments>
+<msg timestamp="20170628 10:58:16.018" level="INFO">IP address Configured on given Interfaces</msg>
+<status status="PASS" endtime="20170628 10:58:16.018" starttime="20170628 10:58:16.018"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:16.018" starttime="20170628 10:58:16.018"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:16.018" starttime="20170628 10:58:15.970"></status>
+</kw>
+<kw name="Validate IP Address configuration" library="Resource">
+<doc>Checks if the interface is configures with IP and admistate is UP</doc>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>getIPv4IntfState</arg>
+<arg>${IntfIPState}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Get I Pv 4 Intf State" library="IntfIPv4">
+<arguments>
+<arg>${IntfIPState}</arg>
+</arguments>
+<msg timestamp="20170628 10:58:16.019" level="INFO">*** CHECKING INTERFACE STATUS OF ALL DEVICES ***</msg>
+<msg timestamp="20170628 10:58:16.019" level="INFO">Checking interface state on fpPort1 interface of DUT1 </msg>
+<msg timestamp="20170628 10:58:16.019" level="INFO">getIPv4IntfState(fpPort1) : DUT1</msg>
+<msg timestamp="20170628 10:58:16.020" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:16.021" level="DEBUG">"GET /public/v1/state/IPv4Intf HTTP/1.1" 200 248</msg>
+<msg timestamp="20170628 10:58:16.021" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.021" level="INFO">INTF STATE OBJECT DETAILS:{u'Object': {u'OperState': u'UP', u'L2IntfId': 0, u'IpAddr': u'192.168.0.1/24', u'LastUpEventTime': u'', u'IntfRef': u'fpPort1', u'LastDownEventTime': u'', u'IfIndex': 0, u'NumDownEvents': 0, u'L2IntfType': u'port', u'NumUpEvents': 0}, u'ObjectId': u'69786630-1766-499f-5d90-e56001b1b2e8'}</msg>
+<msg timestamp="20170628 10:58:16.021" level="INFO">fpPort1 interface of DUT1 UP</msg>
+<msg timestamp="20170628 10:58:16.021" level="INFO">Checking interface state on fpPort2 interface of DUT1 </msg>
+<msg timestamp="20170628 10:58:16.021" level="INFO">getIPv4IntfState(fpPort2) : DUT1</msg>
+<msg timestamp="20170628 10:58:16.022" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:16.022" level="DEBUG">"GET /public/v1/state/IPv4Intf HTTP/1.1" 200 248</msg>
+<msg timestamp="20170628 10:58:16.023" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.023" level="INFO">INTF STATE OBJECT DETAILS:{u'Object': {u'OperState': u'UP', u'L2IntfId': 1, u'IpAddr': u'192.168.1.1/24', u'LastUpEventTime': u'', u'IntfRef': u'fpPort2', u'LastDownEventTime': u'', u'IfIndex': 1, u'NumDownEvents': 0, u'L2IntfType': u'port', u'NumUpEvents': 0}, u'ObjectId': u'fa524058-73ce-4488-5e7b-ad9a68a9147f'}</msg>
+<msg timestamp="20170628 10:58:16.023" level="INFO">fpPort2 interface of DUT1 UP</msg>
+<msg timestamp="20170628 10:58:16.023" level="INFO">Checking interface state on fpPort4 interface of DUT3 </msg>
+<msg timestamp="20170628 10:58:16.023" level="INFO">getIPv4IntfState(fpPort4) : DUT3</msg>
+<msg timestamp="20170628 10:58:16.024" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:16.024" level="DEBUG">"GET /public/v1/state/IPv4Intf HTTP/1.1" 200 248</msg>
+<msg timestamp="20170628 10:58:16.025" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.025" level="INFO">INTF STATE OBJECT DETAILS:{u'Object': {u'OperState': u'UP', u'L2IntfId': 0, u'IpAddr': u'192.168.2.3/24', u'LastUpEventTime': u'', u'IntfRef': u'fpPort4', u'LastDownEventTime': u'', u'IfIndex': 0, u'NumDownEvents': 0, u'L2IntfType': u'port', u'NumUpEvents': 0}, u'ObjectId': u'710a061e-570f-4137-7bc9-cdfbd4d962c3'}</msg>
+<msg timestamp="20170628 10:58:16.025" level="INFO">fpPort4 interface of DUT3 UP</msg>
+<msg timestamp="20170628 10:58:16.025" level="INFO">Checking interface state on fpPort8 interface of DUT3 </msg>
+<msg timestamp="20170628 10:58:16.025" level="INFO">getIPv4IntfState(fpPort8) : DUT3</msg>
+<msg timestamp="20170628 10:58:16.026" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:16.026" level="DEBUG">"GET /public/v1/state/IPv4Intf HTTP/1.1" 200 248</msg>
+<msg timestamp="20170628 10:58:16.027" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.027" level="INFO">INTF STATE OBJECT DETAILS:{u'Object': {u'OperState': u'UP', u'L2IntfId': 1, u'IpAddr': u'192.168.1.3/24', u'LastUpEventTime': u'', u'IntfRef': u'fpPort8', u'LastDownEventTime': u'', u'IfIndex': 1, u'NumDownEvents': 0, u'L2IntfType': u'port', u'NumUpEvents': 0}, u'ObjectId': u'88e25da9-1589-49fd-635d-ea96451ec89d'}</msg>
+<msg timestamp="20170628 10:58:16.027" level="INFO">fpPort8 interface of DUT3 UP</msg>
+<msg timestamp="20170628 10:58:16.027" level="INFO">Checking interface state on fpPort3 interface of DUT2 </msg>
+<msg timestamp="20170628 10:58:16.027" level="INFO">getIPv4IntfState(fpPort3) : DUT2</msg>
+<msg timestamp="20170628 10:58:16.028" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:16.029" level="DEBUG">"GET /public/v1/state/IPv4Intf HTTP/1.1" 200 248</msg>
+<msg timestamp="20170628 10:58:16.029" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.029" level="INFO">INTF STATE OBJECT DETAILS:{u'Object': {u'OperState': u'UP', u'L2IntfId': 0, u'IpAddr': u'192.168.0.2/24', u'LastUpEventTime': u'', u'IntfRef': u'fpPort3', u'LastDownEventTime': u'', u'IfIndex': 0, u'NumDownEvents': 0, u'L2IntfType': u'port', u'NumUpEvents': 0}, u'ObjectId': u'a2f4d745-cc93-402b-687e-bc56f6fb5d10'}</msg>
+<msg timestamp="20170628 10:58:16.029" level="INFO">fpPort3 interface of DUT2 UP</msg>
+<msg timestamp="20170628 10:58:16.029" level="INFO">Checking interface state on fpPort7 interface of DUT2 </msg>
+<msg timestamp="20170628 10:58:16.029" level="INFO">getIPv4IntfState(fpPort7) : DUT2</msg>
+<msg timestamp="20170628 10:58:16.030" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:16.031" level="DEBUG">"GET /public/v1/state/IPv4Intf HTTP/1.1" 200 248</msg>
+<msg timestamp="20170628 10:58:16.031" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.031" level="INFO">INTF STATE OBJECT DETAILS:{u'Object': {u'OperState': u'UP', u'L2IntfId': 1, u'IpAddr': u'192.168.1.2/24', u'LastUpEventTime': u'', u'IntfRef': u'fpPort7', u'LastDownEventTime': u'', u'IfIndex': 1, u'NumDownEvents': 0, u'L2IntfType': u'port', u'NumUpEvents': 0}, u'ObjectId': u'43fbc99b-d3c7-40ee-5e8d-a638df29d06f'}</msg>
+<msg timestamp="20170628 10:58:16.032" level="INFO">fpPort7 interface of DUT2 UP</msg>
+<msg timestamp="20170628 10:58:16.032" level="INFO">Checking interface state on fpPort5 interface of DUT4 </msg>
+<msg timestamp="20170628 10:58:16.032" level="INFO">getIPv4IntfState(fpPort5) : DUT4</msg>
+<msg timestamp="20170628 10:58:16.032" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.033" level="DEBUG">"GET /public/v1/state/IPv4Intf HTTP/1.1" 200 248</msg>
+<msg timestamp="20170628 10:58:16.034" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.034" level="INFO">INTF STATE OBJECT DETAILS:{u'Object': {u'OperState': u'UP', u'L2IntfId': 1, u'IpAddr': u'192.168.2.4/24', u'LastUpEventTime': u'', u'IntfRef': u'fpPort5', u'LastDownEventTime': u'', u'IfIndex': 1, u'NumDownEvents': 0, u'L2IntfType': u'port', u'NumUpEvents': 0}, u'ObjectId': u'723426a9-c2c3-4ec7-7003-639269f7720e'}</msg>
+<msg timestamp="20170628 10:58:16.034" level="INFO">fpPort5 interface of DUT4 UP</msg>
+<msg timestamp="20170628 10:58:16.034" level="INFO">Checking interface state on fpPort6 interface of DUT4 </msg>
+<msg timestamp="20170628 10:58:16.034" level="INFO">getIPv4IntfState(fpPort6) : DUT4</msg>
+<msg timestamp="20170628 10:58:16.034" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.035" level="DEBUG">"GET /public/v1/state/IPv4Intf HTTP/1.1" 200 248</msg>
+<msg timestamp="20170628 10:58:16.035" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.036" level="INFO">INTF STATE OBJECT DETAILS:{u'Object': {u'OperState': u'UP', u'L2IntfId': 0, u'IpAddr': u'192.168.1.4/24', u'LastUpEventTime': u'', u'IntfRef': u'fpPort6', u'LastDownEventTime': u'', u'IfIndex': 0, u'NumDownEvents': 0, u'L2IntfType': u'port', u'NumUpEvents': 0}, u'ObjectId': u'5492cd3b-a394-473c-552b-c050e5551017'}</msg>
+<msg timestamp="20170628 10:58:16.036" level="INFO">fpPort6 interface of DUT4 UP</msg>
+<msg timestamp="20170628 10:58:16.036" level="DEBUG">{'DUT3[fpPort8]': 'UP', 'DUT2[fpPort3]': 'UP', 'DUT4[fpPort6]': 'UP', 'DUT1[fpPort1]': 'UP', 'DUT2[fpPort7]': 'UP', 'DUT1[fpPort2]': 'UP', 'DUT4[fpPort5]': 'UP', 'DUT3[fpPort4]': 'UP'}</msg>
+<status status="PASS" endtime="20170628 10:58:16.036" starttime="20170628 10:58:16.019"></status>
+</kw>
+<msg timestamp="20170628 10:58:16.036" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 10:58:16.036" starttime="20170628 10:58:16.019"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==True</arg>
+<arg>Log</arg>
+<arg>All interfaces are UP</arg>
+<arg>ELSE</arg>
+<arg>Notify</arg>
+<arg>${result}</arg>
+<arg>One/More Interface Down</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>All interfaces are UP</arg>
+</arguments>
+<msg timestamp="20170628 10:58:16.037" level="INFO">All interfaces are UP</msg>
+<status status="PASS" endtime="20170628 10:58:16.037" starttime="20170628 10:58:16.036"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:16.037" starttime="20170628 10:58:16.036"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:16.037" starttime="20170628 10:58:16.018"></status>
+</kw>
+<kw name="Check Link Status" library="Resource">
+<doc>Checks if the Operational state of interfaces on both the ends of the link is UP</doc>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>linkStatus</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Link Status" library="topoValidation">
+<msg timestamp="20170628 10:58:16.037" level="INFO">***VALIDATING LINK STATUS***</msg>
+<msg timestamp="20170628 10:58:16.037" level="INFO">Checking operational state of fpPort2 port of DUT1</msg>
+<msg timestamp="20170628 10:58:16.037" level="INFO">DUT1.getPortState()</msg>
+<msg timestamp="20170628 10:58:16.038" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:16.039" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 972</msg>
+<msg timestamp="20170628 10:58:16.039" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.040" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 17, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort2', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 1147, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'L3', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort2', u'IfEtherJabber': 0, u'Pvid': 3050, u'IfOutOctets': 1013, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 14, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:02.74030395 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 1, u'NumDownEvents': 0}, u'ObjectId': u'58006975-088d-4301-55e3-cf6233515182'}</msg>
+<msg timestamp="20170628 10:58:16.040" level="INFO">OperState on fpPort2 is UP</msg>
+<msg timestamp="20170628 10:58:16.040" level="INFO">Checking operational state of fpPort6 port of DUT4</msg>
+<msg timestamp="20170628 10:58:16.040" level="INFO">DUT4.getPortState()</msg>
+<msg timestamp="20170628 10:58:16.040" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.041" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 973</msg>
+<msg timestamp="20170628 10:58:16.042" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.042" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 14, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort6', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 1013, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'L3', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort6', u'IfEtherJabber': 0, u'Pvid': 3050, u'IfOutOctets': 1147, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 17, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:03.458688959 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 0, u'NumDownEvents': 0}, u'ObjectId': u'791c5470-d242-4893-7afe-12ef8cf446c1'}</msg>
+<msg timestamp="20170628 10:58:16.042" level="INFO">OperState on fpPort6 is UP</msg>
+<msg timestamp="20170628 10:58:16.042" level="INFO">The operState of link DUT1_DUT4_1 is UP</msg>
+<msg timestamp="20170628 10:58:16.042" level="INFO">Checking operational state of fpPort4 port of DUT3</msg>
+<msg timestamp="20170628 10:58:16.042" level="INFO">DUT3.getPortState()</msg>
+<msg timestamp="20170628 10:58:16.043" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:16.044" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 973</msg>
+<msg timestamp="20170628 10:58:16.044" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.044" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 18, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort4', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 1174, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'L3', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort4', u'IfEtherJabber': 0, u'Pvid': 3050, u'IfOutOctets': 1208, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 18, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:02.560867924 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 0, u'NumDownEvents': 0}, u'ObjectId': u'a0eea048-9e46-4328-7f06-e5c99366780b'}</msg>
+<msg timestamp="20170628 10:58:16.044" level="INFO">OperState on fpPort4 is UP</msg>
+<msg timestamp="20170628 10:58:16.044" level="INFO">Checking operational state of fpPort5 port of DUT4</msg>
+<msg timestamp="20170628 10:58:16.044" level="INFO">DUT4.getPortState()</msg>
+<msg timestamp="20170628 10:58:16.045" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.046" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 973</msg>
+<msg timestamp="20170628 10:58:16.046" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.046" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 18, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort5', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 1208, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'L3', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort5', u'IfEtherJabber': 0, u'Pvid': 3051, u'IfOutOctets': 1174, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 18, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:03.458525748 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 1, u'NumDownEvents': 0}, u'ObjectId': u'e777444b-9aea-4973-55a5-10243b9700d0'}</msg>
+<msg timestamp="20170628 10:58:16.047" level="INFO">OperState on fpPort5 is UP</msg>
+<msg timestamp="20170628 10:58:16.047" level="INFO">The operState of link DUT3_DUT4_1 is UP</msg>
+<msg timestamp="20170628 10:58:16.047" level="INFO">Checking operational state of fpPort1 port of DUT1</msg>
+<msg timestamp="20170628 10:58:16.047" level="INFO">DUT1.getPortState()</msg>
+<msg timestamp="20170628 10:58:16.047" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:16.048" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 973</msg>
+<msg timestamp="20170628 10:58:16.049" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.049" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 17, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort1', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 1147, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'L3', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort1', u'IfEtherJabber': 0, u'Pvid': 3051, u'IfOutOctets': 1079, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 15, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:02.740477612 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 0, u'NumDownEvents': 0}, u'ObjectId': u'87990608-2719-4d44-6a75-5123013ec699'}</msg>
+<msg timestamp="20170628 10:58:16.049" level="INFO">OperState on fpPort1 is UP</msg>
+<msg timestamp="20170628 10:58:16.049" level="INFO">Checking operational state of fpPort3 port of DUT2</msg>
+<msg timestamp="20170628 10:58:16.049" level="INFO">DUT2.getPortState()</msg>
+<msg timestamp="20170628 10:58:16.050" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:16.051" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 972</msg>
+<msg timestamp="20170628 10:58:16.051" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.051" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 15, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort3', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 1079, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'L3', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort3', u'IfEtherJabber': 0, u'Pvid': 3051, u'IfOutOctets': 1147, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 17, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:02.71611708 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 0, u'NumDownEvents': 0}, u'ObjectId': u'd17678c5-6300-416c-6f0f-e5e73e2bc2db'}</msg>
+<msg timestamp="20170628 10:58:16.051" level="INFO">OperState on fpPort3 is UP</msg>
+<msg timestamp="20170628 10:58:16.051" level="INFO">The operState of link DUT1_DUT2_1 is UP</msg>
+<msg timestamp="20170628 10:58:16.052" level="INFO">Checking operational state of fpPort8 port of DUT3</msg>
+<msg timestamp="20170628 10:58:16.052" level="INFO">DUT3.getPortState()</msg>
+<msg timestamp="20170628 10:58:16.052" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:16.053" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 971</msg>
+<msg timestamp="20170628 10:58:16.054" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.054" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 10, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort8', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 678, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'L3', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort8', u'IfEtherJabber': 0, u'Pvid': 3051, u'IfOutOctets': 735, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 10, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:02.561273151 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 1, u'NumDownEvents': 0}, u'ObjectId': u'4482c937-7e5b-4802-4a16-6614d67ffb44'}</msg>
+<msg timestamp="20170628 10:58:16.054" level="INFO">OperState on fpPort8 is UP</msg>
+<msg timestamp="20170628 10:58:16.054" level="INFO">Checking operational state of fpPort7 port of DUT2</msg>
+<msg timestamp="20170628 10:58:16.054" level="INFO">DUT2.getPortState()</msg>
+<msg timestamp="20170628 10:58:16.054" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:16.055" level="DEBUG">"GET /public/v1/state/Port HTTP/1.1" 200 971</msg>
+<msg timestamp="20170628 10:58:16.056" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.056" level="INFO">PORT STATE OBJECT DETAILS: {u'Object': {u'IfInDiscards': 0, u'IfInErrors': 0, u'IfEtherPkts': 0, u'IfEtherPkts65To127Octets': 0, u'DscpToCosProfileRef': u'default', u'IfEtherPkts128To255Octets': 0, u'IfInUcastPkts': 10, u'IfEtherCRCAlignError': 0, u'IntfRef': u'fpPort7', u'IfEtherMCPkts': 0, u'PcpToCosProfileRef': u'default', u'IfInUnknownProtos': 0, u'IfEtherOverSizePktCnt': 0, u'IfEtherUnderSizePktCnt': 0, u'OperState': u'UP', u'IfInOctets': 735, u'IfEtherPkts512To1023Octets': 0, u'PresentInHW': u'YES', u'ConfigMode': u'L3', u'IfOutErrors': 0, u'IfEtherFragments': 0, u'IfEtherPkts1024To1518Octets': 0, u'OperSpeed': 0, u'Name': u'fpPort7', u'IfEtherJabber': 0, u'Pvid': 3050, u'IfOutOctets': 678, u'LastDownEventTime': u'', u'IfEtherPkts256To511Octets': 0, u'ErrDisableReason': u'', u'IfEtherBcastPkts': 0, u'NumUpEvents': 1, u'IfOutUcastPkts': 10, u'IfEtherPkts64OrLessOctets': 0, u'LastUpEventTime': u'2017-06-28 05:22:02.716315825 +0000 UTC', u'PRBSRxErrCnt': 0, u'OperDuplex': u'', u'IfOutDiscards': 0, u'SchedProfileRef': u'default', u'IfIndex': 1, u'NumDownEvents': 0}, u'ObjectId': u'2df4efc0-fa6a-46ea-6f43-cedc348f0762'}</msg>
+<msg timestamp="20170628 10:58:16.056" level="INFO">OperState on fpPort7 is UP</msg>
+<msg timestamp="20170628 10:58:16.056" level="INFO">The operState of link DUT2_DUT3_1 is UP</msg>
+<msg timestamp="20170628 10:58:16.056" level="INFO">The operState of all links are UP</msg>
+<status status="PASS" endtime="20170628 10:58:16.056" starttime="20170628 10:58:16.037"></status>
+</kw>
+<msg timestamp="20170628 10:58:16.056" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 10:58:16.056" starttime="20170628 10:58:16.037"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==True</arg>
+<arg>Log</arg>
+<arg>All Links are UP</arg>
+<arg>ELSE</arg>
+<arg>ERROR</arg>
+<arg>${result}</arg>
+<arg>One/More Link not UP</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>All Links are UP</arg>
+</arguments>
+<msg timestamp="20170628 10:58:16.057" level="INFO">All Links are UP</msg>
+<status status="PASS" endtime="20170628 10:58:16.057" starttime="20170628 10:58:16.057"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:16.057" starttime="20170628 10:58:16.056"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:16.057" starttime="20170628 10:58:16.037"></status>
+</kw>
+<kw name="Check Admin State Of Interfaces" library="Resource">
+<doc>Checks if the adminstate of interfaces on both the ends of the link is UP and</doc>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>adminStatus</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Admin Status" library="topoValidation">
+<msg timestamp="20170628 10:58:16.058" level="INFO">***VALIDATING INTERFACE STATUS***</msg>
+<msg timestamp="20170628 10:58:16.058" level="INFO">Checking admin state of fpPort1 port of DUT1</msg>
+<msg timestamp="20170628 10:58:16.058" level="INFO">DUT1.getPort()</msg>
+<msg timestamp="20170628 10:58:16.059" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:16.059" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:16.060" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.060" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'76:c5:85:bd:2e:ed', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort1', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 0, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'87990608-2719-4d44-6a75-5123013ec699'}</msg>
+<msg timestamp="20170628 10:58:16.060" level="INFO">The AdminState on interface fpPort1 is UP</msg>
+<msg timestamp="20170628 10:58:16.060" level="INFO">Checking admin state of fpPort2 port of DUT1</msg>
+<msg timestamp="20170628 10:58:16.060" level="INFO">DUT1.getPort()</msg>
+<msg timestamp="20170628 10:58:16.061" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:16.061" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:16.062" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.062" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'b2:92:8f:66:78:fe', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort2', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 1, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'58006975-088d-4301-55e3-cf6233515182'}</msg>
+<msg timestamp="20170628 10:58:16.062" level="INFO">The AdminState on interface fpPort2 is UP</msg>
+<msg timestamp="20170628 10:58:16.062" level="INFO">Checking admin state of fpPort8 port of DUT3</msg>
+<msg timestamp="20170628 10:58:16.062" level="INFO">DUT3.getPort()</msg>
+<msg timestamp="20170628 10:58:16.063" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:16.063" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:16.064" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.064" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'b2:bc:bc:13:42:c8', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort8', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 1, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'4482c937-7e5b-4802-4a16-6614d67ffb44'}</msg>
+<msg timestamp="20170628 10:58:16.064" level="INFO">The AdminState on interface fpPort8 is UP</msg>
+<msg timestamp="20170628 10:58:16.064" level="INFO">Checking admin state of fpPort4 port of DUT3</msg>
+<msg timestamp="20170628 10:58:16.064" level="INFO">DUT3.getPort()</msg>
+<msg timestamp="20170628 10:58:16.065" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:16.065" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:16.066" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.066" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'9a:62:89:03:cb:e9', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort4', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 0, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'a0eea048-9e46-4328-7f06-e5c99366780b'}</msg>
+<msg timestamp="20170628 10:58:16.066" level="INFO">The AdminState on interface fpPort4 is UP</msg>
+<msg timestamp="20170628 10:58:16.066" level="INFO">Checking admin state of fpPort3 port of DUT2</msg>
+<msg timestamp="20170628 10:58:16.066" level="INFO">DUT2.getPort()</msg>
+<msg timestamp="20170628 10:58:16.066" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:16.067" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:16.068" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.068" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'06:4f:58:1b:70:59', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort3', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 0, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'd17678c5-6300-416c-6f0f-e5e73e2bc2db'}</msg>
+<msg timestamp="20170628 10:58:16.068" level="INFO">The AdminState on interface fpPort3 is UP</msg>
+<msg timestamp="20170628 10:58:16.068" level="INFO">Checking admin state of fpPort7 port of DUT2</msg>
+<msg timestamp="20170628 10:58:16.068" level="INFO">DUT2.getPort()</msg>
+<msg timestamp="20170628 10:58:16.068" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:16.069" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:16.069" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.070" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'4a:b0:09:3d:84:0a', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort7', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 1, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'2df4efc0-fa6a-46ea-6f43-cedc348f0762'}</msg>
+<msg timestamp="20170628 10:58:16.070" level="INFO">The AdminState on interface fpPort7 is UP</msg>
+<msg timestamp="20170628 10:58:16.070" level="INFO">Checking admin state of fpPort6 port of DUT4</msg>
+<msg timestamp="20170628 10:58:16.070" level="INFO">DUT4.getPort()</msg>
+<msg timestamp="20170628 10:58:16.070" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.071" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:16.072" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.072" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'2a:32:93:3b:76:bf', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort6', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 0, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'791c5470-d242-4893-7afe-12ef8cf446c1'}</msg>
+<msg timestamp="20170628 10:58:16.072" level="INFO">The AdminState on interface fpPort6 is UP</msg>
+<msg timestamp="20170628 10:58:16.072" level="INFO">Checking admin state of fpPort5 port of DUT4</msg>
+<msg timestamp="20170628 10:58:16.072" level="INFO">DUT4.getPort()</msg>
+<msg timestamp="20170628 10:58:16.072" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.073" level="DEBUG">"GET /public/v1/config/Port HTTP/1.1" 200 521</msg>
+<msg timestamp="20170628 10:58:16.073" level="INFO">RESULT: &lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 10:58:16.074" level="INFO">PORT OBJECT DETAILS: {u'Object': {u'MacAddr': u'0e:80:3a:e1:cf:22', u'PRBSRxEnable': False, u'Description': u'Host ethernet Port', u'StormControlProfile': u'NONE', u'PhyIntfType': u'veth', u'Duplex': u'FULL', u'PRBSPolynomial': u'', u'MediaType': u'veth', u'Mtu': 1500, u'EnableFEC': False, u'IntfRef': u'fpPort5', u'AdminState': u'UP', u'PcpToCosProfileRef': u'default', u'SchedProfileRef': u'default', u'BreakOutMode': u'unsupported', u'IfIndex': 1, u'DscpToCosProfileRef': u'default', u'Autoneg': u'AUTO', u'LoopbackMode': u'', u'Speed': 1000, u'PRBSTxEnable': False}, u'ObjectId': u'e777444b-9aea-4973-55a5-10243b9700d0'}</msg>
+<msg timestamp="20170628 10:58:16.074" level="INFO">The AdminState on interface fpPort5 is UP</msg>
+<msg timestamp="20170628 10:58:16.074" level="INFO">{u'fpPort6': u'UP', u'fpPort7': u'UP', u'fpPort4': u'UP', u'fpPort5': u'UP', u'fpPort2': u'UP', u'fpPort3': u'UP', u'fpPort1': u'UP', u'fpPort8': u'UP'}</msg>
+<status status="PASS" endtime="20170628 10:58:16.074" starttime="20170628 10:58:16.058"></status>
+</kw>
+<msg timestamp="20170628 10:58:16.074" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 10:58:16.074" starttime="20170628 10:58:16.057"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==True</arg>
+<arg>Log</arg>
+<arg>All interfaces are Administratively UP</arg>
+<arg>ELSE</arg>
+<arg>ERROR</arg>
+<arg>${result}</arg>
+<arg>One/More Interface not UP</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>All interfaces are Administratively UP</arg>
+</arguments>
+<msg timestamp="20170628 10:58:16.075" level="INFO">All interfaces are Administratively UP</msg>
+<status status="PASS" endtime="20170628 10:58:16.075" starttime="20170628 10:58:16.074"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:16.075" starttime="20170628 10:58:16.074"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:16.075" starttime="20170628 10:58:16.057"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:16.075" starttime="20170628 10:58:15.970"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:16.075" starttime="20170628 10:58:15.836"></status>
+</kw>
+<test id="s1-t1" name="BGP">
+<kw name="Configure BGP Global" library="Resource">
+<doc>Configures BGP Global</doc>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>updateBGPGlobal</arg>
+<arg>${BGPGlobal}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Update BGP Global" library="BGP">
+<arguments>
+<arg>${BGPGlobal}</arg>
+</arguments>
+<msg timestamp="20170628 10:58:16.076" level="INFO">*** ENABLING BGP GLOBAL ***</msg>
+<msg timestamp="20170628 10:58:16.076" level="INFO">Enabling BGP on device DUT1</msg>
+<msg timestamp="20170628 10:58:16.077" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:16.078" level="DEBUG">"PATCH /public/v1/config/BGPGlobal HTTP/1.1" 200 284</msg>
+<msg timestamp="20170628 10:58:16.078" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 10:58:16.079" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:16.079" level="DEBUG">"GET /public/v1/config//BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:16.080" level="DEBUG">"GET /public/v1/config/BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 376</msg>
+<msg timestamp="20170628 10:58:16.081" level="INFO">BGP GLOBAL OBJECT DETAILS:[{u'Object': {u'Disabled': False, u'Defaultv4Route': False, u'Redistribution': [], u'Defaultv6Route': False, u'ASNum': u'200', u'DefaultMED': 0, u'EBGPMaxPaths': 0, u'EBGPAllowMultipleAS': False, u'RouterId': u'1.1.1.1', u'Vrf': u'default', u'IBGPMaxPaths': 0, u'UseMultiplePaths': False}, u'ObjectId': u'19e5f010-71bb-4bff-6ef5-59fe942e1573'}]</msg>
+<msg timestamp="20170628 10:58:16.081" level="INFO">BGP Global enabled on DUT1</msg>
+<msg timestamp="20170628 10:58:16.081" level="INFO">Enabling BGP on device DUT3</msg>
+<msg timestamp="20170628 10:58:16.082" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:16.083" level="DEBUG">"PATCH /public/v1/config/BGPGlobal HTTP/1.1" 200 284</msg>
+<msg timestamp="20170628 10:58:16.083" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 10:58:16.084" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:16.084" level="DEBUG">"GET /public/v1/config//BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:16.086" level="DEBUG">"GET /public/v1/config/BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 376</msg>
+<msg timestamp="20170628 10:58:16.086" level="INFO">BGP GLOBAL OBJECT DETAILS:[{u'Object': {u'Disabled': False, u'Defaultv4Route': False, u'Redistribution': [], u'Defaultv6Route': False, u'ASNum': u'202', u'DefaultMED': 0, u'EBGPMaxPaths': 0, u'EBGPAllowMultipleAS': False, u'RouterId': u'3.3.3.3', u'Vrf': u'default', u'IBGPMaxPaths': 0, u'UseMultiplePaths': False}, u'ObjectId': u'1e8f0a2a-d2e9-4f58-509e-466ffad62d47'}]</msg>
+<msg timestamp="20170628 10:58:16.086" level="INFO">BGP Global enabled on DUT3</msg>
+<msg timestamp="20170628 10:58:16.086" level="INFO">Enabling BGP on device DUT2</msg>
+<msg timestamp="20170628 10:58:16.087" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:16.088" level="DEBUG">"PATCH /public/v1/config/BGPGlobal HTTP/1.1" 200 284</msg>
+<msg timestamp="20170628 10:58:16.088" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 10:58:16.089" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:16.089" level="DEBUG">"GET /public/v1/config//BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:16.091" level="DEBUG">"GET /public/v1/config/BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 376</msg>
+<msg timestamp="20170628 10:58:16.092" level="INFO">BGP GLOBAL OBJECT DETAILS:[{u'Object': {u'Disabled': False, u'Defaultv4Route': False, u'Redistribution': [], u'Defaultv6Route': False, u'ASNum': u'201', u'DefaultMED': 0, u'EBGPMaxPaths': 0, u'EBGPAllowMultipleAS': False, u'RouterId': u'2.2.2.2', u'Vrf': u'default', u'IBGPMaxPaths': 0, u'UseMultiplePaths': False}, u'ObjectId': u'5ab7540a-4b67-46b7-7c8a-fb8d2490308f'}]</msg>
+<msg timestamp="20170628 10:58:16.092" level="INFO">BGP Global enabled on DUT2</msg>
+<msg timestamp="20170628 10:58:16.092" level="INFO">Enabling BGP on device DUT4</msg>
+<msg timestamp="20170628 10:58:16.093" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.093" level="DEBUG">"PATCH /public/v1/config/BGPGlobal HTTP/1.1" 200 284</msg>
+<msg timestamp="20170628 10:58:16.094" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 10:58:16.095" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.095" level="DEBUG">"GET /public/v1/config//BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:16.096" level="DEBUG">"GET /public/v1/config/BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 376</msg>
+<msg timestamp="20170628 10:58:16.097" level="INFO">BGP GLOBAL OBJECT DETAILS:[{u'Object': {u'Disabled': False, u'Defaultv4Route': False, u'Redistribution': [], u'Defaultv6Route': False, u'ASNum': u'203', u'DefaultMED': 0, u'EBGPMaxPaths': 0, u'EBGPAllowMultipleAS': False, u'RouterId': u'4.4.4.4', u'Vrf': u'default', u'IBGPMaxPaths': 0, u'UseMultiplePaths': False}, u'ObjectId': u'291b3f50-104a-46f2-5148-92df97ba821f'}]</msg>
+<msg timestamp="20170628 10:58:16.097" level="INFO">BGP Global enabled on DUT4</msg>
+<status status="PASS" endtime="20170628 10:58:16.097" starttime="20170628 10:58:16.076"></status>
+</kw>
+<msg timestamp="20170628 10:58:16.097" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 10:58:16.097" starttime="20170628 10:58:16.076"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==True</arg>
+<arg>Log</arg>
+<arg>BGP Global Configured</arg>
+<arg>ELSE</arg>
+<arg>ERROR</arg>
+<arg>${result}</arg>
+<arg>BGP Global Configuration Failed</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>BGP Global Configured</arg>
+</arguments>
+<msg timestamp="20170628 10:58:16.098" level="INFO">BGP Global Configured</msg>
+<status status="PASS" endtime="20170628 10:58:16.098" starttime="20170628 10:58:16.098"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:16.098" starttime="20170628 10:58:16.097"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:16.098" starttime="20170628 10:58:16.075"></status>
+</kw>
+<kw name="Configure BGPv4 Neighbors" library="Resource">
+<doc>Configures BGP neighbor. Takes input as dictionary of</doc>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>createBGPv4Neighbor</arg>
+<arg>${BGPv4Neighbor}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Create BG Pv 4 Neighbor" library="BGP">
+<arguments>
+<arg>${BGPv4Neighbor}</arg>
+</arguments>
+<msg timestamp="20170628 10:58:16.099" level="INFO">*** CONFIGURING BGP NEIGHBORS ON DEVICES ***</msg>
+<msg timestamp="20170628 10:58:16.099" level="INFO">Configuring BGP Neighbor on DUT1</msg>
+<msg timestamp="20170628 10:58:16.099" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:16.101" level="DEBUG">"POST /public/v1/config/BGPv4Neighbor HTTP/1.1" 201 284</msg>
+<msg timestamp="20170628 10:58:16.102" level="INFO">{u'Access-Control-Allow-Methods': u'POST, GET, OPTIONS, PATCH, DELETE', u'ObjectId': u'4c98233e-2ca4-4b74-7262-626b541397ea', u'Result': u'Success', u'Access-Control-Allow-Origin': u'*', u'Access-Control-Allow-Headers': u'Origin, X-Requested-With, Content-Type, Accept', u'Access-Control-Max_age': u'86400'}</msg>
+<msg timestamp="20170628 10:58:16.102" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 10:58:16.103" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:16.103" level="DEBUG">"GET /public/v1/config//BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:16.106" level="DEBUG">"GET /public/v1/config/BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 700</msg>
+<msg timestamp="20170628 10:58:16.108" level="INFO">BGP NEIGHBOR OBJECT DETAILS:[{u'Object': {u'BfdEnable': False, u'PeerGroup': u'', u'MultiHopTTL': 0, u'LocalAS': u'', u'KeepaliveTime': 0, u'IntfRef': u'fpPort1', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'MultiHopEnable': False, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'201', u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.0.2', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 0, u'BfdSessionParam': u'default', u'ConnectRetryTime': 0}, u'ObjectId': u'4c98233e-2ca4-4b74-7262-626b541397ea'}]</msg>
+<msg timestamp="20170628 10:58:16.108" level="INFO">BGP Neighbor configured on DUT1</msg>
+<msg timestamp="20170628 10:58:16.108" level="INFO">Configuring BGP Neighbor on DUT1</msg>
+<msg timestamp="20170628 10:58:16.109" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:16.110" level="DEBUG">"POST /public/v1/config/BGPv4Neighbor HTTP/1.1" 201 284</msg>
+<msg timestamp="20170628 10:58:16.111" level="INFO">{u'Access-Control-Allow-Methods': u'POST, GET, OPTIONS, PATCH, DELETE', u'ObjectId': u'c0ea3735-3b9f-4cf0-54a3-8bd3da8b0d60', u'Result': u'Success', u'Access-Control-Allow-Origin': u'*', u'Access-Control-Allow-Headers': u'Origin, X-Requested-With, Content-Type, Accept', u'Access-Control-Max_age': u'86400'}</msg>
+<msg timestamp="20170628 10:58:16.111" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 10:58:16.112" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 10:58:16.112" level="DEBUG">"GET /public/v1/config//BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:16.113" level="DEBUG">"GET /public/v1/config/BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 1323</msg>
+<msg timestamp="20170628 10:58:16.114" level="INFO">BGP NEIGHBOR OBJECT DETAILS:[{u'Object': {u'BfdEnable': False, u'PeerGroup': u'', u'MultiHopTTL': 0, u'LocalAS': u'', u'KeepaliveTime': 0, u'IntfRef': u'fpPort1', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'MultiHopEnable': False, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'201', u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.0.2', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 0, u'BfdSessionParam': u'default', u'ConnectRetryTime': 0}, u'ObjectId': u'4c98233e-2ca4-4b74-7262-626b541397ea'}, {u'Object': {u'BfdEnable': False, u'PeerGroup': u'', u'MultiHopTTL': 0, u'LocalAS': u'', u'KeepaliveTime': 0, u'IntfRef': u'fpPort2', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'MultiHopEnable': False, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'203', u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.1.4', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 0, u'BfdSessionParam': u'default', u'ConnectRetryTime': 0}, u'ObjectId': u'c0ea3735-3b9f-4cf0-54a3-8bd3da8b0d60'}]</msg>
+<msg timestamp="20170628 10:58:16.114" level="INFO">BGP Neighbor configured on DUT1</msg>
+<msg timestamp="20170628 10:58:16.114" level="INFO">Configuring BGP Neighbor on DUT3</msg>
+<msg timestamp="20170628 10:58:16.115" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:16.115" level="DEBUG">"POST /public/v1/config/BGPv4Neighbor HTTP/1.1" 500 345</msg>
+<msg timestamp="20170628 10:58:16.116" level="INFO">{u'Access-Control-Allow-Methods': u'POST, GET, OPTIONS, PATCH, DELETE', u'ObjectId': u'6b617cd9-0136-409d-7197-1df4f5876702', u'Result': u'Error: Already configured. Delete and Update operations are allowed.', u'Access-Control-Allow-Origin': u'*', u'Access-Control-Allow-Headers': u'Origin, X-Requested-With, Content-Type, Accept', u'Access-Control-Max_age': u'86400'}</msg>
+<msg timestamp="20170628 10:58:16.116" level="INFO">RESULT:Error: Already configured. Delete and Update operations are allowed.</msg>
+<msg timestamp="20170628 10:58:16.116" level="INFO">POLICY STATEMENT OBJECT DETAILS</msg>
+<msg timestamp="20170628 10:58:16.117" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:16.117" level="DEBUG">"GET /public/v1/config//PolicyStmts?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:16.118" level="DEBUG">"GET /public/v1/config/PolicyStmts?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 78</msg>
+<msg timestamp="20170628 10:58:16.119" level="INFO">[]</msg>
+<msg timestamp="20170628 10:58:16.119" level="INFO">Policy Statement Added on DUT3</msg>
+<msg timestamp="20170628 10:58:16.119" level="INFO">Configuring BGP Neighbor on DUT3</msg>
+<msg timestamp="20170628 10:58:16.119" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:16.121" level="DEBUG">"POST /public/v1/config/BGPv4Neighbor HTTP/1.1" 201 284</msg>
+<msg timestamp="20170628 10:58:16.121" level="INFO">{u'Access-Control-Allow-Methods': u'POST, GET, OPTIONS, PATCH, DELETE', u'ObjectId': u'0058e720-77b0-4ace-4f4f-4ed4c83b091b', u'Result': u'Success', u'Access-Control-Allow-Origin': u'*', u'Access-Control-Allow-Headers': u'Origin, X-Requested-With, Content-Type, Accept', u'Access-Control-Max_age': u'86400'}</msg>
+<msg timestamp="20170628 10:58:16.121" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 10:58:16.122" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 10:58:16.123" level="DEBUG">"GET /public/v1/config//BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:16.124" level="DEBUG">"GET /public/v1/config/BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 1323</msg>
+<msg timestamp="20170628 10:58:16.125" level="INFO">BGP NEIGHBOR OBJECT DETAILS:[{u'Object': {u'BfdEnable': False, u'PeerGroup': u'', u'MultiHopTTL': 0, u'LocalAS': u'', u'KeepaliveTime': 0, u'IntfRef': u'fpPort8', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'MultiHopEnable': False, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'202', u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.1.2', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 0, u'BfdSessionParam': u'default', u'ConnectRetryTime': 0}, u'ObjectId': u'0058e720-77b0-4ace-4f4f-4ed4c83b091b'}, {u'Object': {u'BfdEnable': False, u'PeerGroup': u'', u'MultiHopTTL': 0, u'LocalAS': u'', u'KeepaliveTime': 0, u'IntfRef': u'fpPort4', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'MultiHopEnable': False, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'203', u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.2.4', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 0, u'BfdSessionParam': u'default', u'ConnectRetryTime': 0}, u'ObjectId': u'6b617cd9-0136-409d-7197-1df4f5876702'}]</msg>
+<msg timestamp="20170628 10:58:16.125" level="INFO">BGP Neighbor configured on DUT3</msg>
+<msg timestamp="20170628 10:58:16.125" level="INFO">Configuring BGP Neighbor on DUT2</msg>
+<msg timestamp="20170628 10:58:16.126" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:16.127" level="DEBUG">"POST /public/v1/config/BGPv4Neighbor HTTP/1.1" 201 284</msg>
+<msg timestamp="20170628 10:58:16.128" level="INFO">{u'Access-Control-Allow-Methods': u'POST, GET, OPTIONS, PATCH, DELETE', u'ObjectId': u'3214df8a-91bc-4892-76a0-ace2192d88c8', u'Result': u'Success', u'Access-Control-Allow-Origin': u'*', u'Access-Control-Allow-Headers': u'Origin, X-Requested-With, Content-Type, Accept', u'Access-Control-Max_age': u'86400'}</msg>
+<msg timestamp="20170628 10:58:16.128" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 10:58:16.129" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:16.129" level="DEBUG">"GET /public/v1/config//BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:16.130" level="DEBUG">"GET /public/v1/config/BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 700</msg>
+<msg timestamp="20170628 10:58:16.131" level="INFO">BGP NEIGHBOR OBJECT DETAILS:[{u'Object': {u'BfdEnable': False, u'PeerGroup': u'', u'MultiHopTTL': 0, u'LocalAS': u'', u'KeepaliveTime': 0, u'IntfRef': u'fpPort3', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'MultiHopEnable': False, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'200', u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.0.1', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 0, u'BfdSessionParam': u'default', u'ConnectRetryTime': 0}, u'ObjectId': u'3214df8a-91bc-4892-76a0-ace2192d88c8'}]</msg>
+<msg timestamp="20170628 10:58:16.131" level="INFO">BGP Neighbor configured on DUT2</msg>
+<msg timestamp="20170628 10:58:16.131" level="INFO">Configuring BGP Neighbor on DUT2</msg>
+<msg timestamp="20170628 10:58:16.132" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:16.133" level="DEBUG">"POST /public/v1/config/BGPv4Neighbor HTTP/1.1" 201 284</msg>
+<msg timestamp="20170628 10:58:16.134" level="INFO">{u'Access-Control-Allow-Methods': u'POST, GET, OPTIONS, PATCH, DELETE', u'ObjectId': u'e7740daf-8456-4bcd-7e37-2f4aeb06dd24', u'Result': u'Success', u'Access-Control-Allow-Origin': u'*', u'Access-Control-Allow-Headers': u'Origin, X-Requested-With, Content-Type, Accept', u'Access-Control-Max_age': u'86400'}</msg>
+<msg timestamp="20170628 10:58:16.134" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 10:58:16.135" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 10:58:16.135" level="DEBUG">"GET /public/v1/config//BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:16.137" level="DEBUG">"GET /public/v1/config/BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 1323</msg>
+<msg timestamp="20170628 10:58:16.137" level="INFO">BGP NEIGHBOR OBJECT DETAILS:[{u'Object': {u'BfdEnable': False, u'PeerGroup': u'', u'MultiHopTTL': 0, u'LocalAS': u'', u'KeepaliveTime': 0, u'IntfRef': u'fpPort3', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'MultiHopEnable': False, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'200', u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.0.1', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 0, u'BfdSessionParam': u'default', u'ConnectRetryTime': 0}, u'ObjectId': u'3214df8a-91bc-4892-76a0-ace2192d88c8'}, {u'Object': {u'BfdEnable': False, u'PeerGroup': u'', u'MultiHopTTL': 0, u'LocalAS': u'', u'KeepaliveTime': 0, u'IntfRef': u'fpPort7', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'MultiHopEnable': False, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'202', u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.1.3', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 0, u'BfdSessionParam': u'default', u'ConnectRetryTime': 0}, u'ObjectId': u'e7740daf-8456-4bcd-7e37-2f4aeb06dd24'}]</msg>
+<msg timestamp="20170628 10:58:16.137" level="INFO">BGP Neighbor configured on DUT2</msg>
+<msg timestamp="20170628 10:58:16.137" level="INFO">Configuring BGP Neighbor on DUT4</msg>
+<msg timestamp="20170628 10:58:16.138" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.139" level="DEBUG">"POST /public/v1/config/BGPv4Neighbor HTTP/1.1" 201 284</msg>
+<msg timestamp="20170628 10:58:16.140" level="INFO">{u'Access-Control-Allow-Methods': u'POST, GET, OPTIONS, PATCH, DELETE', u'ObjectId': u'baea1887-a75e-458f-6617-3b4fe4f0a656', u'Result': u'Success', u'Access-Control-Allow-Origin': u'*', u'Access-Control-Allow-Headers': u'Origin, X-Requested-With, Content-Type, Accept', u'Access-Control-Max_age': u'86400'}</msg>
+<msg timestamp="20170628 10:58:16.140" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 10:58:16.141" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.141" level="DEBUG">"GET /public/v1/config//BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:16.143" level="DEBUG">"GET /public/v1/config/BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 700</msg>
+<msg timestamp="20170628 10:58:16.144" level="INFO">BGP NEIGHBOR OBJECT DETAILS:[{u'Object': {u'BfdEnable': False, u'PeerGroup': u'', u'MultiHopTTL': 0, u'LocalAS': u'', u'KeepaliveTime': 0, u'IntfRef': u'fpPort6', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'MultiHopEnable': False, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'200', u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.1.1', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 0, u'BfdSessionParam': u'default', u'ConnectRetryTime': 0}, u'ObjectId': u'baea1887-a75e-458f-6617-3b4fe4f0a656'}]</msg>
+<msg timestamp="20170628 10:58:16.144" level="INFO">BGP Neighbor configured on DUT4</msg>
+<msg timestamp="20170628 10:58:16.144" level="INFO">Configuring BGP Neighbor on DUT4</msg>
+<msg timestamp="20170628 10:58:16.144" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.146" level="DEBUG">"POST /public/v1/config/BGPv4Neighbor HTTP/1.1" 201 284</msg>
+<msg timestamp="20170628 10:58:16.146" level="INFO">{u'Access-Control-Allow-Methods': u'POST, GET, OPTIONS, PATCH, DELETE', u'ObjectId': u'97c9e9b6-79b2-4f7e-6085-003bf8f8ae1c', u'Result': u'Success', u'Access-Control-Allow-Origin': u'*', u'Access-Control-Allow-Headers': u'Origin, X-Requested-With, Content-Type, Accept', u'Access-Control-Max_age': u'86400'}</msg>
+<msg timestamp="20170628 10:58:16.147" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 10:58:16.147" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 10:58:16.148" level="DEBUG">"GET /public/v1/config//BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 10:58:16.149" level="DEBUG">"GET /public/v1/config/BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 1323</msg>
+<msg timestamp="20170628 10:58:16.150" level="INFO">BGP NEIGHBOR OBJECT DETAILS:[{u'Object': {u'BfdEnable': False, u'PeerGroup': u'', u'MultiHopTTL': 0, u'LocalAS': u'', u'KeepaliveTime': 0, u'IntfRef': u'fpPort6', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'MultiHopEnable': False, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'200', u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.1.1', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 0, u'BfdSessionParam': u'default', u'ConnectRetryTime': 0}, u'ObjectId': u'baea1887-a75e-458f-6617-3b4fe4f0a656'}, {u'Object': {u'BfdEnable': False, u'PeerGroup': u'', u'MultiHopTTL': 0, u'LocalAS': u'', u'KeepaliveTime': 0, u'IntfRef': u'fpPort5', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'MultiHopEnable': False, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'202', u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.2.3', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 0, u'BfdSessionParam': u'default', u'ConnectRetryTime': 0}, u'ObjectId': u'97c9e9b6-79b2-4f7e-6085-003bf8f8ae1c'}]</msg>
+<msg timestamp="20170628 10:58:16.150" level="INFO">BGP Neighbor configured on DUT4</msg>
+<status status="PASS" endtime="20170628 10:58:16.150" starttime="20170628 10:58:16.098"></status>
+</kw>
+<msg timestamp="20170628 10:58:16.150" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 10:58:16.150" starttime="20170628 10:58:16.098"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==True</arg>
+<arg>Log</arg>
+<arg>BGP Neighbor configured on given devices</arg>
+<arg>ELSE</arg>
+<arg>ERROR</arg>
+<arg>${result}</arg>
+<arg>BGP Neighbors Configuration Failed</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>BGP Neighbor configured on given devices</arg>
+</arguments>
+<msg timestamp="20170628 10:58:16.150" level="INFO">BGP Neighbor configured on given devices</msg>
+<status status="PASS" endtime="20170628 10:58:16.151" starttime="20170628 10:58:16.150"></status>
+</kw>
+<status status="PASS" endtime="20170628 10:58:16.151" starttime="20170628 10:58:16.150"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>${BGPConvergenceSleep}</arg>
+</arguments>
+<msg timestamp="20170628 11:00:16.151" level="INFO">Slept 2 minutes</msg>
+<status status="PASS" endtime="20170628 11:00:16.152" starttime="20170628 10:58:16.151"></status>
+</kw>
+<status status="PASS" endtime="20170628 11:00:16.152" starttime="20170628 10:58:16.098"></status>
+</kw>
+<kw name="Validate BGPv4 Neighbor configuration" library="Resource">
+<doc>Checks if all the neighbor state are in Expected state</doc>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>getBGPv4NeighborState</arg>
+<arg>${BGPv4NeighborState}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Get BG Pv 4 Neighbor State" library="BGP">
+<arguments>
+<arg>${BGPv4NeighborState}</arg>
+</arguments>
+<msg timestamp="20170628 11:00:16.155" level="INFO">*** CHECKING BGP NEIGHBOR STATUS ***</msg>
+<msg timestamp="20170628 11:00:16.155" level="INFO">Checking BGP Neighbor Status on device DUT1</msg>
+<msg timestamp="20170628 11:00:16.155" level="INFO">getBGPv4NeighborState(fpPort1,192.168.0.2)</msg>
+<msg timestamp="20170628 11:00:16.158" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 11:00:16.160" level="DEBUG">"GET /public/v1/state/BGPv4Neighbor HTTP/1.1" 200 810</msg>
+<msg timestamp="20170628 11:00:16.161" level="INFO">&lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 11:00:16.162" level="INFO">{u'Object': {u'PeerGroup': u'', u'MultiHopTTL': 0, u'BfdNeighborState': u'', u'LocalAS': u'200', u'KeepaliveTime': 60, u'SessionStateDuration': u'2m0.031309441s', u'IntfRef': u'', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'PeerType': 1, u'Queues': {u'Input': 0, u'Output': 0}, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'TotalPrefixes': 0, u'MultiHopEnable': False, u'SessionState': 6, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'201', u'Messages': {u'Received': {u'Notification': 0, u'Update': 0}, u'Sent': {u'Notification': 0, u'Update': 0}}, u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.0.2', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 180, u'ConnectRetryTime': 120}, u'ObjectId': u'4c98233e-2ca4-4b74-7262-626b541397ea'}</msg>
+<msg timestamp="20170628 11:00:16.162" level="INFO">BGP NEIGHBOR STATUS ON DUT1</msg>
+<msg timestamp="20170628 11:00:16.162" level="INFO">The BGP session state of peer Peer1 is ESTABLISHED</msg>
+<msg timestamp="20170628 11:00:16.162" level="INFO">Checking BGP Neighbor Status on device DUT1</msg>
+<msg timestamp="20170628 11:00:16.162" level="INFO">getBGPv4NeighborState(fpPort2,192.168.1.4)</msg>
+<msg timestamp="20170628 11:00:16.165" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 11:00:16.166" level="DEBUG">"GET /public/v1/state/BGPv4Neighbor HTTP/1.1" 200 809</msg>
+<msg timestamp="20170628 11:00:16.167" level="INFO">&lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 11:00:16.167" level="INFO">{u'Object': {u'PeerGroup': u'', u'MultiHopTTL': 0, u'BfdNeighborState': u'', u'LocalAS': u'200', u'KeepaliveTime': 60, u'SessionStateDuration': u'2m0.02429961s', u'IntfRef': u'', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'PeerType': 1, u'Queues': {u'Input': 0, u'Output': 0}, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'TotalPrefixes': 0, u'MultiHopEnable': False, u'SessionState': 6, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'203', u'Messages': {u'Received': {u'Notification': 0, u'Update': 0}, u'Sent': {u'Notification': 0, u'Update': 0}}, u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.1.4', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 180, u'ConnectRetryTime': 120}, u'ObjectId': u'c0ea3735-3b9f-4cf0-54a3-8bd3da8b0d60'}</msg>
+<msg timestamp="20170628 11:00:16.167" level="INFO">BGP NEIGHBOR STATUS ON DUT1</msg>
+<msg timestamp="20170628 11:00:16.167" level="INFO">The BGP session state of peer Peer2 is ESTABLISHED</msg>
+<msg timestamp="20170628 11:00:16.167" level="INFO">Checking BGP Neighbor Status on device DUT3</msg>
+<msg timestamp="20170628 11:00:16.167" level="INFO">getBGPv4NeighborState(fpPort4,192.168.2.4)</msg>
+<msg timestamp="20170628 11:00:16.168" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 11:00:16.168" level="DEBUG">"GET /public/v1/state/BGPv4Neighbor HTTP/1.1" 200 810</msg>
+<msg timestamp="20170628 11:00:16.169" level="INFO">&lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 11:00:16.169" level="INFO">{u'Object': {u'PeerGroup': u'', u'MultiHopTTL': 0, u'BfdNeighborState': u'', u'LocalAS': u'202', u'KeepaliveTime': 60, u'SessionStateDuration': u'2m0.022628233s', u'IntfRef': u'', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'PeerType': 1, u'Queues': {u'Input': 0, u'Output': 0}, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'TotalPrefixes': 0, u'MultiHopEnable': False, u'SessionState': 6, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'203', u'Messages': {u'Received': {u'Notification': 1, u'Update': 0}, u'Sent': {u'Notification': 1, u'Update': 0}}, u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.2.4', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 180, u'ConnectRetryTime': 120}, u'ObjectId': u'6b617cd9-0136-409d-7197-1df4f5876702'}</msg>
+<msg timestamp="20170628 11:00:16.169" level="INFO">BGP NEIGHBOR STATUS ON DUT3</msg>
+<msg timestamp="20170628 11:00:16.169" level="INFO">The BGP session state of peer Peer1 is ESTABLISHED</msg>
+<msg timestamp="20170628 11:00:16.169" level="INFO">Checking BGP Neighbor Status on device DUT3</msg>
+<msg timestamp="20170628 11:00:16.169" level="INFO">getBGPv4NeighborState(fpPort8,192.168.1.2)</msg>
+<msg timestamp="20170628 11:00:16.170" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 11:00:16.171" level="DEBUG">"GET /public/v1/state/BGPv4Neighbor HTTP/1.1" 200 807</msg>
+<msg timestamp="20170628 11:00:16.171" level="INFO">&lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 11:00:16.171" level="INFO">{u'Object': {u'PeerGroup': u'', u'MultiHopTTL': 0, u'BfdNeighborState': u'', u'LocalAS': u'202', u'KeepaliveTime': 60, u'SessionStateDuration': u'15.4856053s', u'IntfRef': u'', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'PeerType': 0, u'Queues': {u'Input': 0, u'Output': 0}, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'TotalPrefixes': 0, u'MultiHopEnable': False, u'SessionState': 3, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'202', u'Messages': {u'Received': {u'Notification': 0, u'Update': 0}, u'Sent': {u'Notification': 2, u'Update': 0}}, u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.1.2', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 180, u'ConnectRetryTime': 120}, u'ObjectId': u'0058e720-77b0-4ace-4f4f-4ed4c83b091b'}</msg>
+<msg timestamp="20170628 11:00:16.171" level="INFO">BGP NEIGHBOR STATUS ON DUT3</msg>
+<msg timestamp="20170628 11:00:16.171" level="INFO">The BGP session state of peer Peer2 is ACTIVE</msg>
+<msg timestamp="20170628 11:00:16.171" level="INFO">Checking BGP Neighbor Status on device DUT2</msg>
+<msg timestamp="20170628 11:00:16.171" level="INFO">getBGPv4NeighborState(fpPort3,192.168.0.1)</msg>
+<msg timestamp="20170628 11:00:16.172" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 11:00:16.173" level="DEBUG">"GET /public/v1/state/BGPv4Neighbor HTTP/1.1" 200 810</msg>
+<msg timestamp="20170628 11:00:16.173" level="INFO">&lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 11:00:16.173" level="INFO">{u'Object': {u'PeerGroup': u'', u'MultiHopTTL': 0, u'BfdNeighborState': u'', u'LocalAS': u'201', u'KeepaliveTime': 60, u'SessionStateDuration': u'2m0.044943017s', u'IntfRef': u'', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'PeerType': 1, u'Queues': {u'Input': 0, u'Output': 0}, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'TotalPrefixes': 0, u'MultiHopEnable': False, u'SessionState': 6, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'200', u'Messages': {u'Received': {u'Notification': 0, u'Update': 0}, u'Sent': {u'Notification': 0, u'Update': 0}}, u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.0.1', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 180, u'ConnectRetryTime': 120}, u'ObjectId': u'3214df8a-91bc-4892-76a0-ace2192d88c8'}</msg>
+<msg timestamp="20170628 11:00:16.174" level="INFO">BGP NEIGHBOR STATUS ON DUT2</msg>
+<msg timestamp="20170628 11:00:16.174" level="INFO">The BGP session state of peer Peer1 is ESTABLISHED</msg>
+<msg timestamp="20170628 11:00:16.174" level="INFO">Checking BGP Neighbor Status on device DUT2</msg>
+<msg timestamp="20170628 11:00:16.174" level="INFO">getBGPv4NeighborState(fpPort7,192.168.1.3)</msg>
+<msg timestamp="20170628 11:00:16.174" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 11:00:16.175" level="DEBUG">"GET /public/v1/state/BGPv4Neighbor HTTP/1.1" 200 809</msg>
+<msg timestamp="20170628 11:00:16.175" level="INFO">&lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 11:00:16.176" level="INFO">{u'Object': {u'PeerGroup': u'', u'MultiHopTTL': 0, u'BfdNeighborState': u'', u'LocalAS': u'201', u'KeepaliveTime': 60, u'SessionStateDuration': u'15.489780837s', u'IntfRef': u'', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'PeerType': 1, u'Queues': {u'Input': 0, u'Output': 0}, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'TotalPrefixes': 0, u'MultiHopEnable': False, u'SessionState': 3, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'202', u'Messages': {u'Received': {u'Notification': 2, u'Update': 0}, u'Sent': {u'Notification': 0, u'Update': 0}}, u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.1.3', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 180, u'ConnectRetryTime': 120}, u'ObjectId': u'e7740daf-8456-4bcd-7e37-2f4aeb06dd24'}</msg>
+<msg timestamp="20170628 11:00:16.176" level="INFO">BGP NEIGHBOR STATUS ON DUT2</msg>
+<msg timestamp="20170628 11:00:16.176" level="INFO">The BGP session state of peer Peer2 is ACTIVE</msg>
+<msg timestamp="20170628 11:00:16.176" level="INFO">Checking BGP Neighbor Status on device DUT4</msg>
+<msg timestamp="20170628 11:00:16.176" level="INFO">getBGPv4NeighborState(fpPort6,192.168.1.1)</msg>
+<msg timestamp="20170628 11:00:16.176" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 11:00:16.177" level="DEBUG">"GET /public/v1/state/BGPv4Neighbor HTTP/1.1" 200 810</msg>
+<msg timestamp="20170628 11:00:16.177" level="INFO">&lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 11:00:16.178" level="INFO">{u'Object': {u'PeerGroup': u'', u'MultiHopTTL': 0, u'BfdNeighborState': u'', u'LocalAS': u'203', u'KeepaliveTime': 60, u'SessionStateDuration': u'2m0.035629324s', u'IntfRef': u'', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'PeerType': 1, u'Queues': {u'Input': 0, u'Output': 0}, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'TotalPrefixes': 0, u'MultiHopEnable': False, u'SessionState': 6, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'200', u'Messages': {u'Received': {u'Notification': 0, u'Update': 0}, u'Sent': {u'Notification': 0, u'Update': 0}}, u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.1.1', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 180, u'ConnectRetryTime': 120}, u'ObjectId': u'baea1887-a75e-458f-6617-3b4fe4f0a656'}</msg>
+<msg timestamp="20170628 11:00:16.178" level="INFO">BGP NEIGHBOR STATUS ON DUT4</msg>
+<msg timestamp="20170628 11:00:16.178" level="INFO">The BGP session state of peer Peer1 is ESTABLISHED</msg>
+<msg timestamp="20170628 11:00:16.178" level="INFO">Checking BGP Neighbor Status on device DUT4</msg>
+<msg timestamp="20170628 11:00:16.178" level="INFO">getBGPv4NeighborState(fpPort5,192.168.2.3)</msg>
+<msg timestamp="20170628 11:00:16.179" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 11:00:16.180" level="DEBUG">"GET /public/v1/state/BGPv4Neighbor HTTP/1.1" 200 810</msg>
+<msg timestamp="20170628 11:00:16.180" level="INFO">&lt;Response [200]&gt;</msg>
+<msg timestamp="20170628 11:00:16.180" level="INFO">{u'Object': {u'PeerGroup': u'', u'MultiHopTTL': 0, u'BfdNeighborState': u'', u'LocalAS': u'203', u'KeepaliveTime': 60, u'SessionStateDuration': u'2m0.033658459s', u'IntfRef': u'', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'PeerType': 1, u'Queues': {u'Input': 0, u'Output': 0}, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'TotalPrefixes': 0, u'MultiHopEnable': False, u'SessionState': 6, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'202', u'Messages': {u'Received': {u'Notification': 0, u'Update': 0}, u'Sent': {u'Notification': 1, u'Update': 0}}, u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.2.3', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 180, u'ConnectRetryTime': 120}, u'ObjectId': u'97c9e9b6-79b2-4f7e-6085-003bf8f8ae1c'}</msg>
+<msg timestamp="20170628 11:00:16.180" level="INFO">BGP NEIGHBOR STATUS ON DUT4</msg>
+<msg timestamp="20170628 11:00:16.180" level="INFO">The BGP session state of peer Peer2 is ESTABLISHED</msg>
+<msg timestamp="20170628 11:00:16.180" level="INFO">['EXPECTED', 'EXPECTED', 'EXPECTED', 'NOT EXPECTED', 'EXPECTED', 'NOT EXPECTED', 'EXPECTED', 'EXPECTED']</msg>
+<status status="PASS" endtime="20170628 11:00:16.181" starttime="20170628 11:00:16.154"></status>
+</kw>
+<msg timestamp="20170628 11:00:16.181" level="INFO">${result} = False</msg>
+<status status="PASS" endtime="20170628 11:00:16.181" starttime="20170628 11:00:16.153"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==True</arg>
+<arg>Log</arg>
+<arg>All BGP Neighbors are UP</arg>
+<arg>ELSE</arg>
+<arg>Notify</arg>
+<arg>${result}</arg>
+<arg>BGP Neighbors Not UP</arg>
+</arguments>
+<kw name="Notify" library="Resource">
+<arguments>
+<arg>${result}</arg>
+<arg>BGP Neighbors Not UP</arg>
+</arguments>
+<kw name="Fail" library="BuiltIn">
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<arguments>
+<arg>${msg}</arg>
+</arguments>
+<msg timestamp="20170628 11:00:16.182" level="FAIL">BGP Neighbors Not UP</msg>
+<msg timestamp="20170628 11:00:16.182" level="DEBUG">Traceback (most recent call last):
+  None</msg>
+<status status="FAIL" endtime="20170628 11:00:16.182" starttime="20170628 11:00:16.182"></status>
+</kw>
+<status status="FAIL" endtime="20170628 11:00:16.182" starttime="20170628 11:00:16.181"></status>
+</kw>
+<status status="FAIL" endtime="20170628 11:00:16.182" starttime="20170628 11:00:16.181"></status>
+</kw>
+<status status="FAIL" endtime="20170628 11:00:16.182" starttime="20170628 11:00:16.152"></status>
+</kw>
+<doc>Configure BGP Global, BGP Neighbors and check their neighbor states and Redistribute routes.</doc>
+<status status="FAIL" endtime="20170628 11:00:16.183" critical="yes" starttime="20170628 10:58:16.075">BGP Neighbors Not UP</status>
+</test>
+<kw type="teardown" name="CleanUp" library="Resource">
+<kw name="Unconfigure BGP Neighbors" library="Resource">
+<doc>Unconfigure BGP Neighbors</doc>
+<kw name="Run Keyword" library="BuiltIn">
+<doc>Executes the given keyword with the given arguments.</doc>
+<arguments>
+<arg>updateBGPGlobal</arg>
+<arg>${BGPGlobal}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Update BGP Global" library="BGP">
+<arguments>
+<arg>${BGPGlobal}</arg>
+</arguments>
+<msg timestamp="20170628 11:00:16.184" level="INFO">*** ENABLING BGP GLOBAL ***</msg>
+<msg timestamp="20170628 11:00:16.184" level="INFO">Enabling BGP on device DUT1</msg>
+<msg timestamp="20170628 11:00:16.184" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 11:00:16.185" level="DEBUG">"PATCH /public/v1/config/BGPGlobal HTTP/1.1" 200 284</msg>
+<msg timestamp="20170628 11:00:16.186" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 11:00:16.187" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 11:00:16.187" level="DEBUG">"GET /public/v1/config//BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 11:00:16.189" level="DEBUG">"GET /public/v1/config/BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 376</msg>
+<msg timestamp="20170628 11:00:16.189" level="INFO">BGP GLOBAL OBJECT DETAILS:[{u'Object': {u'Disabled': False, u'Defaultv4Route': False, u'Redistribution': [], u'Defaultv6Route': False, u'ASNum': u'200', u'DefaultMED': 0, u'EBGPMaxPaths': 0, u'EBGPAllowMultipleAS': False, u'RouterId': u'1.1.1.1', u'Vrf': u'default', u'IBGPMaxPaths': 0, u'UseMultiplePaths': False}, u'ObjectId': u'19e5f010-71bb-4bff-6ef5-59fe942e1573'}]</msg>
+<msg timestamp="20170628 11:00:16.189" level="INFO">BGP Global enabled on DUT1</msg>
+<msg timestamp="20170628 11:00:16.189" level="INFO">Enabling BGP on device DUT3</msg>
+<msg timestamp="20170628 11:00:16.190" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 11:00:16.191" level="DEBUG">"PATCH /public/v1/config/BGPGlobal HTTP/1.1" 200 284</msg>
+<msg timestamp="20170628 11:00:16.192" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 11:00:16.192" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 11:00:16.193" level="DEBUG">"GET /public/v1/config//BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 11:00:16.194" level="DEBUG">"GET /public/v1/config/BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 376</msg>
+<msg timestamp="20170628 11:00:16.195" level="INFO">BGP GLOBAL OBJECT DETAILS:[{u'Object': {u'Disabled': False, u'Defaultv4Route': False, u'Redistribution': [], u'Defaultv6Route': False, u'ASNum': u'202', u'DefaultMED': 0, u'EBGPMaxPaths': 0, u'EBGPAllowMultipleAS': False, u'RouterId': u'3.3.3.3', u'Vrf': u'default', u'IBGPMaxPaths': 0, u'UseMultiplePaths': False}, u'ObjectId': u'1e8f0a2a-d2e9-4f58-509e-466ffad62d47'}]</msg>
+<msg timestamp="20170628 11:00:16.195" level="INFO">BGP Global enabled on DUT3</msg>
+<msg timestamp="20170628 11:00:16.195" level="INFO">Enabling BGP on device DUT2</msg>
+<msg timestamp="20170628 11:00:16.195" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 11:00:16.196" level="DEBUG">"PATCH /public/v1/config/BGPGlobal HTTP/1.1" 200 284</msg>
+<msg timestamp="20170628 11:00:16.197" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 11:00:16.197" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 11:00:16.198" level="DEBUG">"GET /public/v1/config//BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 11:00:16.199" level="DEBUG">"GET /public/v1/config/BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 376</msg>
+<msg timestamp="20170628 11:00:16.200" level="INFO">BGP GLOBAL OBJECT DETAILS:[{u'Object': {u'Disabled': False, u'Defaultv4Route': False, u'Redistribution': [], u'Defaultv6Route': False, u'ASNum': u'201', u'DefaultMED': 0, u'EBGPMaxPaths': 0, u'EBGPAllowMultipleAS': False, u'RouterId': u'2.2.2.2', u'Vrf': u'default', u'IBGPMaxPaths': 0, u'UseMultiplePaths': False}, u'ObjectId': u'5ab7540a-4b67-46b7-7c8a-fb8d2490308f'}]</msg>
+<msg timestamp="20170628 11:00:16.200" level="INFO">BGP Global enabled on DUT2</msg>
+<msg timestamp="20170628 11:00:16.200" level="INFO">Enabling BGP on device DUT4</msg>
+<msg timestamp="20170628 11:00:16.201" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 11:00:16.201" level="DEBUG">"PATCH /public/v1/config/BGPGlobal HTTP/1.1" 200 284</msg>
+<msg timestamp="20170628 11:00:16.202" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 11:00:16.203" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 11:00:16.203" level="DEBUG">"GET /public/v1/config//BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 11:00:16.204" level="DEBUG">"GET /public/v1/config/BGPGlobals?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 376</msg>
+<msg timestamp="20170628 11:00:16.205" level="INFO">BGP GLOBAL OBJECT DETAILS:[{u'Object': {u'Disabled': False, u'Defaultv4Route': False, u'Redistribution': [], u'Defaultv6Route': False, u'ASNum': u'203', u'DefaultMED': 0, u'EBGPMaxPaths': 0, u'EBGPAllowMultipleAS': False, u'RouterId': u'4.4.4.4', u'Vrf': u'default', u'IBGPMaxPaths': 0, u'UseMultiplePaths': False}, u'ObjectId': u'291b3f50-104a-46f2-5148-92df97ba821f'}]</msg>
+<msg timestamp="20170628 11:00:16.205" level="INFO">BGP Global enabled on DUT4</msg>
+<status status="PASS" endtime="20170628 11:00:16.205" starttime="20170628 11:00:16.184"></status>
+</kw>
+<msg timestamp="20170628 11:00:16.205" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 11:00:16.205" starttime="20170628 11:00:16.183"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==True</arg>
+<arg>Log</arg>
+<arg>BGP Global Configured</arg>
+<arg>ELSE</arg>
+<arg>ERROR</arg>
+<arg>${result}</arg>
+<arg>BGP Global Configuration Failed</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>BGP Global Configured</arg>
+</arguments>
+<msg timestamp="20170628 11:00:16.206" level="INFO">BGP Global Configured</msg>
+<status status="PASS" endtime="20170628 11:00:16.206" starttime="20170628 11:00:16.206"></status>
+</kw>
+<status status="PASS" endtime="20170628 11:00:16.206" starttime="20170628 11:00:16.205"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>deleteBGPv4Neighbor</arg>
+<arg>${BGPv4Delete}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Delete BG Pv 4 Neighbor" library="BGP">
+<arguments>
+<arg>${BGPv4Delete}</arg>
+</arguments>
+<msg timestamp="20170628 11:00:16.206" level="INFO">*** UNCONFIGURING BGP NEIGHBORS ON DEVICES ***</msg>
+<msg timestamp="20170628 11:00:16.206" level="INFO">Unconfiguring BGP Neighbors on device DUT1</msg>
+<msg timestamp="20170628 11:00:16.206" level="INFO">DUT1.deleteBGPv4Neighbor(fpPort1,192.168.0.2)</msg>
+<msg timestamp="20170628 11:00:16.207" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 11:00:16.208" level="DEBUG">"DELETE /public/v1/config/BGPv4Neighbor HTTP/1.1" 410 284</msg>
+<msg timestamp="20170628 11:00:16.209" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 11:00:16.210" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 11:00:16.210" level="DEBUG">"GET /public/v1/config//BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 11:00:16.213" level="DEBUG">"GET /public/v1/config/BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 700</msg>
+<msg timestamp="20170628 11:00:16.214" level="INFO">BGP NEIGHBOR OBJECT DETAILS:[{u'Object': {u'BfdEnable': False, u'PeerGroup': u'', u'MultiHopTTL': 0, u'LocalAS': u'', u'KeepaliveTime': 0, u'IntfRef': u'fpPort2', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'MultiHopEnable': False, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'203', u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.1.4', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 0, u'BfdSessionParam': u'default', u'ConnectRetryTime': 0}, u'ObjectId': u'c0ea3735-3b9f-4cf0-54a3-8bd3da8b0d60'}]</msg>
+<msg timestamp="20170628 11:00:16.214" level="INFO">BGP Neighbor unconfigured on DUT1</msg>
+<msg timestamp="20170628 11:00:16.214" level="INFO">Unconfiguring BGP Neighbors on device DUT1</msg>
+<msg timestamp="20170628 11:00:16.214" level="INFO">DUT1.deleteBGPv4Neighbor(fpPort2,192.168.1.4)</msg>
+<msg timestamp="20170628 11:00:16.215" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 11:00:16.217" level="DEBUG">"DELETE /public/v1/config/BGPv4Neighbor HTTP/1.1" 410 284</msg>
+<msg timestamp="20170628 11:00:16.217" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 11:00:16.218" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 11:00:16.219" level="DEBUG">"GET /public/v1/config//BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 11:00:16.221" level="DEBUG">"GET /public/v1/config/BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 78</msg>
+<msg timestamp="20170628 11:00:16.222" level="INFO">BGP NEIGHBOR OBJECT DETAILS:[]</msg>
+<msg timestamp="20170628 11:00:16.222" level="INFO">BGP Neighbor unconfigured on DUT1</msg>
+<msg timestamp="20170628 11:00:16.222" level="INFO">Unconfiguring BGP Neighbors on device DUT3</msg>
+<msg timestamp="20170628 11:00:16.222" level="INFO">DUT3.deleteBGPv4Neighbor(fpPort3,192.168.2.4)</msg>
+<msg timestamp="20170628 11:00:16.223" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 11:00:16.223" level="DEBUG">"DELETE /public/v1/config/BGPv4Neighbor HTTP/1.1" 404 269</msg>
+<msg timestamp="20170628 11:00:16.224" level="DEBUG">ERROR :Error: Failed to find entry.</msg>
+<msg timestamp="20170628 11:00:16.224" level="INFO">Unconfiguring BGP Neighbors on device DUT3</msg>
+<msg timestamp="20170628 11:00:16.224" level="INFO">DUT3.deleteBGPv4Neighbor(fpPort8,192.168.1.2)</msg>
+<msg timestamp="20170628 11:00:16.225" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 11:00:16.225" level="DEBUG">"DELETE /public/v1/config/BGPv4Neighbor HTTP/1.1" 410 284</msg>
+<msg timestamp="20170628 11:00:16.226" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 11:00:16.227" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 11:00:16.227" level="DEBUG">"GET /public/v1/config//BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 11:00:16.228" level="DEBUG">"GET /public/v1/config/BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 700</msg>
+<msg timestamp="20170628 11:00:16.229" level="INFO">BGP NEIGHBOR OBJECT DETAILS:[{u'Object': {u'BfdEnable': False, u'PeerGroup': u'', u'MultiHopTTL': 0, u'LocalAS': u'', u'KeepaliveTime': 0, u'IntfRef': u'fpPort4', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'MultiHopEnable': False, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'203', u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.2.4', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 0, u'BfdSessionParam': u'default', u'ConnectRetryTime': 0}, u'ObjectId': u'6b617cd9-0136-409d-7197-1df4f5876702'}]</msg>
+<msg timestamp="20170628 11:00:16.229" level="INFO">BGP Neighbor unconfigured on DUT3</msg>
+<msg timestamp="20170628 11:00:16.229" level="INFO">Unconfiguring BGP Neighbors on device DUT2</msg>
+<msg timestamp="20170628 11:00:16.229" level="INFO">DUT2.deleteBGPv4Neighbor(fpPort3,192.168.0.1)</msg>
+<msg timestamp="20170628 11:00:16.230" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 11:00:16.231" level="DEBUG">"DELETE /public/v1/config/BGPv4Neighbor HTTP/1.1" 410 284</msg>
+<msg timestamp="20170628 11:00:16.231" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 11:00:16.232" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 11:00:16.232" level="DEBUG">"GET /public/v1/config//BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 11:00:16.233" level="DEBUG">"GET /public/v1/config/BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 700</msg>
+<msg timestamp="20170628 11:00:16.234" level="INFO">BGP NEIGHBOR OBJECT DETAILS:[{u'Object': {u'BfdEnable': False, u'PeerGroup': u'', u'MultiHopTTL': 0, u'LocalAS': u'', u'KeepaliveTime': 0, u'IntfRef': u'fpPort7', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'MultiHopEnable': False, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'202', u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.1.3', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 0, u'BfdSessionParam': u'default', u'ConnectRetryTime': 0}, u'ObjectId': u'e7740daf-8456-4bcd-7e37-2f4aeb06dd24'}]</msg>
+<msg timestamp="20170628 11:00:16.234" level="INFO">BGP Neighbor unconfigured on DUT2</msg>
+<msg timestamp="20170628 11:00:16.234" level="INFO">Unconfiguring BGP Neighbors on device DUT2</msg>
+<msg timestamp="20170628 11:00:16.234" level="INFO">DUT2.deleteBGPv4Neighbor(fpPort7,192.168.1.3)</msg>
+<msg timestamp="20170628 11:00:16.235" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 11:00:16.235" level="DEBUG">"DELETE /public/v1/config/BGPv4Neighbor HTTP/1.1" 410 284</msg>
+<msg timestamp="20170628 11:00:16.236" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 11:00:16.237" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 11:00:16.237" level="DEBUG">"GET /public/v1/config//BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 11:00:16.238" level="DEBUG">"GET /public/v1/config/BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 78</msg>
+<msg timestamp="20170628 11:00:16.239" level="INFO">BGP NEIGHBOR OBJECT DETAILS:[]</msg>
+<msg timestamp="20170628 11:00:16.239" level="INFO">BGP Neighbor unconfigured on DUT2</msg>
+<msg timestamp="20170628 11:00:16.239" level="INFO">Unconfiguring BGP Neighbors on device DUT4</msg>
+<msg timestamp="20170628 11:00:16.239" level="INFO">DUT4.deleteBGPv4Neighbor(fpPort5,192.168.2.3)</msg>
+<msg timestamp="20170628 11:00:16.240" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 11:00:16.241" level="DEBUG">"DELETE /public/v1/config/BGPv4Neighbor HTTP/1.1" 410 284</msg>
+<msg timestamp="20170628 11:00:16.241" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 11:00:16.242" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 11:00:16.242" level="DEBUG">"GET /public/v1/config//BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 11:00:16.244" level="DEBUG">"GET /public/v1/config/BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 700</msg>
+<msg timestamp="20170628 11:00:16.244" level="INFO">BGP NEIGHBOR OBJECT DETAILS:[{u'Object': {u'BfdEnable': False, u'PeerGroup': u'', u'MultiHopTTL': 0, u'LocalAS': u'', u'KeepaliveTime': 0, u'IntfRef': u'fpPort6', u'AddPathsRx': False, u'UpdateSource': u'', u'RouteReflectorClient': False, u'MaxPrefixesRestartTimer': 0, u'Description': u'', u'MultiHopEnable': False, u'AuthPassword': u'', u'RouteReflectorClusterId': 0, u'AdjRIBOutFilter': u'', u'MaxPrefixesDisconnect': False, u'PeerAS': u'200', u'AddPathsMaxTx': 0, u'AdjRIBInFilter': u'', u'NeighborAddress': u'192.168.1.1', u'MaxPrefixes': 0, u'MaxPrefixesThresholdPct': 80, u'NextHopSelf': False, u'Disabled': False, u'HoldTime': 0, u'BfdSessionParam': u'default', u'ConnectRetryTime': 0}, u'ObjectId': u'baea1887-a75e-458f-6617-3b4fe4f0a656'}]</msg>
+<msg timestamp="20170628 11:00:16.244" level="INFO">BGP Neighbor unconfigured on DUT4</msg>
+<msg timestamp="20170628 11:00:16.244" level="INFO">Unconfiguring BGP Neighbors on device DUT4</msg>
+<msg timestamp="20170628 11:00:16.244" level="INFO">DUT4.deleteBGPv4Neighbor(fpPort6,192.168.1.1)</msg>
+<msg timestamp="20170628 11:00:16.245" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 11:00:16.246" level="DEBUG">"DELETE /public/v1/config/BGPv4Neighbor HTTP/1.1" 410 284</msg>
+<msg timestamp="20170628 11:00:16.246" level="INFO">RESULT:Success</msg>
+<msg timestamp="20170628 11:00:16.247" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 11:00:16.247" level="DEBUG">"GET /public/v1/config//BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 301 0</msg>
+<msg timestamp="20170628 11:00:16.248" level="DEBUG">"GET /public/v1/config/BGPv4Neighbors?CurrentMarker=0&amp;NextMarker=0&amp;Count=100 HTTP/1.1" 200 78</msg>
+<msg timestamp="20170628 11:00:16.249" level="INFO">BGP NEIGHBOR OBJECT DETAILS:[]</msg>
+<msg timestamp="20170628 11:00:16.249" level="INFO">BGP Neighbor unconfigured on DUT4</msg>
+<status status="PASS" endtime="20170628 11:00:16.249" starttime="20170628 11:00:16.206"></status>
+</kw>
+<msg timestamp="20170628 11:00:16.249" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 11:00:16.249" starttime="20170628 11:00:16.206"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==True</arg>
+<arg>Log</arg>
+<arg>All devices have successfully unconfigured BGP Neighbors</arg>
+<arg>ELSE</arg>
+<arg>Notify</arg>
+<arg>${result}</arg>
+<arg>Unconfiguration of BGP Neighbors Failed</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>All devices have successfully unconfigured BGP Neighbors</arg>
+</arguments>
+<msg timestamp="20170628 11:00:16.250" level="INFO">All devices have successfully unconfigured BGP Neighbors</msg>
+<status status="PASS" endtime="20170628 11:00:16.250" starttime="20170628 11:00:16.250"></status>
+</kw>
+<status status="PASS" endtime="20170628 11:00:16.250" starttime="20170628 11:00:16.249"></status>
+</kw>
+<status status="PASS" endtime="20170628 11:00:16.250" starttime="20170628 11:00:16.183"></status>
+</kw>
+<kw name="UnConfigure IP address" library="Resource">
+<doc>Unconfigure IP address on interfaces</doc>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>deleteIPv4Intf</arg>
+<arg>${IntfIPDelete}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Delete I Pv 4 Intf" library="IntfIPv4">
+<arguments>
+<arg>${IntfIPDelete}</arg>
+</arguments>
+<msg timestamp="20170628 11:00:16.251" level="INFO">UNCONFIGURING IP ADDRESS ON DEVICE[S]</msg>
+<msg timestamp="20170628 11:00:16.251" level="INFO">Unconfiguring IP Address on fpPort1 interface of DUT1 </msg>
+<msg timestamp="20170628 11:00:16.251" level="INFO">deleteIPv4(fpPort1) : DUT1</msg>
+<msg timestamp="20170628 11:00:16.251" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 11:00:16.254" level="DEBUG">"DELETE /public/v1/config/IPv4Intf HTTP/1.1" 410 284</msg>
+<msg timestamp="20170628 11:00:16.254" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 11:00:16.255" level="INFO">VALIDATING IP ADDRESS UNCONFIGURATION</msg>
+<msg timestamp="20170628 11:00:16.255" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 11:00:16.256" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 404 102</msg>
+<msg timestamp="20170628 11:00:16.256" level="INFO">RESULT:&lt;Response [404]&gt;</msg>
+<msg timestamp="20170628 11:00:16.256" level="INFO">Failed To Find Entry of the interface, thus ip address is unconfigured</msg>
+<msg timestamp="20170628 11:00:16.256" level="INFO">Unconfiguring IP Address on fpPort2 interface of DUT1 </msg>
+<msg timestamp="20170628 11:00:16.256" level="INFO">deleteIPv4(fpPort2) : DUT1</msg>
+<msg timestamp="20170628 11:00:16.257" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 11:00:16.258" level="DEBUG">"DELETE /public/v1/config/IPv4Intf HTTP/1.1" 410 284</msg>
+<msg timestamp="20170628 11:00:16.259" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 11:00:16.259" level="INFO">VALIDATING IP ADDRESS UNCONFIGURATION</msg>
+<msg timestamp="20170628 11:00:16.260" level="INFO">Starting new HTTP connection (1): 172.17.0.3</msg>
+<msg timestamp="20170628 11:00:16.261" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 404 102</msg>
+<msg timestamp="20170628 11:00:16.261" level="INFO">RESULT:&lt;Response [404]&gt;</msg>
+<msg timestamp="20170628 11:00:16.261" level="INFO">Failed To Find Entry of the interface, thus ip address is unconfigured</msg>
+<msg timestamp="20170628 11:00:16.261" level="INFO">Unconfiguring IP Address on fpPort4 interface of DUT3 </msg>
+<msg timestamp="20170628 11:00:16.261" level="INFO">deleteIPv4(fpPort4) : DUT3</msg>
+<msg timestamp="20170628 11:00:16.262" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 11:00:16.264" level="DEBUG">"DELETE /public/v1/config/IPv4Intf HTTP/1.1" 410 284</msg>
+<msg timestamp="20170628 11:00:16.265" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 11:00:16.265" level="INFO">VALIDATING IP ADDRESS UNCONFIGURATION</msg>
+<msg timestamp="20170628 11:00:16.265" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 11:00:16.266" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 404 102</msg>
+<msg timestamp="20170628 11:00:16.266" level="INFO">RESULT:&lt;Response [404]&gt;</msg>
+<msg timestamp="20170628 11:00:16.267" level="INFO">Failed To Find Entry of the interface, thus ip address is unconfigured</msg>
+<msg timestamp="20170628 11:00:16.267" level="INFO">Unconfiguring IP Address on fpPort8 interface of DUT3 </msg>
+<msg timestamp="20170628 11:00:16.267" level="INFO">deleteIPv4(fpPort8) : DUT3</msg>
+<msg timestamp="20170628 11:00:16.267" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 11:00:16.269" level="DEBUG">"DELETE /public/v1/config/IPv4Intf HTTP/1.1" 410 284</msg>
+<msg timestamp="20170628 11:00:16.270" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 11:00:16.270" level="INFO">VALIDATING IP ADDRESS UNCONFIGURATION</msg>
+<msg timestamp="20170628 11:00:16.270" level="INFO">Starting new HTTP connection (1): 172.17.0.5</msg>
+<msg timestamp="20170628 11:00:16.271" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 404 102</msg>
+<msg timestamp="20170628 11:00:16.271" level="INFO">RESULT:&lt;Response [404]&gt;</msg>
+<msg timestamp="20170628 11:00:16.271" level="INFO">Failed To Find Entry of the interface, thus ip address is unconfigured</msg>
+<msg timestamp="20170628 11:00:16.271" level="INFO">Unconfiguring IP Address on fpPort3 interface of DUT2 </msg>
+<msg timestamp="20170628 11:00:16.271" level="INFO">deleteIPv4(fpPort3) : DUT2</msg>
+<msg timestamp="20170628 11:00:16.272" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 11:00:16.274" level="DEBUG">"DELETE /public/v1/config/IPv4Intf HTTP/1.1" 410 284</msg>
+<msg timestamp="20170628 11:00:16.275" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 11:00:16.275" level="INFO">VALIDATING IP ADDRESS UNCONFIGURATION</msg>
+<msg timestamp="20170628 11:00:16.276" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 11:00:16.276" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 404 102</msg>
+<msg timestamp="20170628 11:00:16.277" level="INFO">RESULT:&lt;Response [404]&gt;</msg>
+<msg timestamp="20170628 11:00:16.277" level="INFO">Failed To Find Entry of the interface, thus ip address is unconfigured</msg>
+<msg timestamp="20170628 11:00:16.277" level="INFO">Unconfiguring IP Address on fpPort7 interface of DUT2 </msg>
+<msg timestamp="20170628 11:00:16.277" level="INFO">deleteIPv4(fpPort7) : DUT2</msg>
+<msg timestamp="20170628 11:00:16.278" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 11:00:16.279" level="DEBUG">"DELETE /public/v1/config/IPv4Intf HTTP/1.1" 410 284</msg>
+<msg timestamp="20170628 11:00:16.280" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 11:00:16.280" level="INFO">VALIDATING IP ADDRESS UNCONFIGURATION</msg>
+<msg timestamp="20170628 11:00:16.281" level="INFO">Starting new HTTP connection (1): 172.17.0.4</msg>
+<msg timestamp="20170628 11:00:16.281" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 404 102</msg>
+<msg timestamp="20170628 11:00:16.282" level="INFO">RESULT:&lt;Response [404]&gt;</msg>
+<msg timestamp="20170628 11:00:16.282" level="INFO">Failed To Find Entry of the interface, thus ip address is unconfigured</msg>
+<msg timestamp="20170628 11:00:16.282" level="INFO">Unconfiguring IP Address on fpPort5 interface of DUT4 </msg>
+<msg timestamp="20170628 11:00:16.282" level="INFO">deleteIPv4(fpPort5) : DUT4</msg>
+<msg timestamp="20170628 11:00:16.282" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 11:00:16.285" level="DEBUG">"DELETE /public/v1/config/IPv4Intf HTTP/1.1" 410 284</msg>
+<msg timestamp="20170628 11:00:16.285" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 11:00:16.285" level="INFO">VALIDATING IP ADDRESS UNCONFIGURATION</msg>
+<msg timestamp="20170628 11:00:16.286" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 11:00:16.286" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 404 102</msg>
+<msg timestamp="20170628 11:00:16.287" level="INFO">RESULT:&lt;Response [404]&gt;</msg>
+<msg timestamp="20170628 11:00:16.287" level="INFO">Failed To Find Entry of the interface, thus ip address is unconfigured</msg>
+<msg timestamp="20170628 11:00:16.287" level="INFO">Unconfiguring IP Address on fpPort6 interface of DUT4 </msg>
+<msg timestamp="20170628 11:00:16.287" level="INFO">deleteIPv4(fpPort6) : DUT4</msg>
+<msg timestamp="20170628 11:00:16.288" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 11:00:16.290" level="DEBUG">"DELETE /public/v1/config/IPv4Intf HTTP/1.1" 410 284</msg>
+<msg timestamp="20170628 11:00:16.291" level="INFO">RESULT : Success</msg>
+<msg timestamp="20170628 11:00:16.291" level="INFO">VALIDATING IP ADDRESS UNCONFIGURATION</msg>
+<msg timestamp="20170628 11:00:16.291" level="INFO">Starting new HTTP connection (1): 172.17.0.2</msg>
+<msg timestamp="20170628 11:00:16.292" level="DEBUG">"GET /public/v1/config/IPv4Intf HTTP/1.1" 404 102</msg>
+<msg timestamp="20170628 11:00:16.292" level="INFO">RESULT:&lt;Response [404]&gt;</msg>
+<msg timestamp="20170628 11:00:16.292" level="INFO">Failed To Find Entry of the interface, thus ip address is unconfigured</msg>
+<msg timestamp="20170628 11:00:16.292" level="INFO">{'DUT3[fpPort8]': 'PASS', 'DUT2[fpPort3]': 'PASS', 'DUT4[fpPort6]': 'PASS', 'DUT1[fpPort1]': 'PASS', 'DUT2[fpPort7]': 'PASS', 'DUT1[fpPort2]': 'PASS', 'DUT4[fpPort5]': 'PASS', 'DUT3[fpPort4]': 'PASS'}</msg>
+<status status="PASS" endtime="20170628 11:00:16.293" starttime="20170628 11:00:16.251"></status>
+</kw>
+<msg timestamp="20170628 11:00:16.293" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20170628 11:00:16.293" starttime="20170628 11:00:16.250"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==True</arg>
+<arg>Log</arg>
+<arg>All devices have successfully unconfigured IP</arg>
+<arg>ELSE</arg>
+<arg>Notify</arg>
+<arg>${result}</arg>
+<arg>Unconfiguration of IP Failed</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>All devices have successfully unconfigured IP</arg>
+</arguments>
+<msg timestamp="20170628 11:00:16.293" level="INFO">All devices have successfully unconfigured IP</msg>
+<status status="PASS" endtime="20170628 11:00:16.293" starttime="20170628 11:00:16.293"></status>
+</kw>
+<status status="PASS" endtime="20170628 11:00:16.293" starttime="20170628 11:00:16.293"></status>
+</kw>
+<status status="PASS" endtime="20170628 11:00:16.293" starttime="20170628 11:00:16.250"></status>
+</kw>
+<status status="PASS" endtime="20170628 11:00:16.293" starttime="20170628 11:00:16.183"></status>
+</kw>
+<doc>A test suite with tests to perform L2/L3 protocol functional tests on DUT</doc>
+<metadata>
+<item name="Version">1.0
+More Info For more information about Robot Framework see http://robotframework.org
+Author
+Date
+Executed At ${HOST}
+Test Framework Robot Framework Python</item>
+</metadata>
+<status status="FAIL" endtime="20170628 11:00:16.294" starttime="20170628 10:58:14.955"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="Test Suite" pass="0">Test Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

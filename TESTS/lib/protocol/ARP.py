@@ -90,8 +90,9 @@ def getAllArpLinuxEntryStates(args = []):
             logger.info(ARPObj.getAllArpLinuxEntryStates())
     else:
         logger.info("Please specify the list of devices")
-        sys.exit(1)   
-    return
+        sys.exit(1)  
+ 
+    return True
 
 """
 Procedure   : getArpLinuxEntryState
@@ -121,3 +122,56 @@ def getArpLinuxEntryState(device, intf):
         return True
     else:
         return False
+
+
+def executeArpRefreshByIfName(device,
+                                          IfName):
+    logger.info("*** REFRESHING ARP TABLE ***")
+    StatusList = {}
+    DeviceIP = getMgmtIP(device)
+    Username = getUsername(device)
+    if Username == "None" or Username == "":
+        Username = None
+    Password = getPassword(device)
+    if Password == "None" or Password == "":
+        Password = None
+
+    logger.info("Refreshing ARP Table on %s"%device)
+    ARPObj = FlexSwitch(DeviceIP, http_port, Username, Password)
+    logger.info("executeArpRefreshByIfName(%s)"%IfName)
+    response = ARPObj.executeArpRefreshByIfName(IfName)
+    logger.info("RESULT:%s"%response)
+    #logger.info(json.loads(response.content))
+    if response == "<Response [200]>":
+        return True
+    else:
+        return False
+
+
+def executeArpRefreshByIPv4Addr(device,
+                                    IpAddr):
+    logger.info("*** REFRESHING ARP TABLE ***")
+    StatusList = {}
+    DeviceIP = getMgmtIP(device)
+    Username = getUsername(device)
+    if Username == "None" or Username == "":
+        Username = None
+    Password = getPassword(device)
+    if Password == "None" or Password == "":
+        Password = None
+
+    logger.info("Refreshing ARP Table on %s"%device)
+    ARPObj = FlexSwitch(DeviceIP, http_port, Username, Password)
+    logger.info("executeArpRefreshByIPv4Addr(%s)"%IpAddr)
+    response = ARPObj.executeArpRefreshByIPv4Addr(IpAddr)
+    logger.info("RESULT:%s"%response)
+    #logger.info(json.loads(response.content))
+    if response == "<Response [200]>":
+        return True
+    else:
+        return False
+
+
+
+
+    

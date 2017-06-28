@@ -8,33 +8,35 @@ PortStateUP = "UP"
 
 IntfIP = {
       "DUT1":{
-         "fpPort25":"192.168.0.1/24",
-	 "fpPort65":"192.168.1.1/24"   
+         "fpPort1":"192.168.0.1/24",
+	 "fpPort2":"192.168.1.1/24"   
       },
       "DUT2":{
-         "fpPort35":"192.168.0.2/24"
+         "fpPort3":"192.168.0.2/24",
+         "fpPort7":"192.168.1.2/24"
       },
       "DUT3":{
-         "fpPort45":"192.168.2.3/24"
+         "fpPort4":"192.168.2.3/24",
+         "fpPort8":"192.168.1.3/24"
       },
       "DUT4":{
-         "fpPort55":"192.168.2.4/24",
-         "fpPort75":"192.168.1.4/24"
+         "fpPort5":"192.168.2.4/24",
+         "fpPort6":"192.168.1.4/24"
       }
            }
 
 IntfIPState = {
-                 "DUT1" :["fpPort25","fpPort65"],
-                 "DUT2" :["fpPort35"],
-                 "DUT4" :["fpPort55","fpPort75"],
-                 "DUT3" :["fpPort45"]
+                 "DUT1" :["fpPort1","fpPort2"],
+                 "DUT2" :["fpPort3","fpPort7"],
+                 "DUT4" :["fpPort5","fpPort6"],
+                 "DUT3" :["fpPort4","fpPort8"]
                }
 
 IntfIPDelete = {
-                 "DUT1" :["fpPort25","fpPort65"],
-                 "DUT2" :["fpPort35"],
-                 "DUT4" :["fpPort55","fpPort75"],
-                 "DUT3" :["fpPort45"]
+                 "DUT1" :["fpPort1","fpPort2"],
+                 "DUT2" :["fpPort3","fpPort7"],
+                 "DUT4" :["fpPort5","fpPort6"],
+                 "DUT3" :["fpPort4","fpPort8"]
                }
 
 #LLDP PARAMETERS ###############
@@ -71,32 +73,33 @@ LLDPGlobal = {
              }
 
 LLDPConnectivity = {
-                 "DUT1" : ["fpPort75","fpPort35"],
-                 "DUT2" : ["fpPort25"],
-                 "DUT4" : ["fpPort45","fpPort65"],
-                 "DUT3" : ["fpPort55"]
+                 "DUT1" : ["fpPort6","fpPort3"],
+                 "DUT2" : ["fpPort1","fpPort8"],
+                 "DUT4" : ["fpPort4","fpPort2"],
+                 "DUT3" : ["fpPort5","fpPort7"]
                  }
 
 #ARP PARAMETERS ################
 
 ArpLinuxEntryStates = ["DUT1","DUT2","DUT4","DUT3"]
+ArpLinuxEntryState1 = ["DUT1"]
 ARPtestDevice = "DUT1"
-ARPtestPort = "fpPort25"
-ARPPeerPort = "fpPort35"
-
+ARPtestPort = "fpPort1"
+ARPIPAddr = "192.168.0.2"
+ARPSleep = 10
 """
 ARPtest1 = {
           "DUT1" :
                {
-               "fpPort25" : "DOWN",
-               "fpPort65" : "DOWN"
+               "fpPort1" : "DOWN",
+               "fpPort2" : "DOWN"
                 }
            }
 ARPtest2 = {
           "DUT1" :
                {
-               "fpPort25" : "UP",
-               "fpPort65" : "DOWN"
+               "fpPort1" : "UP",
+               "fpPort2" : "UP"
                }
            } 
 
@@ -105,10 +108,10 @@ ARPtest2 = {
 
 BGPDevice_List = ["DUT1","DUT2","DUT4","DUT3"]
 BGPtestDevice = "DUT1"
-BGPtestPort = "fpPort25"
+BGPtestPort = "fpPort1"
 BGPExpectedState = "CONNECT"
-BGPConvergenceSleep = 5
-
+BGPConvergenceSleep = 15
+BGPConnectRetryTime = 120
 BGPGlobal = {
            "DUT1":{      
                  "ASNum":"200",
@@ -150,52 +153,139 @@ PolicyDefinition ={
 BGPv4TestDeviceNeighborState = {
         "DUT1":{      
                "Peer1" : {
-                        "IntfRef" : "fpPort25",
+                        "IntfRef" : "fpPort1",
                         "NeighborAddress" : "192.168.0.2",
                         "CheckParameter":"SessionState",
                         "ExpectedState" : "CONNECT"
                          }
                }
                       }
+BGPv4TestDeviceNeighborState1 = {
+        "DUT1":{      
+               "Peer1" : {
+                        "IntfRef" : "fpPort1",
+                        "NeighborAddress" : "192.168.0.2",
+                        "CheckParameter":"SessionState",
+                        "ExpectedState" : "ESTABLISHED"
+                         }
+               }
+                      }
+
 BGPv4Neighbor = {
 
            "DUT1":{      
                "Peer1":{
                  "PeerAS":"201",
                  "NeighborAddress":"192.168.0.2",
-                 "IntfRef":"fpPort25",
+                 "IntfRef":"fpPort1"
                         },
                "Peer2":{
-                 "PeerAS":"204",
+                 "PeerAS":"203",
                  "NeighborAddress":"192.168.1.4",
-                 "IntfRef":"fpPort65",
+                 "IntfRef":"fpPort2"
                        }
                },
            "DUT4":{      
                "Peer1":{
                  "PeerAS":"200",
                  "NeighborAddress":"192.168.1.1",
-                 "IntfRef":"fpPort75",
+                 "IntfRef":"fpPort6"
                         },
                "Peer2":{
                  "PeerAS":"202",
                  "NeighborAddress":"192.168.2.3",
-                 "IntfRef":"fpPort55",
+                 "IntfRef":"fpPort5"
                        }
                },
            "DUT2":{      
                "Peer1":{
                  "PeerAS":"200",
                  "NeighborAddress":"192.168.0.1",
-                 "IntfRef":"fpPort35",
-                        }
+                 "IntfRef":"fpPort3"
+                        },
+               "Peer2":{
+                 "PeerAS":"202",
+                 "NeighborAddress":"192.168.1.3",
+                 "IntfRef":"fpPort7"
+                       }
                 },
            "DUT3":{      
                "Peer1":{
                  "PeerAS":"203",
                  "NeighborAddress":"192.168.2.4",
-                 "IntfRef":"fpPort35",
-                        }
+                 "IntfRef":"fpPort4"
+                        },
+               "Peer2":{
+                 "PeerAS":"201",
+                 "NeighborAddress":"192.168.1.2",
+                 "IntfRef":"fpPort8"
+                       }
+                }
+        }
+
+BGPv4NeighborState = {
+
+           "DUT1":{      
+               "Peer1":{
+                 "NeighborAddress":"192.168.0.2",
+                 "IntfRef":"fpPort1",
+                 "CheckParameter":"SessionState",
+                 "ExpectedState" : "ESTABLISHED"
+                        },
+               "Peer2":{
+                 "NeighborAddress":"192.168.1.4",
+                 "IntfRef":"fpPort2",
+                 "CheckParameter":"SessionState",
+                 "ExpectedState" : "ESTABLISHED"
+
+                       }
+               },
+           "DUT4":{      
+               "Peer1":{
+                 "NeighborAddress":"192.168.1.1",
+                 "IntfRef":"fpPort6",
+                 "CheckParameter":"SessionState",
+                 "ExpectedState" : "ESTABLISHED"
+
+                        },
+               "Peer2":{
+                 "NeighborAddress":"192.168.2.3",
+                 "IntfRef":"fpPort5",
+                 "CheckParameter":"SessionState",
+                 "ExpectedState" : "ESTABLISHED"
+
+                       }
+               },
+           "DUT2":{      
+               "Peer1":{
+                 "NeighborAddress":"192.168.0.1",
+                 "IntfRef":"fpPort3",
+                 "CheckParameter":"SessionState",
+                 "ExpectedState" : "ESTABLISHED"
+
+                        },
+               "Peer2":{
+                 "NeighborAddress":"192.168.1.3",
+                 "IntfRef":"fpPort7",
+                 "CheckParameter":"SessionState",
+                 "ExpectedState" : "ESTABLISHED"
+
+                       }
+                },
+           "DUT3":{      
+               "Peer1":{
+                 "NeighborAddress":"192.168.2.4",
+                 "IntfRef":"fpPort4",
+                 "CheckParameter":"SessionState",
+                 "ExpectedState" : "ESTABLISHED"
+
+                        },
+               "Peer2":{
+                 "NeighborAddress":"192.168.1.2",
+                 "IntfRef":"fpPort8",
+                 "CheckParameter":"SessionState",
+                 "ExpectedState" : "ESTABLISHED"
+                       }
                 }
         }
 
@@ -203,38 +293,48 @@ BGPv4Delete = {
         "DUT1":{      
                "Peer1" : {
                         "PeerAS":"201",
-                        "IntfRef" : "fpPort25",
+                        "IntfRef" : "fpPort1",
                         "NeighborAddress" : "192.168.0.2"
                          },
                "Peer2" : {
-                        "PeerAS":"204",
-                        "IntfRef" : "fpPort65",
+                        "PeerAS":"203",
+                        "IntfRef" : "fpPort2",
                         "NeighborAddress" : "192.168.1.4"
                          }
                 },
         "DUT2":{      
                "Peer1" : {
                         "PeerAS":"200",
-                        "IntfRef" : "fpPort35",
+                        "IntfRef" : "fpPort3",
                         "NeighborAddress" : "192.168.0.1"
-                         }
+                         },
+               "Peer2":{
+                 "PeerAS":"202",
+                 "NeighborAddress":"192.168.1.3",
+                 "IntfRef":"fpPort7"
+                       }
                },
         "DUT3":{      
                "Peer1" : {
                         "PeerAS":"203",
-                        "IntfRef" : "fpPort35",
+                        "IntfRef" : "fpPort3",
                         "NeighborAddress" : "192.168.2.4"
-                         }
+                         },
+               "Peer2":{
+                         "PeerAS":"201",
+                         "NeighborAddress":"192.168.1.2",
+                         "IntfRef":"fpPort8"
+                       }
                },
         "DUT4":{      
                "Peer1" : {
                         "PeerAS":"200",
-                        "IntfRef" : "fpPort55",
+                        "IntfRef" : "fpPort5",
                         "NeighborAddress" : "192.168.2.3"
                          },      
                "Peer2" : {
                         "PeerAS":"202",
-                        "IntfRef" : "fpPort75",
+                        "IntfRef" : "fpPort6",
                         "NeighborAddress" : "192.168.1.1"
                          }
                }
@@ -267,7 +367,19 @@ BGPRedistribution = {
                     }
 
 
+"""
+BGPRoute = {
+          "DUT1":{"Nw1": {
+                             "CIDRLen": 30,
+                             "Network":"192.168.0.0",
+                             "CheckParameter" : "NextHop",
+                             "ExpectedValue" : ""}]}, 
+          "DUT2":{"Redistribution":[{"policy":"p1_match_all","Sources":"CONNECTED"}]},
+          "DUT3":{"Redistribution":[{"policy":"p1_match_all","Sources":"CONNECTED"}]},
+          "DUT4":{"Redistribution":[{"policy":"p1_match_all","Sources":"CONNECTED"}]}
+                    } 
 
-
-
+"""
+BGPRoute = ["DUT1","DUT2","DUT4","DUT3"]
+BGP_IPV4Route = ["DUT1","DUT2","DUT4","DUT3"]
 
