@@ -574,11 +574,10 @@ def check_flexswitch_image(img=None):
     # everything looks ok, return full path
     return os.path.abspath(img)
 
-
 def prompt_for_container_delete(topo):
     """ check if any container with device_name already exists, if so notify
         user that they will be deleted in order to continue with script.
-        If user does not confirm, exist script
+        If user does not confirm, exit script
     """
     existing_containers = []
     for device_name in sorted(topo.keys()):
@@ -591,59 +590,30 @@ def prompt_for_container_delete(topo):
         msg = "You can see more details on each container by issuing "
         msg+= "'docker ps -a'"
         print msg
-        confirm = None
-        prompt = "Do you want to delete the current containers? [yes/no] "
+        choice = None
+        prompt = """Press 1 to restart the existingcontainers.\nPress 2 to delete the existing containers.\nPress 3 to manually perform some operation."""
         try:
-            while confirm is None:
-                confirm = ("%s" % raw_input(prompt)).strip()
-                if re.search("^y(es|e)?$", confirm, re.IGNORECASE):
-                    confirm = True
-                elif re.search("^no?$", confirm, re.IGNORECASE):
-                    confirm = False
+            while choice is None:
+                choice = ("%s" % raw_input(prompt)).strip()
+                if re.search("1", choice, re.IGNORECASE):
+                    logger.info("Restarting the containers",also_console = True)
+                    for c in existing_containers:
+                        logger.info("Restarting %s container"%c,also_console = True)
+                        exec_cmd("""docker exec %s sh -c "/etc/init.d/flexswitch restart" """ % c)
+                    sys.exit("All Existing containers restarted")
+                elif re.search("2", choice, re.IGNORECASE):
+                    logger.info("Deleting the existing containers",also_console = True)
+                elif re.search("3", choice,re.IGNORECASE):
+                    msg = "\nCannot continue while current containers exists.\n"
+                    msg+= "Please manually delete appropriate containers and then "
+                    msg+= "rerun this script\n"
+                    sys.exit(msg)
                 else:
-                    print "Please type 'yes' or 'no'"
-                    confirm = None
+                    print "Please press 1 or 2"
+                    choice = None
         except KeyboardInterrupt as e: sys.exit("\nExiting...\n")
-        if not confirm:
-            msg = "\nCannot continue while current containers exists.\n"
-            msg+= "Please manually delete appropriate containers and then "
-            msg+= "rerun this script\n"
-            sys.exit(msg)
-
-def prompt_for_container_delete(topo):
-    """ check if any container with device_name already exists, if so notify
-        user that they will be deleted in order to continue with script.
-        If user does not confirm, exist script
-    """
-    existing_containers = []
-    for device_name in sorted(topo.keys()):
-        if container_exists(device_name): 
-            existing_containers.append(device_name)
-
-    if len(existing_containers) > 0:
-        print "\nThe following containers already exist:"
-        for c in existing_containers: print "\t%s" % c
-        msg = "You can see more details on each container by issuing "
-        msg+= "'docker ps -a'"
-        print msg
-        confirm = None
-        prompt = "Do you want to delete the current containers? [yes/no] "
-        try:
-            while confirm is None:
-                confirm = ("%s" % raw_input(prompt)).strip()
-                if re.search("^y(es|e)?$", confirm, re.IGNORECASE):
-                    confirm = True
-                elif re.search("^no?$", confirm, re.IGNORECASE):
-                    confirm = False
-                else:
-                    print "Please type 'yes' or 'no'"
-                    confirm = None
-        except KeyboardInterrupt as e: sys.exit("\nExiting...\n")
-        if not confirm:
-            msg = "\nCannot continue while current containers exists.\n"
-            msg+= "Please manually delete appropriate containers and then "
-            msg+= "rerun this script\n"
-            sys.exit(msg)
+       
+            
 
 def execute_threads(threads):
     """ receive list of threading.Thread objects that have not yet been 
@@ -677,7 +647,7 @@ def updateTestBed(testBed_file):
         js[Device][device][mgmtIP] = mgmtip
     with open(testBed_file, "w") as f: 
         json.dump(js,f,indent = 4,sort_keys = True)
-    print js
+    print (pretty_print(js))
     return
       
  

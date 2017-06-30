@@ -2,8 +2,7 @@
 #takes two arguments. One is the absolute path to the testbed file and absolute path of the robot testcase file.
 #This testbed path is first set as an environment variable with name "TESTBED" which is then used by the Framework 
 #for the rest of the execution.
-
-path=$PWD
+basePath=
 export TESTBED=$1
 fname=$(basename $2)
 test=$(echo $fname | cut -f 1 -d '.')

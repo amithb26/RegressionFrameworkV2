@@ -4,7 +4,7 @@
             "ASIC": "", 
             "console": "", 
             "hostname": "DUT1", 
-            "mgmtIP": "172.17.0.3", 
+            "mgmtIP": "172.17.0.5", 
             "password": "", 
             "platform": "", 
             "ports": {
@@ -32,7 +32,7 @@
             "ASIC": "", 
             "console": "", 
             "hostname": "DUT2", 
-            "mgmtIP": "172.17.0.5", 
+            "mgmtIP": "172.17.0.3", 
             "password": "", 
             "platform": "", 
             "ports": {
